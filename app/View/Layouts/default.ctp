@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title><?php echo $title_for_layout; ?>Pager to SMS</title>
+        <title><?php echo $title_for_layout; ?> - Flex2SMS</title>
         <?php echo $this->Html->css('bootstrap.min'); ?>
         <style>
             body {
@@ -27,7 +27,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </a>
-                    <a class="brand" href="#">Pager to SMS</a>
+                    <a class="brand" href="#">Flex2SMS</a>
                     <div class="nav-collapse collapse">
                         <p class="navbar-text pull-right">Logged in as <a href="#" class="navbar-link">Username</a></p>
                         <ul class="nav">
@@ -35,35 +35,35 @@
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Contacts<b class="caret"></b></a>
                                 <ul class="dropdown-menu">
-                                <li><?php echo $this->Html->link('<i class="icon-plus"></i> Create', array('controller' => 'contacts', 'action' => 'create'), array('escape'=>false)); ?></li>
+                                <li><?php echo $this->Html->link('<i class="icon-plus"></i> Add', array('controller' => 'contacts', 'action' => 'add'), array('escape'=>false)); ?></li>
                                 <li><?php echo $this->Html->link('<i class="icon-list"></i> List', array('controller' => 'contacts', 'action' => 'index'), array('escape'=>false)); ?></li>
                                 </ul>
                             </li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Brigades<b class="caret"></b></a>
                                 <ul class="dropdown-menu">
-                                <li><?php echo $this->Html->link('<i class="icon-plus"></i> Create', array('controller' => 'brigades', 'action' => 'create'), array('escape'=>false)); ?></li>
+                                <li><?php echo $this->Html->link('<i class="icon-plus"></i> Add', array('controller' => 'brigades', 'action' => 'add'), array('escape'=>false)); ?></li>
                                 <li><?php echo $this->Html->link('<i class="icon-list"></i> List', array('controller' => 'brigades', 'action' => 'index'), array('escape'=>false)); ?></li>
                                 </ul>
                             </li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Modems<b class="caret"></b></a>
                                 <ul class="dropdown-menu">
-                                <li><?php echo $this->Html->link('<i class="icon-plus"></i> Create', array('controller' => 'modems', 'action' => 'create'), array('escape'=>false)); ?></li>
+                                <li><?php echo $this->Html->link('<i class="icon-plus"></i> Add', array('controller' => 'modems', 'action' => 'add'), array('escape'=>false)); ?></li>
                                 <li><?php echo $this->Html->link('<i class="icon-list"></i> List', array('controller' => 'modems', 'action' => 'index'), array('escape'=>false)); ?></li>
                                 </ul>
                             </li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Services<b class="caret"></b></a>
                                 <ul class="dropdown-menu">
-                                <li><?php echo $this->Html->link('<i class="icon-plus"></i> Create', array('controller' => 'services', 'action' => 'create'), array('escape'=>false)); ?></li>
+                                <li><?php echo $this->Html->link('<i class="icon-plus"></i> Add', array('controller' => 'services', 'action' => 'add'), array('escape'=>false)); ?></li>
                                 <li><?php echo $this->Html->link('<i class="icon-list"></i> List', array('controller' => 'services', 'action' => 'index'), array('escape'=>false)); ?></li>
                                 </ul>
                             </li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Capcodes<b class="caret"></b></a>
                                 <ul class="dropdown-menu">
-                                <li><?php echo $this->Html->link('<i class="icon-plus"></i> Create', array('controller' => 'capcodes', 'action' => 'create'), array('escape'=>false)); ?></li>
+                                <li><?php echo $this->Html->link('<i class="icon-plus"></i> Add', array('controller' => 'capcodes', 'action' => 'add'), array('escape'=>false)); ?></li>
                                 <li><?php echo $this->Html->link('<i class="icon-list"></i> List', array('controller' => 'capcodes', 'action' => 'index'), array('escape'=>false)); ?></li>
                                 </ul>
                             </li>
@@ -75,7 +75,9 @@
         </div>
         <div class="container">
             <div id="content">
-                <?php echo $this->Session->flash(); ?>
+                <?php echo $this->Session->flash('success', array('element' => 'success')); ?>
+                <?php echo $this->Session->flash('error', array('element' => 'error')); ?>
+                <h1><?php echo $title_for_layout; ?></h1>
                 <?php echo $this->fetch('content'); ?>
             </div>
         </div> <!-- /container -->
