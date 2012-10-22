@@ -2,7 +2,6 @@
 
 class CapcodesController extends AppController {
 
-    public $scaffold;
 
 }
 
