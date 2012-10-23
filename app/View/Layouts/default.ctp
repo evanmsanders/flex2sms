@@ -33,14 +33,14 @@
                         <ul class="nav">
                             <li><?php echo $this->Html->link('<i class="icon-home icon-white"></i> Home', '/', array('escape'=>false)); ?></li>
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Contacts<b class="caret"></b></a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-user icon-white"></i> Contacts<b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                 <li><?php echo $this->Html->link('<i class="icon-plus"></i> Add', array('controller' => 'contacts', 'action' => 'add'), array('escape'=>false)); ?></li>
                                 <li><?php echo $this->Html->link('<i class="icon-list"></i> List', array('controller' => 'contacts', 'action' => 'index'), array('escape'=>false)); ?></li>
                                 </ul>
                             </li>
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Brigades<b class="caret"></b></a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-fire icon-white"></i> Brigades<b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                 <li><?php echo $this->Html->link('<i class="icon-plus"></i> Add', array('controller' => 'brigades', 'action' => 'add'), array('escape'=>false)); ?></li>
                                 <li><?php echo $this->Html->link('<i class="icon-list"></i> List', array('controller' => 'brigades', 'action' => 'index'), array('escape'=>false)); ?></li>
@@ -67,7 +67,7 @@
                                 <li><?php echo $this->Html->link('<i class="icon-list"></i> List', array('controller' => 'capcodes', 'action' => 'index'), array('escape'=>false)); ?></li>
                                 </ul>
                             </li>
-                            <li><?php echo $this->Html->link('Message Logs', array('controller' => 'messages', 'action' => 'index')); ?></li>
+                            <li><?php echo $this->Html->link('<i class="icon-list-alt icon-white"></i> Message Logs', array('controller' => 'messages', 'action' => 'index'), array('escape'=>false)); ?></li>
                         </ul>
                     </div><!--/.nav-collapse -->
                 </div>
