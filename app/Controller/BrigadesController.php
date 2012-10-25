@@ -13,7 +13,7 @@ class BrigadesController extends AppController {
  * @return void
  */
 	public function index() {
-		$this->Brigade->recursive = 0;
+		$this->Brigade->recursive = -1;
 		$this->set('brigades', $this->paginate());
 	}
 
