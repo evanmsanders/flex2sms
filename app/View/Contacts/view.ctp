@@ -1,1 +1,3 @@
-<?php print_r($brigade); ?>
+<pre>
+    <?php print_r($contact); ?>
+</pre>

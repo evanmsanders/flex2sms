@@ -29,7 +29,7 @@ class ContactsController extends AppController {
 		if (!$this->Contact->exists()) {
 			throw new NotFoundException(__('Invalid contact'));
 		}
-		$this->set('contacts', $this->Contact->read(null, $id));
+		$this->set('contact', $this->Contact->read(null, $id));
 	}
 
 /**
