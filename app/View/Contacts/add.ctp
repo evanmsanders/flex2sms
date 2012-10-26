@@ -1,4 +1,4 @@
-<h1>Create new contact</h1>
+<h3>Create new contact</h3>
     <?php echo $this->Form->create('Contacts',array('class'=>'form-horizontal')); 
 echo $this->Form->input('name',array(
     'label'=> array('text' => 'Name:',
