@@ -1,5 +1,5 @@
 <p><?php echo $this->Html->link('New Contact', array('action' => 'add'), array('class' => 'btn btn-primary')); ?></p>
-        <pre><?php print_r($contacts) ?></pre>
+        
 <table class="table table-striped">
     <thead>
         <tr>
@@ -26,3 +26,4 @@
     <?php endforeach; ?>
     </tbody>
 </table>
+<pre><?php print_r($contacts) ?></pre>
