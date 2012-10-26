@@ -8,7 +8,7 @@ echo $this->Form->input('name',array(
     'after' => '</div></div>',
     'placeholder' => "Contact's full name"));
 
-echo $form->input('brigade',array(
+echo $this->Form->input('brigade',array(
     'label'=>array('text' => 'Phone:',
                    'class' => 'control-label'),
     'before' => '<div class="control-group">',   
@@ -41,7 +41,7 @@ echo $this->Form->input('approved_by',array(
     'after' => '</div></div>',
     'placeholder' => "Service approved by")); 
 
-echo $form->input('modem',array(
+echo $this->Form->input('modem',array(
     'label'=>array('text' => 'Phone:',
                    'class' => 'control-label'),
     'before' => '<div class="control-group">',   
