@@ -6,7 +6,11 @@ class CapcodesController extends AppController {
     var $paginate = array(        
         'limit' => 50,        
         'order' => array('alias' => 'asc')
-        );
+    );
+
+    public function beforeFilter() {
+    
+    }
 
 	public function index() {
 		$this->Capcode->recursive = 0;

@@ -3,6 +3,10 @@ App::uses('AppController', 'Controller');
 
 class MessagesController extends AppController {
 
+    public function beforeFilter() {
+    
+    }
+
 	public function index() {
 		$this->Message->recursive = 0;
 		$this->set('messages', $this->paginate());

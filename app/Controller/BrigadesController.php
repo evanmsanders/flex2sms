@@ -3,6 +3,10 @@ App::uses('AppController', 'Controller');
 
 class BrigadesController extends AppController {
 
+    public function beforeFilter() {
+    
+    }
+
 	public function index() {
 		$this->Brigade->recursive = -1;
 		$this->set('brigades', $this->paginate());

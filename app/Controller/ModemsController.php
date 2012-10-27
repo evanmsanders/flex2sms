@@ -3,6 +3,10 @@ App::uses('AppController', 'Controller');
 
 class ModemsController extends AppController {
 
+    public function beforeFilter() {
+    
+    }
+
 	public function index() {
 		$this->Modem->recursive = 0;
 		$this->set('modems', $this->paginate());

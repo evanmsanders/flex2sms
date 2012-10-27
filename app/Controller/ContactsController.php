@@ -3,6 +3,10 @@ App::uses('AppController', 'Controller');
 
 class ContactsController extends AppController {
 
+    public function beforeFilter() {
+    
+    }
+
 	public function index() {
 		$this->Contact->recursive = 0;
 		$this->set('contacts', $this->paginate());
