@@ -7,6 +7,11 @@ App::uses('AppController', 'Controller');
  */
 class CapcodesController extends AppController {
 
+    var $paginate = array(        
+        'limit' => 50,        
+        'order' => array('alias' => 'asc')
+        );
+
 /**
  * index method
  *
