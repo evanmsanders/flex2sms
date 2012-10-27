@@ -33,7 +33,7 @@ class Contact extends AppModel {
                 'message' => 'That phone number is already in use.'
             ),
             'phone' => array(
-                'rule' => '^(\+61)[0-9]{9}$', // starts with "+61" then nine numbers.
+                'rule' => "/^(\+61)[0-9]{9}$/i", // starts with "+61" then nine numbers.
                 'Please enter the full mobile number without any spaces, and replacing the leading 0 with +61.'
             )
         ),

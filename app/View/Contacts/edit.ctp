@@ -1,4 +1,4 @@
-<?php echo $this->Form->create('Contact'); ?>
+<?php echo $this->Form->create('Contact',array('class'=>'form-horizontal')); ?>
 <?php echo $this->Form->input('name'); ?>
 <?php echo $this->Form->input('number'); ?>
 <?php echo $this->Form->input('email'); ?>

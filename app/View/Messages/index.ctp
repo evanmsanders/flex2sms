@@ -1,4 +1,6 @@
-<table class="table table-striped">
+
+<?php echo $this->Paginator->pagination(); ?>
+<table class="table table-striped table-hover table-condensed">
     <thead>
         <tr>
             <th>Recipient</th>
@@ -16,9 +18,11 @@
                 } ?>>
             <td><?php echo($message['Message']['number']); ?></td>
             <td><?php echo($message['Message']['text']); ?></td>
-            <td><?php echo($message['Message']['processed_date']); ?></td>
-            <td><?php echo $this->Html->link('View', array('action' => 'view', $message['Message']['id']), array('class' => 'btn')) ?></td>
+            <td class="span2"><?php echo($message['Message']['processed_date']); ?></td>
+            <td><?php echo $this->Html->link('View', array('action' => 'view', $message['Message']['id']), array('class' => 'btn btn-small')) ?></td>
         </tr>
     <?php endforeach; ?>
     </tbody>
 </table>
+
+<?php echo $this->Paginator->pagination(); ?>
