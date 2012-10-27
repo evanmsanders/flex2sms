@@ -33,3 +33,6 @@
 
 # Windows specific
 Thumbs.db
+
+# KDE?
+.directory
