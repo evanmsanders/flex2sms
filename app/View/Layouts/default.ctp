@@ -17,6 +17,8 @@
         <!--[if lt IE 9]>
         <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
+        <script src="http://code.jquery.com/jquery-latest.js"></script>
+        <?php echo $this->Html->script('bootstrap.min.js'); ?>
     </head>
     <body>
         <div class="navbar navbar-inverse navbar-fixed-top">
@@ -81,7 +83,5 @@
                 <?php echo $this->fetch('content'); ?>
             </div>
         </div> <!-- /container -->
-        <script src="http://code.jquery.com/jquery-latest.js"></script>
-        <?php echo $this->Html->script('bootstrap.min.js'); ?>
     </body>
 </html>

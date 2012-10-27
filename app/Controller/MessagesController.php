@@ -6,7 +6,6 @@ class MessagesController extends AppController {
     public function beforeFilter() {
     
     }
-
 	public function index() {
 		$this->Message->recursive = 0;
 		$this->set('messages', $this->paginate());
@@ -50,5 +49,24 @@ class MessagesController extends AppController {
 			$this->request->data = $this->Message->read(null, $id);
 		}
 	}
+        
+        /**
+         * Generate test messages
+         * 
+         * Generate a high message load in the message table to test message responses.
+         * 
+         * @param array $recip Array of recipients
+         * @param string $text Text to send with a different message on each new line
+         * @param int $vol Volume of messages to send to each number
+         */
+        public function generate($recip, $text, $vol) {
+            if(is_array($recip)&& $text != '' && $vol>0) {
+                
+            }
+            else {
+                return false;
+            }
+        }
+        
 
 }
