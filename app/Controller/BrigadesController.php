@@ -1,29 +1,13 @@
 <?php
 App::uses('AppController', 'Controller');
-/**
- * Brigades Controller
- *
- * @property Brigade $Brigade
- */
+
 class BrigadesController extends AppController {
 
-/**
- * index method
- *
- * @return void
- */
 	public function index() {
 		$this->Brigade->recursive = -1;
 		$this->set('brigades', $this->paginate());
 	}
 
-/**
- * view method
- *
- * @throws NotFoundException
- * @param string $id
- * @return void
- */
 	public function view($id = null) {
 		$this->Brigade->id = $id;
 		if (!$this->Brigade->exists()) {
@@ -32,11 +16,6 @@ class BrigadesController extends AppController {
 		$this->set('brigade', $this->Brigade->read(null, $id));
 	}
 
-/**
- * add method
- *
- * @return void
- */
 	public function add() {
 		if ($this->request->is('post')) {
 			$this->Brigade->create();
@@ -49,13 +28,6 @@ class BrigadesController extends AppController {
 		}
 	}
 
-/**
- * edit method
- *
- * @throws NotFoundException
- * @param string $id
- * @return void
- */
 	public function edit($id = null) {
 		$this->Brigade->id = $id;
 		if (!$this->Brigade->exists()) {
@@ -73,13 +45,6 @@ class BrigadesController extends AppController {
 		}
 	}
 
-/**
- * delete method
- *
- * @throws NotFoundException
- * @param string $id
- * @return void
- */
 	public function delete($id = null) {
         $this->Brigade->id = $id;
 		if (!$this->Brigade->exists()) {

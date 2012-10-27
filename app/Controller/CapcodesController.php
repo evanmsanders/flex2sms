@@ -1,10 +1,6 @@
 <?php
 App::uses('AppController', 'Controller');
-/**
- * Capcodes Controller
- *
- * @property Capcode $Capcode
- */
+
 class CapcodesController extends AppController {
 
     var $paginate = array(        
@@ -12,23 +8,11 @@ class CapcodesController extends AppController {
         'order' => array('alias' => 'asc')
         );
 
-/**
- * index method
- *
- * @return void
- */
 	public function index() {
 		$this->Capcode->recursive = 0;
 		$this->set('capcodes', $this->paginate());
 	}
 
-/**
- * view method
- *
- * @throws NotFoundException
- * @param string $id
- * @return void
- */
 	public function view($id = null) {
 		$this->Capcode->id = $id;
 		if (!$this->Capcode->exists()) {
@@ -37,11 +21,6 @@ class CapcodesController extends AppController {
 		$this->set('capcode', $this->Capcode->read(null, $id));
 	}
 
-/**
- * add method
- *
- * @return void
- */
 	public function add() {
 		if ($this->request->is('post')) {
 			$this->Capcode->create();
@@ -54,13 +33,6 @@ class CapcodesController extends AppController {
 		}
 	}
 
-/**
- * edit method
- *
- * @throws NotFoundException
- * @param string $id
- * @return void
- */
 	public function edit($id = null) {
 		$this->Capcode->id = $id;
 		if (!$this->Capcode->exists()) {
@@ -78,13 +50,6 @@ class CapcodesController extends AppController {
 		}
 	}
 
-/**
- * delete method
- *
- * @throws NotFoundException
- * @param string $id
- * @return void
- */
 	public function delete($id = null) {
 		$this->Capcode->id = $id;
 		if (!$this->Capcode->exists()) {

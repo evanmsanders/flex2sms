@@ -1,29 +1,13 @@
 <?php
 App::uses('AppController', 'Controller');
-/**
- * Modems Controller
- *
- * @property Modem $Modem
- */
+
 class ModemsController extends AppController {
 
-/**
- * index method
- *
- * @return void
- */
 	public function index() {
 		$this->Modem->recursive = 0;
 		$this->set('modems', $this->paginate());
 	}
 
-/**
- * view method
- *
- * @throws NotFoundException
- * @param string $id
- * @return void
- */
 	public function view($id = null) {
 		$this->Modem->id = $id;
 		if (!$this->Modem->exists()) {
@@ -32,11 +16,6 @@ class ModemsController extends AppController {
 		$this->set('modem', $this->Modem->read(null, $id));
 	}
 
-/**
- * add method
- *
- * @return void
- */
 	public function add() {
 		if ($this->request->is('post')) {
 			$this->Modem->create();
@@ -49,13 +28,6 @@ class ModemsController extends AppController {
 		}
 	}
 
-/**
- * edit method
- *
- * @throws NotFoundException
- * @param string $id
- * @return void
- */
 	public function edit($id = null) {
 		$this->Modem->id = $id;
 		if (!$this->Modem->exists()) {
@@ -73,13 +45,6 @@ class ModemsController extends AppController {
 		}
 	}
 
-/**
- * delete method
- *
- * @throws NotFoundException
- * @param string $id
- * @return void
- */
 	public function delete($id = null) {
 		$this->Modem->id = $id;
 		if (!$this->Modem->exists()) {

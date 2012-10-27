@@ -1,29 +1,13 @@
 <?php
 App::uses('AppController', 'Controller');
-/**
- * Services Controller
- *
- * @property Service $Service
- */
+
 class ServicesController extends AppController {
 
-/**
- * index method
- *
- * @return void
- */
 	public function index() {
 		$this->Service->recursive = 0;
 		$this->set('services', $this->paginate());
 	}
 
-/**
- * view method
- *
- * @throws NotFoundException
- * @param string $id
- * @return void
- */
 	public function view($id = null) {
 		$this->Service->id = $id;
 		if (!$this->Service->exists()) {
@@ -32,11 +16,6 @@ class ServicesController extends AppController {
 		$this->set('service', $this->Service->read(null, $id));
 	}
 
-/**
- * add method
- *
- * @return void
- */
 	public function add() {
 		if ($this->request->is('post')) {
 			$this->Service->create();
@@ -52,13 +31,6 @@ class ServicesController extends AppController {
 		$this->set(compact('capcodes', 'contacts'));
 	}
 
-/**
- * edit method
- *
- * @throws NotFoundException
- * @param string $id
- * @return void
- */
 	public function edit($id = null) {
 		$this->Service->id = $id;
 		if (!$this->Service->exists()) {
@@ -79,13 +51,6 @@ class ServicesController extends AppController {
 		$this->set(compact('capcodes', 'contacts'));
 	}
 
-/**
- * delete method
- *
- * @throws NotFoundException
- * @param string $id
- * @return void
- */
 	public function delete($id = null) {
 		$this->Service->id = $id;
 		if (!$this->Service->exists()) {
