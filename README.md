@@ -1,39 +1,15 @@
-CakePHP
-=======
+# flex2sms
 
-[![CakePHP](http://cakephp.org/img/cake-logo.png)](http://www.cakephp.org)
+Web front-end to SACFS flex2sms system.
 
-CakePHP is a rapid development framework for PHP which uses commonly known design patterns like Active Record, Association Data Mapping, Front Controller and MVC.
-Our primary goal is to provide a structured framework that enables PHP users at all levels to rapidly develop robust web applications, without any loss to flexibility.
+Written by Melchior Mazzone and Evan M. Sanders
 
-Some Handy Links
-----------------
+## Install Instructions
 
-[CakePHP](http://www.cakephp.org) - The rapid development PHP framework
-
-[Cookbook](http://book.cakephp.org) - THE Cake user documentation; start learning here!
-
-[Plugins](http://plugins.cakephp.org/) - A repository of extensions to the framework
-
-[The Bakery](http://bakery.cakephp.org) - Tips, tutorials and articles
-
-[API](http://api.cakephp.org) - A reference to Cake's classes
-
-[CakePHP TV](http://tv.cakephp.org) - Screen casts from events and video tutorials
-
-[The Cake Software Foundation](http://cakefoundation.org/) - promoting development related to CakePHP
-
-Get Support!
-------------
-
-[Our Google Group](http://groups.google.com/group/cake-php) - community mailing list and forum
-
-[#cakephp](http://webchat.freenode.net/?channels=#cakephp) on irc.freenode.net - Come chat with us, we have cake.
-
-[Q & A](http://ask.cakephp.org/) - Ask questions here, all questions welcome
-
-[Lighthouse](http://cakephp.lighthouseapp.com/) - Got issues? Please tell us!
-
-[![Bake Status](https://secure.travis-ci.org/cakephp/cakephp.png?branch=master)](http://travis-ci.org/cakephp/cakephp)
-
-![Cake Power](https://raw.github.com/cakephp/cakephp/master/lib/Cake/Console/Templates/skel/webroot/img/cake.power.gif)
+1. Clone or download and unpack repo.
+2. Rename app/Config/core.php.default to core.php
+3. Change security key salt values in app/Config/core.php
+4. Set debug value to '0' in app/Config/core.php
+4. Rename app/Config/database.php.default to database.php
+5. Update db config as appropriate.
+6. Deploy to your server, remembering to set app/webroot as the DocumentRoot (or equivalent).
