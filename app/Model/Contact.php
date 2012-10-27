@@ -20,7 +20,7 @@ class Contact extends AppModel {
             ),
             'numeric' => array(
                 'rule' => 'numeric',
-                'message' => 'The Brigade must be identified by a numeric id.'
+                'message' => 'A Brigade must be selected.'
             )
         ),
         'number' => array(

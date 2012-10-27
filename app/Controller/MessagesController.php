@@ -47,6 +47,8 @@ class MessagesController extends AppController {
 				$this->Session->setFlash(__('The message could not be saved. Please, try again.'), null, null, 'error');
 			}
 		}
+		$contacts = $this->Contacts->find('list', array('fields' => array('Contacts.number', 'Contacts.name')));
+		$this->set(compact('contacts'));
 	}
 
 /**
