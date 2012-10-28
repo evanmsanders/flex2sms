@@ -66,4 +66,23 @@ class CapcodesController extends AppController {
 		$this->Session->setFlash(__('Capcode was not deleted'), null, null, 'error');
 		$this->redirect(array('action' => 'index'));
 	}
+        
+        public function ajax_findAlias(){
+            $this->autoRender = false;
+              if ($this->request->is('ajax')) {
+                  $results = $this->Capcode->find('all', array(
+                      'conditions'=>array('alias LIKE' => '%'.$this->request->data['search_key'].'%'),
+                      'fields' => array('id','alias'),
+                      'recursive'=>-1,
+                  ));
+                  foreach($results as $result):
+                      $data[] = array("id"=>$result['Capcode']['id'],"alias"=>$result['Capcode']['alias']);
+                  endforeach;
+                  return json_encode($data);
+              }
+              else {
+                  echo 'Not an Ajax request, allegedly';
+              }
+              return;
+          }
 }
