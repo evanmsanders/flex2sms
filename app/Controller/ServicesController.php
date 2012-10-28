@@ -8,7 +8,7 @@ class ServicesController extends AppController {
     }
 
 	public function index() {
-		$this->Service->recursive = 0;
+		$this->Service->recursive = 1;
 		$this->set('services', $this->paginate());
 	}
 

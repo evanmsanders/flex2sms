@@ -1,5 +1,5 @@
 <?php echo $this->Form->create('Service',array('class'=>'form-horizontal')); ?>
-<?php echo $this->Form->input('contact_id'); ?>
+<?php echo $this->Form->input('contact'); ?>
 <?php echo $this->Form->input('type',array('type'=>'select',
     'options' => array(
         'sms' => 'SMS',
