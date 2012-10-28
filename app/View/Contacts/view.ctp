@@ -40,11 +40,11 @@
         <?php foreach($contact['Service'] as $service): ?>
         <tr<?php if($service['active']!=1){echo(' class="warning"');} ?>>
             <td><?php echo $service['type']; ?></td>
-            <td><?php echo $service['capcode_id'].'/'.$this->Html->link($service['capcode_id'],array('controller'=>'Capcode','action'=>'view',$service['capcode_id'])); ?></td>
+            <td><?php echo $service['capcode_id'].'/'.$this->Html->link($service['capcode_id'],array('controller'=>'capcodes','action'=>'view',$service['capcode_id'])); ?></td>
             <td><?php echo $service['comment']; ?></td>
             <td><?php if($service['active']==1) { echo 'Active'; } else { echo 'Disabled';} ?></td>
-            <td><?php echo $this->Html->link('Edit', array('controller'=>'Service','action' => 'edit', $service['id']), array('class' => 'btn')); ?> 
-                <?php echo $this->Html->link('Delete', array('controller'=>'Service','action' => 'delete', $service['id']), array('class' => 'btn btn-danger'), 'Are you sure you want to delete this service?'); ?></td>
+            <td><?php echo $this->Html->link('Edit', array('controller'=>'services','action' => 'edit', $service['id']), array('class' => 'btn')); ?> 
+                <?php echo $this->Html->link('Delete', array('controller'=>'services','action' => 'delete', $service['id']), array('class' => 'btn btn-danger'), 'Are you sure you want to delete this service?'); ?></td>
         </tr>
         <?php endforeach; ?>
     </tbody>
