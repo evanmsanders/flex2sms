@@ -50,34 +50,34 @@
                                 </ul>
                             </li>
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Modems<b class="caret"></b></a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-hdd icon-white"></i> Modems<b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                 <li><?php echo $this->Html->link('<i class="icon-plus"></i> Add', array('controller' => 'modems', 'action' => 'add'), array('escape'=>false)); ?></li>
                                 <li><?php echo $this->Html->link('<i class="icon-list"></i> List', array('controller' => 'modems', 'action' => 'index'), array('escape'=>false)); ?></li>
                                 </ul>
                             </li>
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Services<b class="caret"></b></a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-cog icon-white"></i> Services<b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                 <li><?php echo $this->Html->link('<i class="icon-plus"></i> Add', array('controller' => 'services', 'action' => 'add'), array('escape'=>false)); ?></li>
                                 <li><?php echo $this->Html->link('<i class="icon-list"></i> List', array('controller' => 'services', 'action' => 'index'), array('escape'=>false)); ?></li>
                                 </ul>
                             </li>
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Keywords<b class="caret"></b></a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-tags icon-white"></i> Keywords<b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                 <li><?php echo $this->Html->link('<i class="icon-plus"></i> Add', array('controller' => 'keywords', 'action' => 'add'), array('escape'=>false)); ?></li>
                                 <li><?php echo $this->Html->link('<i class="icon-list"></i> List', array('controller' => 'keywords', 'action' => 'index'), array('escape'=>false)); ?></li>
                                 </ul>
                             </li>
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Capcodes<b class="caret"></b></a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-list-alt icon-white"></i> Capcodes<b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                 <li><?php echo $this->Html->link('<i class="icon-plus"></i> Add', array('controller' => 'capcodes', 'action' => 'add'), array('escape'=>false)); ?></li>
                                 <li><?php echo $this->Html->link('<i class="icon-list"></i> List', array('controller' => 'capcodes', 'action' => 'index'), array('escape'=>false)); ?></li>
                                 </ul>
                             </li>
-                            <li><?php echo $this->Html->link('<i class="icon-list-alt icon-white"></i> Message Logs', array('controller' => 'messages', 'action' => 'index'), array('escape'=>false)); ?></li>
+                            <li><?php echo $this->Html->link('<i class="icon-envelope icon-white"></i> Message Logs', array('controller' => 'messages', 'action' => 'index'), array('escape'=>false)); ?></li>
                         </ul>
                     </div><!--/.nav-collapse -->
                 </div>
@@ -87,7 +87,6 @@
             <div id="content">
                 <?php echo $this->Session->flash('success', array('element' => 'success')); ?>
                 <?php echo $this->Session->flash('error', array('element' => 'error')); ?>
-                <h1><?php echo $title_for_layout; ?></h1>
                 <?php echo $this->fetch('content'); ?>
             </div>
         </div> <!-- /container -->
