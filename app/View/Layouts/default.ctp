@@ -64,6 +64,13 @@
                                 </ul>
                             </li>
                             <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Keywords<b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                <li><?php echo $this->Html->link('<i class="icon-plus"></i> Add', array('controller' => 'keywords', 'action' => 'add'), array('escape'=>false)); ?></li>
+                                <li><?php echo $this->Html->link('<i class="icon-list"></i> List', array('controller' => 'keywords', 'action' => 'index'), array('escape'=>false)); ?></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Capcodes<b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                 <li><?php echo $this->Html->link('<i class="icon-plus"></i> Add', array('controller' => 'capcodes', 'action' => 'add'), array('escape'=>false)); ?></li>
