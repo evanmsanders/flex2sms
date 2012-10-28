@@ -1,4 +1,9 @@
-<p></p>
+<h4>TODO</h4>
+<p>I think we need to add some extra functionality to this to save time in the future.  Namely:</p>
+<ul>
+    <li>Active status (active/disabled with flow on effects to services.  This would effectively allow us to "pause" someone without having to remove all their services by hand)</li>
+    <li></li>
+</ul>
 <?php echo $this->Paginator->pagination(); ?>
 <table class="table table-striped table-hover table-condensed">
     <thead>
@@ -34,3 +39,9 @@
     </div>
 </div>
 
+<button type="button" class="btn btn-small" data-toggle="collapse" data-target="#printr">
+  Show array
+</button>
+<div id="printr" class="collapse">
+    <pre><?php print_r($contacts); ?></pre>
+</div>

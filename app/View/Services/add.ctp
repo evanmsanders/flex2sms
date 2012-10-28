@@ -1,10 +1,20 @@
 <?php echo $this->Form->create('Service',array('class'=>'form-horizontal')); ?>
 <?php echo $this->Form->input('contact_id'); ?>
+<?php echo $this->Form->input('type',array('type'=>'select',
+        'options' => array(
+            'sms' => 'SMS',
+            'email' => 'Email'
+        ))); ?>
 <?php echo $this->Form->input('capcode_id',array(
     'type' => 'text',
     'data-provide' => 'typeahead'
     )); ?>
 <?php echo $this->Form->input('comment',array('type'=>'textarea')); ?>
+<?php echo $this->Form->input('active',array('type'=>'select',
+        'options' => array(
+            '1' => 'Active',
+            '0' => 'Disabled'
+        ))); ?>
 <?php echo $this->Form->submit('Create Service', array('class' => 'btn btn-primary')); ?>
 <?php echo $this->Form->end(); ?>
  
