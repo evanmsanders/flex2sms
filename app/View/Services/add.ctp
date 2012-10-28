@@ -28,7 +28,7 @@
         $('#capcode_selector').typeahead({
                     source: function(typeahead, query) {
                         $.ajax({
-                            url: "/flex2sms/Capcodes/ajax_findAlias/",
+                            url: "<?php echo(Router::url('/')); ?>Capcodes/ajax_findAlias/",
                             dataType: "json",
                             type: "POST",
                             data: {search_key: query},

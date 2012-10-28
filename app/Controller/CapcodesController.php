@@ -73,6 +73,7 @@ class CapcodesController extends AppController {
                   $results = $this->Capcode->find('all', array(
                       'conditions'=>array('alias LIKE' => '%'.$this->request->data['search_key'].'%'),
                       'fields' => array('id','alias'),
+                      'order' => 'alias ASC',
                       'recursive'=>-1,
                   ));
                   foreach($results as $result):
