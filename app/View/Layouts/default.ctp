@@ -20,6 +20,7 @@
         <script src="http://code.jquery.com/jquery-latest.js"></script>
         <?php echo $this->Html->script('bootstrap.min.js'); ?>
         <?php echo $this->Html->script('bootstrap-typeahead.js'); ?>
+        <?php echo $this->Html->script('functions.js'); ?>
     </head>
     <body>
         <div class="navbar navbar-inverse navbar-fixed-top">

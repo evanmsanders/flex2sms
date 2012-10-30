@@ -72,12 +72,12 @@ class CapcodesController extends AppController {
               if ($this->request->is('ajax')) {
                   $results = $this->Capcode->find('all', array(
                       'conditions'=>array('alias LIKE' => '%'.$this->request->data['search_key'].'%'),
-                      'fields' => array('id','alias'),
+                      'fields' => array('id','alias','code'),
                       'order' => 'alias ASC',
                       'recursive'=>-1,
                   ));
                   foreach($results as $result):
-                      $data[] = array("id"=>$result['Capcode']['id'],"alias"=>$result['Capcode']['alias']);
+                      $data[] = array("id"=>$result['Capcode']['id'],"alias"=>$result['Capcode']['alias'].'('.$result['Capcode']['code'].')');
                   endforeach;
                   return json_encode($data);
               }
