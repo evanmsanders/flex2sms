@@ -79,6 +79,9 @@ class CapcodesController extends AppController {
                   foreach($results as $result):
                       $data[] = array("id"=>$result['Capcode']['id'],"alias"=>$result['Capcode']['alias'].'('.$result['Capcode']['code'].')');
                   endforeach;
+                  if(!is_array($data)) {
+                      $data = array('id'=>'0','alias'=>'None');
+                  }
                   return json_encode($data);
               }
               else {
