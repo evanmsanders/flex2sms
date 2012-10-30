@@ -30,11 +30,8 @@ class ServicesController extends AppController {
 				$this->Session->setFlash(__('The service could not be saved. Please, try again.'), null, null, 'error');
 			}
 		}
-		$capcodes = $this->Service->Capcode->find('list',array(
-                    'fields'=>'alias'
-                ));
-		$contacts = $this->Service->Contact->find('list');
-		$this->set(compact('capcodes', 'contacts'));
+//		$contacts = $this->Service->Contact->find('list');
+//		$this->set(compact('contacts'));
 	}
 
 	public function edit($id = null) {
