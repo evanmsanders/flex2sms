@@ -1,6 +1,7 @@
 <h3>Create new</h3>
     <?php echo $this->Form->create('Contacts',array('class'=>'form-horizontal')); ?>
 <fieldset>
+    <legend>Contact details</legend>
 <?php
 echo $this->Form->input('name',array(
     'label'=>  'Name:',
