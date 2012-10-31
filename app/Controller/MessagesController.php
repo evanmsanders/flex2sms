@@ -1,7 +1,8 @@
 <?php
 App::uses('AppController', 'Controller');
 
-class MessagesController extends AppController {    var $paginate = array(
+class MessagesController extends AppController {    
+    var $paginate = array(
     'limit' => 25,        
     'order' => array(            
         'insertdate' => 'desc'

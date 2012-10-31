@@ -1,4 +1,4 @@
-
+<?php echo $this->Html->script('jquery.prettydate.js'); ?>
 <?php echo $this->Paginator->pagination(); ?>
 <table class="table table-striped table-hover table-condensed">
     <thead>
@@ -18,7 +18,7 @@
                 } ?>>
             <td><?php echo($message['Message']['number']); ?></td>
             <td><?php echo($message['Message']['text']); ?></td>
-            <td class="span2"><?php echo($message['Message']['processed_date']); ?></td>
+            <td class="span2"><span class="date" title="<?php echo(date('c',strtotime($message['Message']['processed_date']))); ?>"><?php echo($message['Message']['processed_date']); ?></span></td>
             <td><?php echo $this->Html->link('View', array('action' => 'view', $message['Message']['id']), array('class' => 'btn btn-small')) ?></td>
         </tr>
     <?php endforeach; ?>
@@ -27,3 +27,7 @@
 
 <?php echo $this->Paginator->pagination(); ?>
 <?php Debugger::dump($messages); ?>
+
+<script>
+    $(function() { $("span.date").prettyDate(); });
+</script>
