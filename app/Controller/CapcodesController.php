@@ -71,7 +71,9 @@ class CapcodesController extends AppController {
             $this->autoRender = false;
               if ($this->request->is('ajax')) {
                   $results = $this->Capcode->find('all', array(
-                      'conditions'=>array('alias LIKE' => '%'.$this->request->data['search_key'].'%'),
+                      'conditions'=>array('or' => array(
+                          'alias LIKE' => '%'.$this->request->data['search_key'].'%',
+                          'code LIKE' => '%'.$this->request->data['search_key'].'%')),
                       'fields' => array('id','alias','code'),
                       'order' => 'alias ASC',
                       'recursive'=>-1,
