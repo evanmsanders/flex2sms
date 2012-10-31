@@ -1,3 +1,4 @@
+<h2>Create new service</h2>
 <?php echo $this->Form->create('Service',array('class'=>'form-horizontal')); ?>
 <?php echo $this->Form->input('type',array('type'=>'select',
     'options' => array(

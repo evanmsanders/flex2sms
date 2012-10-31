@@ -1,4 +1,5 @@
 <h2>Keywords</h2>
+<?php echo $this->Paginator->pagination(); ?>
 <table class="table table-striped table-hover table-condensed">
 <tr>
     <th><?php echo $this->Paginator->sort('id'); ?></th>
@@ -19,3 +20,5 @@ foreach ($keywords as $keyword): ?>
 <?php endforeach; ?>
 </table>
 
+<p><?php echo $this->Html->link('New Keyword', array('action' => 'add'), array('class' => 'btn btn-primary')); ?></p>
+<?php echo $this->Paginator->pagination(); ?>

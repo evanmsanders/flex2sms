@@ -7,7 +7,7 @@ $(document).ready(function(){
     $('.capcodeTA').typeahead({
             source: function(typeahead, query) {
                 $.ajax({
-                    url: "../Capcodes/ajax_findAlias/",
+                    url: "/flex2sms/Capcodes/ajax_findAlias/",
                     dataType: "json",
                     type: "POST",
                     data: {search_key: query},

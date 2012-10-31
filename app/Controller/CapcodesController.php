@@ -4,7 +4,7 @@ App::uses('AppController', 'Controller');
 class CapcodesController extends AppController {
 
     var $paginate = array(        
-        'limit' => 50,        
+        'limit' => 100,        
         'order' => array('alias' => 'asc')
     );
 
@@ -81,8 +81,10 @@ class CapcodesController extends AppController {
                   foreach($results as $result):
                       $data[] = array("id"=>$result['Capcode']['id'],"alias"=>$result['Capcode']['alias'].'('.$result['Capcode']['code'].')');
                   endforeach;
-                  if(!is_array($data)) {
-                      $data = array('id'=>'0','alias'=>'None');
+                  if(!isset($data)) {
+                      $data[0] = array(
+                          "id"=>'0',
+                          "alias"=>'No such capcode in database');
                   }
                   return json_encode($data);
               }

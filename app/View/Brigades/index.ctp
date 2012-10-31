@@ -1,4 +1,5 @@
 <p><?php echo $this->Html->link('New Brigade', array('action' => 'add'), array('class' => 'btn btn-primary')); ?></p>
+<?php echo $this->Paginator->pagination(); ?>
 <table class="table table-striped">
     <thead>
         <tr>
@@ -17,3 +18,4 @@
     <?php endforeach; ?>
     </tbody>
 </table>
+<?php echo $this->Paginator->pagination(); ?>
