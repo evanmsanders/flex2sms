@@ -3,6 +3,11 @@ App::uses('AppController', 'Controller');
 
 class BrigadesController extends AppController {
 
+    var $paginate = array(        
+        'limit' => 20,        
+        'order' => array('name' => 'asc')
+    );
+
     public function beforeFilter() {
     
     }
