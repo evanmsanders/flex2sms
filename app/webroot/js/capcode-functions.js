@@ -1,10 +1,6 @@
-/* 
- * flex2sms functions - included on every page
- */
-
-
 $(document).ready(function(){
     $('.capcodeTA').typeahead({
+            items: 15,
             source: function(typeahead, query) {
                 $.ajax({
                     url: "/flex2sms/Capcodes/ajax_findAlias/",

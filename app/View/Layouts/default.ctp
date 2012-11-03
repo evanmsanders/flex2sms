@@ -2,6 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
+        <link rel="shortcut icon" href="<?php echo $this->Html->url('/'); ?>favicon.ico">
         <title><?php echo $title_for_layout; ?> - Flex2SMS</title>
         <?php echo $this->Html->css('bootstrap.min'); ?>
         <style>
@@ -20,7 +21,6 @@
         <script src="http://code.jquery.com/jquery-latest.js"></script>
         <?php echo $this->Html->script('bootstrap.min.js'); ?>
         <?php echo $this->Html->script('bootstrap-typeahead.js'); ?>
-        <?php echo $this->Html->script('functions.js'); ?>
     </head>
     <body>
         <div class="navbar navbar-inverse navbar-fixed-top">
