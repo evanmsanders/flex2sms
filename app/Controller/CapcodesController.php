@@ -82,9 +82,9 @@ class CapcodesController extends AppController {
                       $data[] = array("id"=>$result['Capcode']['id'],"alias"=>$result['Capcode']['alias'].'('.$result['Capcode']['code'].')');
                   endforeach;
                   if(!isset($data)) {
-                      $data[0] = array(
-                          "id"=>'0',
-                          "alias"=>'No such capcode in database');
+                      $data[] = array(
+                          "id"=>'x',
+                          "alias"=>$this->request->data['search_key'].' not found in database. Click here to add it');
                   }
                   return json_encode($data);
               }
