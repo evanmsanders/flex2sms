@@ -90,7 +90,14 @@
                 <?php echo $this->Session->flash('error', array('element' => 'error')); ?>
                 <?php echo $this->fetch('content'); ?>
                 <hr>
-                <?php echo $this->element('sql_dump'); ?>
+
+                <button type="button" class="btn btn-info pull-right" data-toggle="collapse" data-target="#queriesDump">
+                  Show queries
+                </button>
+                <div id="queriesDump" class="collapse">
+                    <?php echo $this->element('sql_dump'); ?>
+                </div>
+                
             </div>
         </div> <!-- /container -->
     </body>
