@@ -20,10 +20,9 @@
                 <?php echo $this->Html->link('Delete', array('action' => 'delete', $service['Service']['id']), array('class' => 'btn btn-danger'), 'Are you sure you want to delete this service?'); ?></td>
         </tr>
         <?php endforeach; ?>
+        <tr>
+            <td colspan="4"></td>
+            <td><?php echo $this->Html->link('New Service', array('action' => 'add'), array('class' => 'btn btn-primary')); ?></td>
+        </tr>
     </tbody>
 </table>
-<div class="row-fluid">
-    <div class="span2 offset8">
-        <?php echo $this->Html->link('New Service', array('action' => 'add'), array('class' => 'btn btn-primary')); ?>
-    </div>
-</div>

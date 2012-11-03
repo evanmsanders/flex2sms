@@ -1,15 +1,10 @@
-<h4>TODO</h4>
-<p>I think we need to add some extra functionality to this to save time in the future.  Namely:</p>
-<ul>
-    <li>Active status (active/disabled with flow on effects to services.  This would effectively allow us to "pause" someone without having to remove all their services by hand)</li>
-    <li></li>
-</ul>
+<h1>Contacts</h1>
 <?php echo $this->Paginator->pagination(); ?>
 <table class="table table-striped table-hover table-condensed">
     <thead>
         <tr>
-            <th>Name</th>
-            <th>Brigade</th>
+            <th><?php echo $this->Paginator->sort('name', 'Name'); ?></th>
+            <th><?php echo $this->Paginator->sort('name', 'Brigade'); ?></th>
             <th>Number</th>
             <th>Email</th>
             <th>Actions</th>
@@ -24,6 +19,7 @@
             <td><?php echo $contact['Contact']['email']; ?></td>
             
             <td>
+            <?php echo $this->Html->link('View', array('action' => 'view', $contact['Contact']['id']), array('class' => 'btn btn-small btn-info')); ?>
             <?php echo $this->Html->link('Edit', array('action' => 'edit', $contact['Contact']['id']), array('class' => 'btn btn-small')); ?> 
             <?php echo $this->Html->link('Delete', array('action' => 'delete', $contact['Contact']['id']), array('class' => 'btn btn-small btn-danger'), 'Are you sure you want to delete this Contact?'); ?>
             </td>
