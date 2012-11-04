@@ -13,7 +13,7 @@
         <?php foreach($services as $service): ?>
         <tr<?php if($service['Service']['active']!=1){echo(' class="warning"');} ?>>
             <td><?php echo $service['Service']['type']; ?></td>
-            <td><?php echo $this->Html->link($service['Capcode']['alias'].' / '.$service['Capcode']['code'],array('controller'=>'Capcode','action'=>'view',$service['Capcode']['id'])); ?></td>
+            <td><?php echo $this->Html->link($service['Capcode']['alias'].' / '.$service['Capcode']['code'],array('controller'=>'capcodes','action'=>'view',$service['Capcode']['id'])); ?></td>
             <td><?php echo $service['Service']['comment']; ?></td>
             <td><?php if($service['Service']['active']==1) { echo 'Active'; } else { echo 'Disabled';} ?></td>
             <td><?php echo $this->Html->link('Edit', array('action' => 'edit', $service['Service']['id']), array('class' => 'btn')); ?> 
