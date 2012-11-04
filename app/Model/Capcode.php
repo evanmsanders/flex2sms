@@ -11,10 +11,6 @@ class Capcode extends AppModel {
             'required' => array(
                 'rule' => 'notEmpty',
                 'message' => 'Please enter a code.'
-            ),
-            'numeric' => array(
-                'rule' => 'numeric',
-                'message' => 'The code must be a number.'
             )
         )
     );
