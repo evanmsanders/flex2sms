@@ -1,4 +1,4 @@
-<h3>Create new</h3>
+<h3>Create Contact</h3>
     <?php echo $this->Form->create('Contact',array('class'=>'form-horizontal')); ?>
 <fieldset>
     <legend>Contact details</legend>
