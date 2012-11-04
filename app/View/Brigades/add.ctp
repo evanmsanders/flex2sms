@@ -1,4 +1,4 @@
-<h1>Add brigade</h1>
+<?php $this->set('title_for_layout', 'Add Brigade'); ?>
 <?php echo $this->Form->create('Brigade',array('class'=>'form-horizontal')); ?>
 <?php echo $this->Form->input('name',array(
     'label' => 'Brigade Name:'

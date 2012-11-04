@@ -1,4 +1,4 @@
-<h1>Modems</h1>
+<?php $this->set('title_for_layout', 'Modems'); ?>
 <p>Available modems (phone devices) for sending SMS messages. These must be configured in gnokii for changes to here to have any effect.</p>
 <div class="row-fluid">
 <table class="table table-striped table-hover span7">

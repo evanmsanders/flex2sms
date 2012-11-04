@@ -1,4 +1,4 @@
-<h1>Brigades</h1>
+<?php $this->set('title_for_layout', 'Brigades'); ?>
 <p>Click on a brigade name to see more information and members of that brigade.</p>
 <div class="row">
 <?php echo $this->Paginator->pagination(); ?>

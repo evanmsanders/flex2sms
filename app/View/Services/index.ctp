@@ -1,4 +1,4 @@
-<h2>Services</h2>
+<?php $this->set('title_for_layout', 'Services'); ?>
 <p><?php echo $this->Html->link('New Service', array('action' => 'add'), array('class' => 'btn btn-primary')); ?></p>
 <table class="table table-striped table-hover table-condensed">
     <thead>

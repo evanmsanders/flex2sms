@@ -1,4 +1,4 @@
-<h1>Contacts</h1>
+<?php $this->set('title_for_layout', 'Contacts'); ?>
 <?php echo $this->Paginator->pagination(); ?>
 <table class="table table-striped table-hover table-condensed">
     <thead>

@@ -1,1 +1,1 @@
-<h1>TODO</h1>
+<?php $this->set('title_for_layout', 'Keyword Details'); ?>

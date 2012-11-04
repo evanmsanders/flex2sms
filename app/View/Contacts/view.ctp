@@ -1,4 +1,5 @@
-<h3><?php echo($contact['Contact']['name']."'s information"); ?></h3>
+<?php $this->set('title_for_layout', 'Contact Details'); ?>
+<h2><?php echo($contact['Contact']['name']."'s information"); ?></h2>
 <dl class="dl-horizontal">
   <dt>Name:</dt>
   <dd><?php echo($contact['Contact']['name']); ?></dd>

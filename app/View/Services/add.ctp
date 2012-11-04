@@ -1,5 +1,5 @@
 <?php echo $this->Html->script('capcode-functions.js'); ?>
-<h2>Create new service</h2>
+<?php $this->set('title_for_layout', 'Add a Service'); ?>
 <?php echo $this->Form->create('Service',array('class'=>'form-horizontal')); ?>
 <?php echo $this->Form->input('type',array('type'=>'select',
     'options' => array(

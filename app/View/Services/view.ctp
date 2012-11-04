@@ -1,4 +1,4 @@
-<h1>Service Details</h1>
+<?php $this->set('title_for_layout', 'Service Details'); ?>
 <table class="table">
     <thead>
         <tr>

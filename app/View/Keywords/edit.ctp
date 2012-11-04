@@ -1,3 +1,4 @@
+<?php $this->set('title_for_layout', 'Edit Keyword'); ?>
 <?php echo $this->Form->create('Keyword'); ?>
     <fieldset>
             <legend>Edit Keyword</legend>

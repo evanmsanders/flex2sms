@@ -86,6 +86,7 @@
         </div>
         <div class="container">
             <div id="content">
+                <h1><?php echo $title_for_layout; ?></h1>
                 <?php echo $this->Session->flash('success', array('element' => 'success')); ?>
                 <?php echo $this->Session->flash('error', array('element' => 'error')); ?>
                 <?php echo $this->fetch('content'); ?>

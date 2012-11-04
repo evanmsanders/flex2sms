@@ -1,4 +1,4 @@
-<h2>New keyword</h2>
+<?php $this->set('title_for_layout', 'Add Keyword'); ?>
 <?php echo $this->Form->create('Keyword',array('class'=>'form-horizontal')); ?>
 <fieldset>
     <legend>Add a keyword</legend>

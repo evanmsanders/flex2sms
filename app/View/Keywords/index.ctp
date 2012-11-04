@@ -1,4 +1,4 @@
-<h2>Keywords</h2>
+<?php $this->set('title_for_layout', 'Keywords'); ?>
 <?php echo $this->Paginator->pagination(); ?>
 <table class="table table-striped table-hover table-condensed">
 <tr>

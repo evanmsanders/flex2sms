@@ -1,4 +1,4 @@
-<h2>Add capcode</h2>
+<?php $this->set('title_for_layout', 'Add Capcode'); ?>
 <?php echo $this->Form->create('Capcode',array('class'=>'form-horizontal')); ?>
 <?php echo $this->Form->input('code'); ?>
 <?php echo $this->Form->input('alias'); ?>

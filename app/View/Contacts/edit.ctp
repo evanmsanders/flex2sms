@@ -1,5 +1,5 @@
-<h3>Edit Contact</h3>
-    <?php echo $this->Form->create('Contact',array('class'=>'form-horizontal')); ?>
+<?php $this->set('title_for_layout', 'Edit Contact'); ?>    
+<?php echo $this->Form->create('Contact',array('class'=>'form-horizontal')); ?>
 <fieldset>
     <legend>Contact details</legend>
     <?php

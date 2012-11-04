@@ -1,3 +1,4 @@
+<?php $this->set('title_for_layout', 'Capcodes'); ?>
 <?php echo $this->Paginator->pagination(); ?>
 <div class="row">
     <div class="span6 offset3">

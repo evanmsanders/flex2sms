@@ -1,3 +1,4 @@
+<?php $this->set('title_for_layout', 'Edit Capcode'); ?>
 <?php echo $this->Form->create('Capcode',array('class'=>'form-horizontal')); 
 
 echo $this->Form->input('alias',array(
