@@ -2,17 +2,17 @@
 <table class="table">
     <thead>
         <tr>
+            <th>Comment</th>
             <th>Service Type</th>
             <th>Capcode/Alias</th>
-            <th>Comment</th>
             <th>Actions</th>
         </tr>
     </thead>
     <tbody>
         <tr>
+            <td><?php echo $service['Service']['comment']; ?></td>
             <td><?php echo $service['Service']['type']; ?></td>
             <td><?php echo $this->Html->link($service['Capcode']['code'].'/'.$service['Capcode']['alias'], array('controller' => 'capcodes', 'action' => 'view', $service['Capcode']['id'])); ?></td>
-            <td><?php echo $service['Service']['comment']; ?></td>
             <td><?php echo $this->Html->link('Edit', array('action' => 'edit', $service['Service']['id']), array('class' => 'btn')); ?> <?php echo $this->Html->link('Delete', array('action' => 'delete', $service['Service']['id']), array('class' => 'btn btn-danger'), 'Are you sure you want to delete this service?'); ?></td>
         </tr>
     </tbody>
