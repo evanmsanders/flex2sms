@@ -3,6 +3,7 @@
 <table class="table table-striped table-hover table-condensed">
     <thead>
         <tr>
+            <th>Service Name</th>
             <th>Comment</th>
             <th>Service type</th>
             <th>Capcode/Alias</th>
@@ -13,6 +14,7 @@
     <tbody>
         <?php foreach($services as $service): ?>
         <tr<?php if($service['Service']['active']!=1){echo(' class="warning"');} ?>>
+            <td><?php echo $service['Service']['name']; ?></td>
             <td><?php echo $service['Service']['comment']; ?></td>
             <td><?php echo $service['Service']['type']; ?></td>
             <td><?php echo $this->Html->link($service['Capcode']['code'].' / '.$service['Capcode']['alias'],array('controller'=>'capcodes','action'=>'view',$service['Capcode']['id'])); ?></td>

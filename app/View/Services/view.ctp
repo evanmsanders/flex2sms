@@ -2,6 +2,7 @@
 <table class="table">
     <thead>
         <tr>
+            <th>Service Name</th>
             <th>Comment</th>
             <th>Service Type</th>
             <th>Capcode/Alias</th>
@@ -10,6 +11,7 @@
     </thead>
     <tbody>
         <tr>
+            <td><?php echo $service['Service']['name']; ?></td>
             <td><?php echo $service['Service']['comment']; ?></td>
             <td><?php echo $service['Service']['type']; ?></td>
             <td><?php echo $this->Html->link($service['Capcode']['code'].'/'.$service['Capcode']['alias'], array('controller' => 'capcodes', 'action' => 'view', $service['Capcode']['id'])); ?></td>

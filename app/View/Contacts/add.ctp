@@ -44,7 +44,9 @@
         'interval' => '15',
         'class' => 'input-mini'
     )); 
-    ?>
+
+    echo $this->Form->input('Service', array('multiple' => 'checkbox'));
+?>
 </fieldset>
 <?php
  echo $this->Form->submit('Create Contact', array('class' => 'btn btn-primary')); 

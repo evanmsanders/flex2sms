@@ -16,6 +16,12 @@ class Service extends AppModel {
                 'rule' => 'numeric',
                 'message' => 'The CAP Code must be identified by a numeric id.'
             )
+        ),
+        'name' => array(
+            'required' => array(
+                'rule' => 'notEmpty',
+                'message' => 'Please enter a name for the Service.'
+            )
         )
     );
 

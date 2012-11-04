@@ -36,8 +36,9 @@ class ContactsController extends AppController {
 			}
 		}
 		$brigades = $this->Contact->Brigade->find('list');
-		$modems = $this->Contact->Modem->find('list');
-		$this->set(compact('brigades', 'modems'));
+        $modems = $this->Contact->Modem->find('list');
+        $services = $this->Contact->Service->find('list');
+		$this->set(compact('brigades', 'modems', 'services'));
 	}
 
 	public function edit($id = null) {
@@ -56,8 +57,9 @@ class ContactsController extends AppController {
 			$this->request->data = $this->Contact->read(null, $id);
 		}
 		$brigades = $this->Contact->Brigade->find('list');
-		$modems = $this->Contact->Modem->find('list');
-		$this->set(compact('brigades', 'modems'));
+        $modems = $this->Contact->Modem->find('list');
+        $services = $this->Contact->Service->find('list');
+		$this->set(compact('brigades', 'modems', 'services'));
 	}
 
 	public function delete($id = null) {
