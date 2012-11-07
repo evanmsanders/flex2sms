@@ -40,8 +40,16 @@
     <tbody>
         <?php foreach($contact['Service'] as $service): ?>
         <tr<?php if($service['active']!=1){echo(' class="warning"');} ?>>
-            <td><?php echo $service['type']; ?></td>
-            <td><?php echo $service['capcode_id'].'/'.$this->Html->link($service['capcode_id'],array('controller'=>'capcodes','action'=>'view',$service['capcode_id'])); ?></td>
+            <td><?php switch ($service['Service']['type']) {
+                    case 'sms':
+                        echo '<i class="icon-signal"></i> ';
+                        break;
+                    case 'email':
+                        echo '<i class="icon-envelope"></i> ';
+                        break;
+                }
+		 echo $service['type']; ?></td>
+            <td><?php echo $this->Html->link($service['name'],array('controller'=>'capcodes','action'=>'view',$service['capcode_id'])); ?></td>
             <td><?php echo $service['comment']; ?></td>
             <td><?php if($service['active']==1) { echo 'Active'; } else { echo 'Disabled';} ?></td>
             <td><?php echo $this->Html->link('Edit', array('controller'=>'services','action' => 'edit', $service['id']), array('class' => 'btn')); ?> 

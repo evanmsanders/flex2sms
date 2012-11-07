@@ -1,5 +1,4 @@
 <?php $this->set('title_for_layout', 'Services'); ?>
-<p><?php echo $this->Html->link('New Service', array('action' => 'add'), array('class' => 'btn btn-primary')); ?></p>
 <table class="table table-striped table-hover table-condensed">
     <thead>
         <tr>
@@ -30,5 +29,8 @@
             <td><?php echo $this->Html->link('View', array('action' => 'view', $service['Service']['id']), array('class' => 'btn btn-info')); ?> <?php echo $this->Html->link('Edit', array('action' => 'edit', $service['Service']['id']), array('class' => 'btn')); ?> <?php echo $this->Html->link('Delete', array('action' => 'delete', $service['Service']['id']), array('class' => 'btn btn-danger'), 'Are you sure you want to delete this service?'); ?></td>
         </tr>
         <?php endforeach; ?>
+	<tr>
+		<td colspan="5"></td><td><?php echo $this->Html->link('New Service', array('action' => 'add'), array('class' => 'btn btn-primary')); ?></td>
+	</tr>
     </tbody>
 </table>
