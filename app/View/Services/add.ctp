@@ -1,15 +1,15 @@
 <?php echo $this->Html->script('capcode-functions.js'); ?>
 <?php $this->set('title_for_layout', 'Add a Service'); ?>
 <?php echo $this->Form->create('Service',array('class'=>'form-horizontal')); ?>
-<?php echo $this->Form->input('name'); ?>
+<?php echo $this->Form->input('name',array(
+'after' => '<span class="btn btn-small" id="NameAutofill">Autofill</span>')); ?>
 <?php echo $this->Form->input('type',array('type'=>'select',
     'options' => array(
         'sms' => 'SMS',
         'email' => 'Email'
     ))); ?>
 <?php echo $this->Form->input('capcode_selector', 
-            array('id'=>'capcode_selector',
-                'class' => 'capcodeTA',
+            array('class' => 'capcodeTA',
                 'label' => 'Capcode Alias',
                 'type' => 'text', 
                 'error' => false,

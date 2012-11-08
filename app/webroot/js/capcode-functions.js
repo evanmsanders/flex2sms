@@ -21,10 +21,8 @@ $(document).ready(function(){
     }
 });
 
-$('input[id="ServiceCapcodeId"]').change(function(){
-	if($('#ServiceName').val()==''){
-		$('#ServiceName').val() = $('#ServiceType').val()+'/'+$('#ServiceCapcodeSelector').val();
-	}
+$('#NameAutofill').bind("click",function(){
+	$('#ServiceName').val($('#ServiceType').val()+'/'+$('#ServiceCapcodeSelector').val());
 });
 
 });
