@@ -25,15 +25,13 @@
             </td>
         </tr>
     <?php endforeach; ?>
+        <tr>
+            <td colspan="4"></td><td><?php echo $this->Html->link('New Contact', array('action' => 'add'), array('class' => 'btn btn-primary')); ?></td>
+        </tr>
     </tbody>
 </table>
 <?php echo $this->Paginator->pagination(); ?>
 </table>
-<div class="row-fluid">
-        <div class="span2 offset8">
-            <?php echo $this->Html->link('New Contact', array('action' => 'add'), array('class' => 'btn btn-primary')); ?>
-    </div>
-</div>
 
 <button type="button" class="btn btn-small" data-toggle="collapse" data-target="#printr">
   Show array
