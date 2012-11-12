@@ -17,13 +17,13 @@
     <dd><?php echo($contact['Brigade']['name']); ?> brigade</dd>
 
     <dt>Default times:</dt>
-    <dd>Only message between </strong><?php echo($contact['Contact']['default_not_before']); ?> and <?php echo($contact['Contact']['default_not_after']); ?></dd>
+    <dd>Only message between </strong><?php echo($contact['Contact']['default_not_before']); ?> and <?php echo($contact['Contact']['default_not_after']); ?> (Time preferences <b><?php echo ($contact['Contact']['time_prefs_enabled'] ? 'enabled' : 'disabled'); ?>)</b></dd>
 
     <dt>Send messages from:</dt>
     <dd><?php echo($contact['Modem']['name']); ?></dd>
 
     <dt>Enabled:</dt>
-    <dd><?php echo ($contact['Contact']['enabled']? 'Yes' : 'No'); ?>
+    <dd><?php echo ($contact['Contact']['enabled'] ? 'Yes' : 'No'); ?>
 
     <dt></dt>
     <dd><?php echo $this->Html->link('Edit', array('action' => 'edit', $contact['Contact']['id']), array('class' => 'btn')); ?></dd>
