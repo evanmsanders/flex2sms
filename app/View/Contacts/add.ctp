@@ -43,7 +43,9 @@
         'timeFormat' => '24',
         'interval' => '15',
         'class' => 'input-mini'
-    )); 
+    ));
+
+    echo $this->Form->input('enabled');
 
     echo $this->Form->input('Service', array('multiple' => 'checkbox'));
 ?>
