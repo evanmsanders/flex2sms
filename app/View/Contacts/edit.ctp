@@ -29,6 +29,10 @@
         'type'=>'select',
         'options'=>$modems));
 
+    echo $this->Form->input('time_prefs_enabled', array(
+        'label' => 'Time Preferences Enabled:' 
+    ));
+
     echo $this->Form->input('default_not_before',array(
         'label' =>  'Not before:',
         'placeholder' => "Default not before",
@@ -44,6 +48,8 @@
         'interval' => '15',
         'class' => 'input-mini'
     )); 
+
+    echo $this->Form->input('enabled');
 
     echo $this->Form->input('Service', array('multiple' => 'checkbox')); 
     ?>
