@@ -30,7 +30,6 @@
 </table>
 
 <?php echo $this->Paginator->pagination(); ?>
-<?php Debugger::dump($messages); ?>
 
 <script>
     $(function() { $("span.date").prettyDate(); });
