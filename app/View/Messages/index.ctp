@@ -6,6 +6,7 @@
     <thead>
         <tr>
             <th>Recipient</th>
+            <th>Service</th>
             <th>Message</th>
             <th>Sent</th>
             <th>Actions</th>
@@ -18,7 +19,8 @@
             }elseif($message['Message']['processed']!=1){ 
                 echo(' class="warning"');
                 } ?>>
-            <td><?php echo($message['Message']['number']); ?></td>
+            <td><?php echo $this->Html->link($message['Contact']['name'], array('controller' => 'contacts', 'action' => 'view', $message['Contact']['id'])) ?></td>
+            <td><?php echo $this->Html->link($message['Service']['name'], array('controller' => 'services', 'action' => 'view', $message['Service']['id'])); ?></td>
             <td><?php echo($message['Message']['text']); ?></td>
             <td class="span2"><span class="date" title="<?php echo(date('c',strtotime($message['Message']['processed_date']))); ?>"><?php echo($message['Message']['processed_date']); ?></span></td>
             <td><?php echo $this->Html->link('View', array('action' => 'view', $message['Message']['id']), array('class' => 'btn btn-small')) ?></td>

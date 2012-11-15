@@ -3,6 +3,7 @@
 class Contact extends AppModel {
 
     public $name = 'Contact';
+    public $hasMany = 'Message';
     public $belongsTo = array('Brigade', 'Modem');
     public $hasAndBelongsToMany = 'Service';
 

@@ -3,6 +3,7 @@
 class Service extends AppModel {
 
     public $name = 'Service';
+    public $hasMany = 'Message';
     public $belongsTo = 'Capcode';
     public $hasAndBelongsToMany = array('Contact','Keyword');
 
