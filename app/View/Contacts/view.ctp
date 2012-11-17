@@ -67,7 +67,7 @@
         break;
             }
     echo $service['type']; ?></td>
-                <td><?php echo $this->Html->link($service['name'],array('controller'=>'capcodes','action'=>'view',$service['id'])); ?></td>
+                <td><?php echo $this->Html->link($service['name'],array('controller'=>'services','action'=>'view',$service['id'])); ?></td>
                 <td><?php if($service['active']==1) { echo 'Active'; } else { echo 'Disabled';} ?></td>
                 <td><?php echo $this->Html->link('Edit', array('controller'=>'services','action' => 'edit', $service['id']), array('class' => 'btn btn-mini')); ?> 
                     <?php echo $this->Html->link('Delete', array('controller'=>'services','action' => 'delete', $service['id']), array('class' => 'btn btn-danger btn-mini'), 'Are you sure you want to delete this service?'); ?></td>
