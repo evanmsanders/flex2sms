@@ -7,6 +7,8 @@ class Contact extends AppModel {
     public $belongsTo = array('Brigade', 'Modem');
     public $hasAndBelongsToMany = 'Service';
 
+    public $actsAs = array('Containable');
+
     public $validate = array(
         'name' => array(
             'required' => array(
