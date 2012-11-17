@@ -35,7 +35,7 @@ class ContactsController extends AppController {
 				$this->Session->setFlash(__('The contact could not be saved. Please, try again.'), null, null, 'error');
 			}
 		}
-		$brigades = $this->Contact->Brigade->find('list');
+		$brigades = $this->Contact->Brigade->find('list', array('order' => 'name ASC'));
         $modems = $this->Contact->Modem->find('list');
         $services = $this->Contact->Service->find('list');
 		$this->set(compact('brigades', 'modems', 'services'));
@@ -56,7 +56,7 @@ class ContactsController extends AppController {
 		} else {
 			$this->request->data = $this->Contact->read(null, $id);
 		}
-		$brigades = $this->Contact->Brigade->find('list');
+		$brigades = $this->Contact->Brigade->find('list', array('order' => 'name ASC'));
         $modems = $this->Contact->Modem->find('list');
         $services = $this->Contact->Service->find('list');
 		$this->set(compact('brigades', 'modems', 'services'));
