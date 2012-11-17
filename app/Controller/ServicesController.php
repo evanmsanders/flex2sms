@@ -30,8 +30,8 @@ class ServicesController extends AppController {
 				$this->Session->setFlash(__('The service could not be saved. Please, try again.'), null, null, 'error');
 			}
 		}
-        $contacts = $this->Service->Contact->find('list');
-        $keywords = $this->Service->Keyword->find('list');
+        $contacts = $this->Service->Contact->find('list', array('order' => 'name ASC'));
+        $keywords = $this->Service->Keyword->find('list', array('order' => 'word ASC'));
 		$this->set(compact('contacts', 'keywords'));
 	}
 
@@ -50,8 +50,8 @@ class ServicesController extends AppController {
 		} else {
 			$this->request->data = $this->Service->read(null, $id);
 		}
-        $contacts = $this->Service->Contact->find('list');
-        $keywords = $this->Service->Keyword->find('list');
+        $contacts = $this->Service->Contact->find('list', array('order' => 'name ASC'));
+        $keywords = $this->Service->Keyword->find('list', array('order' => 'word ASC'));
 		$this->set(compact('contacts', 'keywords'));
 	}
 
