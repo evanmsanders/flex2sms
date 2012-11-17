@@ -7,6 +7,8 @@ class Service extends AppModel {
     public $belongsTo = 'Capcode';
     public $hasAndBelongsToMany = array('Contact','Keyword');
 
+    public $actsAs = array('Containable');
+
     public $validate = array(
         'capcode_id' => array(
             'required' => array(
