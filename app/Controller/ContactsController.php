@@ -22,7 +22,25 @@ class ContactsController extends AppController {
 		if (!$this->Contact->exists()) {
 			throw new NotFoundException(__('Invalid contact'));
 		}
-		$this->set('contact', $this->Contact->read(null, $id));
+        $this->set('contact', $this->Contact->find('first', array(
+            'conditions' => array('Contact.id' => $id),
+            'contain' => array(
+                'Message' => array(
+                    'order' => 'Message.processed_date DESC',
+                    'limit' => 20,
+                    'fields' => array(
+                        'Message.id',
+                        'Message.text',
+                        'Message.processed',
+                        'Message.processed_date',
+                        'Message.error'
+                    )
+                ),
+                'Brigade',
+                'Modem',
+                'Service'
+            )
+        )));
 	}
 
 	public function add() {
