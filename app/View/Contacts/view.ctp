@@ -57,7 +57,7 @@
         </thead>
         <tbody>
             <?php foreach($contact['Service'] as $service): ?>
-            <tr<?php if($service['active']!=1){echo(' class="warning"');} ?>>
+            <tr<?php if($service['active']!=1){echo(' class="info muted"');} ?>>
             <td><?php switch ($service['type']) {
     case 'sms':
         echo '<i class="icon-signal"></i> ';

@@ -1,5 +1,4 @@
 <?php echo $this->Html->script('jquery.prettydate.js'); ?>
-<h1>Message log</h1>
 <p>Messages sent via SMS.  Sent time is time processed, not the time of page.</p>
 <?php echo $this->Paginator->pagination(); ?>
 <table class="table table-striped table-hover table-condensed">
