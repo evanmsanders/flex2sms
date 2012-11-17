@@ -1,6 +1,7 @@
 <?php echo $this->Html->script('capcode-functions.js'); ?>
 <?php $this->set('title_for_layout', 'Add a Service'); ?>
 <?php echo $this->Form->create('Service',array('class'=>'form-horizontal')); ?>
+<fieldset>
 <?php echo $this->Form->input('name',array(
 'after' => '<span class="btn btn-small" id="NameAutofill">Autofill</span>')); ?>
 <?php echo $this->Form->input('type',array('type'=>'select',
@@ -29,7 +30,14 @@
             '1' => 'Active',
             '0' => 'Disabled'
         ))); ?>
+</fieldset>
+<fieldset>
+    <legend>Keywords</legend>
 <?php echo $this->Form->input('Keyword', array('multiple' => 'checkbox')); ?>
+</fieldset>
+<fieldset>
+    <legend>Contacts</legend>
 <?php echo $this->Form->input('Contact', array('multiple' => 'checkbox')); ?>
+</fieldset>
 <?php echo $this->Form->submit('Create Service', array('class' => 'btn btn-primary')); ?>
 <?php echo $this->Form->end(); ?>
