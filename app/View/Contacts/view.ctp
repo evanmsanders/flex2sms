@@ -1,5 +1,6 @@
 <?php echo $this->Html->script('jquery.prettydate.js'); ?>
-<?php $this->set('title_for_layout', 'Contact Details '.$this->Html->link('Edit', array('action' => 'edit', $contact['Contact']['id']), array('class' => 'btn btn-primary'))); ?>
+<?php $this->set('page_heading', 'Contact Details '.$this->Html->link('Edit', array('action' => 'edit', $contact['Contact']['id']), array('class' => 'btn btn-primary'))); ?>
+<?php $this->set('title_for_layout', 'Contact Details'); ?>
 
 <div class="row-fluid">
   <div class="span6">

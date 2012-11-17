@@ -6,7 +6,7 @@
             <th>Service Name</th>
             <th>Capcode/Alias</th>
             <th>Status</th>
-            <th>Contacts/Hits</th>
+            <th>Users/Hits</th>
             <th>Actions</th>
         </tr>
     </thead>
