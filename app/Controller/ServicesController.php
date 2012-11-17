@@ -21,7 +21,7 @@ class ServicesController extends AppController {
             'conditions' => array('Service.id' => $id),
             'contain' => array(
                 'Message' => array(
-                    'order' => 'Message.processed_date DESC',
+                    'order' => 'Message.id DESC',
                     'limit' => 20,
                     'fields' => array(
                         'Message.id',

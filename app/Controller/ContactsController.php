@@ -26,7 +26,7 @@ class ContactsController extends AppController {
             'conditions' => array('Contact.id' => $id),
             'contain' => array(
                 'Message' => array(
-                    'order' => 'Message.processed_date DESC',
+                    'order' => 'Message.id DESC',
                     'limit' => 20,
                     'fields' => array(
                         'Message.id',
