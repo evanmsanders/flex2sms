@@ -45,19 +45,6 @@ class ServicesController extends AppController {
 	}
 
 	public function add() {
-<<<<<<< HEAD
-		if ($this->request->is('post')) {
-			$this->Service->create();
-			if ($this->Service->save($this->request->data)) {
-				$this->Session->setFlash(__('The service has been saved'), null, null, 'success');
-				$this->redirect(array('action' => 'index'));
-			} else {
-				$this->Session->setFlash(__('The service could not be saved. Please, try again.'), null, null, 'error');
-			}
-		}
-        $contacts = $this->Service->Contact->find('list', array('order' => 'Contact.name ASC'));
-        $keywords = $this->Service->Keyword->find('list', array('order' => 'Keyword.word ASC'));
-=======
         if ($this->request->is('post')) {
             $this->Service->create();
             if ($this->Service->save($this->request->data)) {
@@ -69,7 +56,6 @@ class ServicesController extends AppController {
         }
         $contacts = $this->Service->Contact->find('list', array('order' => 'name ASC'));
         $keywords = $this->Service->Keyword->find('list', array('order' => 'word ASC'));
->>>>>>> ff1ca604f810b1fd36e271170ea3d4ea81052378
 		$this->set(compact('contacts', 'keywords'));
 	}
 
