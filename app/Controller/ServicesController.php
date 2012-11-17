@@ -74,13 +74,8 @@ class ServicesController extends AppController {
 		} else {
 			$this->request->data = $this->Service->read(null, $id);
 		}
-<<<<<<< HEAD
         $contacts = $this->Service->Contact->find('list', array('order' => 'Contact.name ASC'));
         $keywords = $this->Service->Keyword->find('list', array('order' => 'Keyword.word ASC'));
-=======
-                $contacts = $this->Service->Contact->find('list', array('order' => 'name ASC'));
-                $keywords = $this->Service->Keyword->find('list', array('order' => 'word ASC'));
->>>>>>> ff1ca604f810b1fd36e271170ea3d4ea81052378
 		$this->set(compact('contacts', 'keywords'));
 	}
 
