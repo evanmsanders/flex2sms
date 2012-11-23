@@ -17,8 +17,8 @@ class ScannersController extends AppController {
  *
  * @return void
  */
-	public function index() {
-		$this->Scanner->recursive = 0;
-		$this->set('scanners', $this->paginate());
-	}
+    public function index() {
+        $this->Scanner->recursive = 0;
+        $this->set('scanners', $this->paginate());
+    }
 }

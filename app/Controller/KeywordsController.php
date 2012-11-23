@@ -6,6 +6,11 @@ App::uses('AppController', 'Controller');
  * @property Keyword $Keyword
  */
 class KeywordsController extends AppController {
+    var $paginate = array(
+    'limit' => 25,
+    'order' => array(            
+        'word' => 'asc'
+        ));
 
 /**
  * index method
@@ -13,8 +18,8 @@ class KeywordsController extends AppController {
  * @return void
  */
 	public function index() {
-		$this->Keyword->recursive = 0;
-		$this->set('keywords', $this->paginate());
+            $this->Keyword->recursive = 0;
+            $this->set('keywords', $this->paginate());
 	}
 
 /**
@@ -25,11 +30,11 @@ class KeywordsController extends AppController {
  * @return void
  */
 	public function view($id = null) {
-		$this->Keyword->id = $id;
-		if (!$this->Keyword->exists()) {
-			throw new NotFoundException(__('Invalid keyword'));
-		}
-		$this->set('keyword', $this->Keyword->read(null, $id));
+            $this->Keyword->id = $id;
+            if (!$this->Keyword->exists()) {
+                    throw new NotFoundException(__('Invalid keyword'));
+            }
+            $this->set('keyword', $this->Keyword->read(null, $id));
 	}
 
 /**
@@ -38,17 +43,17 @@ class KeywordsController extends AppController {
  * @return void
  */
 	public function add() {
-		if ($this->request->is('post')) {
-			$this->Keyword->create();
-			if ($this->Keyword->save($this->request->data)) {
-				$this->Session->setFlash(__('The keyword has been saved'));
-				$this->redirect(array('action' => 'index'));
-			} else {
-				$this->Session->setFlash(__('The keyword could not be saved. Please, try again.'));
-			}
-		}
-		$services = $this->Keyword->Service->find('list');
-		$this->set(compact('services'));
+            if ($this->request->is('post')) {
+                $this->Keyword->create();
+                if ($this->Keyword->save($this->request->data)) {
+                    $this->Session->setFlash(__('The keyword has been saved'));
+                    $this->redirect(array('action' => 'index'));
+                } else {
+                    $this->Session->setFlash(__('The keyword could not be saved. Please, try again.'));
+                }
+            }
+            $services = $this->Keyword->Service->find('list');
+            $this->set(compact('services'));
 	}
 
 /**
@@ -59,22 +64,22 @@ class KeywordsController extends AppController {
  * @return void
  */
 	public function edit($id = null) {
-		$this->Keyword->id = $id;
-		if (!$this->Keyword->exists()) {
-			throw new NotFoundException(__('Invalid keyword'));
-		}
-		if ($this->request->is('post') || $this->request->is('put')) {
-			if ($this->Keyword->save($this->request->data)) {
-				$this->Session->setFlash(__('The keyword has been saved'));
-				$this->redirect(array('action' => 'index'));
-			} else {
-				$this->Session->setFlash(__('The keyword could not be saved. Please, try again.'));
-			}
-		} else {
-			$this->request->data = $this->Keyword->read(null, $id);
-		}
-		$services = $this->Keyword->Service->find('list');
-		$this->set(compact('services'));
+            $this->Keyword->id = $id;
+            if (!$this->Keyword->exists()) {
+                throw new NotFoundException(__('Invalid keyword'));
+            }
+            if ($this->request->is('post') || $this->request->is('put')) {
+                if ($this->Keyword->save($this->request->data)) {
+                    $this->Session->setFlash(__('The keyword has been saved'));
+                    $this->redirect(array('action' => 'index'));
+                } else {
+                    $this->Session->setFlash(__('The keyword could not be saved. Please, try again.'));
+                }
+            } else {
+                    $this->request->data = $this->Keyword->read(null, $id);
+            }
+            $services = $this->Keyword->Service->find('list');
+            $this->set(compact('services'));
 	}
 
 /**
@@ -86,18 +91,18 @@ class KeywordsController extends AppController {
  * @return void
  */
 	public function delete($id = null) {
-		if (!$this->request->is('post')) {
-			throw new MethodNotAllowedException();
-		}
-		$this->Keyword->id = $id;
-		if (!$this->Keyword->exists()) {
-			throw new NotFoundException(__('Invalid keyword'));
-		}
-		if ($this->Keyword->delete()) {
-			$this->Session->setFlash(__('Keyword deleted'));
-			$this->redirect(array('action' => 'index'));
-		}
-		$this->Session->setFlash(__('Keyword was not deleted'));
-		$this->redirect(array('action' => 'index'));
+            if (!$this->request->is('post')) {
+                throw new MethodNotAllowedException();
+            }
+            $this->Keyword->id = $id;
+            if (!$this->Keyword->exists()) {
+                throw new NotFoundException(__('Invalid keyword'));
+            }
+            if ($this->Keyword->delete()) {
+                $this->Session->setFlash(__('Keyword deleted'));
+                $this->redirect(array('action' => 'index'));
+            }
+            $this->Session->setFlash(__('Keyword was not deleted'));
+            $this->redirect(array('action' => 'index'));
 	}
 }
