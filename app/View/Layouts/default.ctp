@@ -78,7 +78,8 @@
                                 <li><?php echo $this->Html->link('<i class="icon-list"></i> List', array('controller' => 'capcodes', 'action' => 'index'), array('escape'=>false)); ?></li>
                                 </ul>
                             </li>
-                            <li><?php echo $this->Html->link('<i class="icon-envelope icon-white"></i> Message Logs', array('controller' => 'messages', 'action' => 'index'), array('escape'=>false)); ?></li>
+                            <li><?php echo $this->Html->link('<i class="icon-envelope icon-white"></i> SMS Logs', array('controller' => 'messages', 'action' => 'index'), array('escape'=>false)); ?></li>
+                            <li><?php echo $this->Html->link('<i class="icon-list icon-white"></i> Scanner', array('controller' => 'scanners', 'action' => 'index'), array('escape'=>false)); ?></li>
                         </ul>
                     </div><!--/.nav-collapse -->
                 </div>
