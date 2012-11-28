@@ -3,6 +3,11 @@ App::uses('AppController', 'Controller');
 
 class ServicesController extends AppController {
 
+    var $paginate = array(        
+        'limit' => 30,        
+        'order' => array('name' => 'asc')
+    );
+
     public function beforeFilter() {
     
     }
