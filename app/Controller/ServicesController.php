@@ -97,8 +97,52 @@ class ServicesController extends AppController {
             $this->redirect(array('action' => 'index'));
 	}
         
-        public function suggest($param = 1) {
-            // $this->Serive->Brigade->id = $param['brigade_id'];
-            $this->set('services', $this->Service->Brigade->Contact->find('list'));
+    public function suggest($param = 1) {
+        // $this->Serive->Brigade->id = $param['brigade_id'];
+        $this->set('services', $this->Service->Brigade->Contact->find('list'));
+    }
+
+    /**
+     * Enable a service.
+     * TODO: ajax
+     *
+     * @param int $id service id.
+     */
+    public function enable($id) {
+        $this->Service->id = $id;
+        if(!$this->Service->exists()) {
+            throw new NotFoundException(__('Service not found.'));
         }
+        $this->Service->read();
+        $this->Service->set('active', 1);
+        if($this->Service->save()) {
+            $this->Session->setFlash(__('Service enabled.'), null, null, 'success');
+        }
+        else {
+            $this->Session->setFlash(__('There was a problem enabling the service.'), null, null, 'error');
+        }
+        $this->redirect($this->referer());
+    }
+
+    /**
+     * Disable a service.
+     * TODO: ajax.
+     *
+     * @param int $id service id.
+     */
+    public function disable($id) {
+        $this->Service->id = $id;
+        if(!$this->Service->exists()) {
+            throw new NotFoundException(__('Service not found.'));
+        }
+        $this->Service->read();
+        $this->Service->set('active', 0);
+        if($this->Service->save()) {
+            $this->Session->setFlash(__('Service disabled.'), null, null, 'success');
+        }
+        else {
+            $this->Session->setFlash(__('There was a problem disabling the service.'), null, null, 'error');
+        }
+        $this->redirect($this->referer());
+    }
 }

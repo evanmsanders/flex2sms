@@ -25,11 +25,7 @@
     'class' => 'hide',
     'label' => false)); ?>
 <?php echo $this->Form->input('comment',array('type'=>'textarea')); ?>
-<?php echo $this->Form->input('active',array('type'=>'select',
-        'options' => array(
-            '1' => 'Active',
-            '0' => 'Disabled'
-        ))); ?>
+<?php echo $this->Form->input('active'); ?>
 </fieldset>
 <fieldset>
     <legend>Keywords</legend>

@@ -27,7 +27,12 @@
             <td><?php if($service['Service']['active']==1) { echo 'Active'; } else { echo 'Disabled';} ?></td>
             <td><?php echo count($service['Contact']).' / '.count($service['Message']); ?></td>
             <td><?php echo $this->Html->link('View', array('action' => 'view', $service['Service']['id']), array('class' => 'btn btn-info btn-small')); ?> 
-                <?php echo $this->Html->link('Edit', array('action' => 'edit', $service['Service']['id']), array('class' => 'btn btn-small')); ?> 
+                <?php echo $this->Html->link('Edit', array('action' => 'edit', $service['Service']['id']), array('class' => 'btn btn-small')); ?>
+                <?php if($service['Service']['active'] == '1'): ?>
+                <?php echo $this->Html->link('Disable', array('action' => 'disable', $service['Service']['id']), array('class' => 'btn btn-small btn-inverse')); ?>
+                <?php else: ?>
+                <?php echo $this->Html->link('Enable', array('action' => 'enable', $service['Service']['id']), array('class' => 'btn btn-small btn-success')); ?>
+                <?php endif; ?>
                 <?php echo $this->Html->link('Delete', array('action' => 'delete', $service['Service']['id']), array('class' => 'btn btn-danger btn-small'), 'Are you sure you want to delete this service?'); ?></td>
         </tr>
         <?php endforeach; ?>
