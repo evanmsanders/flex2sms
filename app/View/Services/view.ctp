@@ -108,7 +108,7 @@
                 }  ?>>
             <td><?php echo($message['text']); ?></td>
             <td class="span2"><span class="date" title="<?php echo(date('c',strtotime($message['processed_date']))); ?>"><?php echo($message['processed_date']); ?></span></td>
-            <td><?php echo $this->Html->link('View', array('controller'=>'messages','action' => 'view', $message['id']), array('class' => 'btn btn-small')) ?></td>
+            <td><?php echo $this->Html->link('View', array('controller'=>'messages','action' => 'view', $message['id']), array('class' => 'btn btn-mini')); ?> <?php echo $this->Html->link('Resend', array('controller' => 'messages', 'action' => 'resend', $message['id']), array('class' => 'btn btn-mini')); ?></td>
         </tr>
     <?php endforeach; ?>
     </tbody>
