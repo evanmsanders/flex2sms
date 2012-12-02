@@ -40,14 +40,6 @@
             else { 
                 echo '0';
                 } ?> services</dd>
-        
-        <dt>Has received: </dt>
-        <dd><?php if(is_array($contact['Message'])){ 
-            echo count($contact['Message']); 
-            } 
-            else { 
-                echo '0';
-                } ?> SMS messages</dd>
     </dl>
   </div>
   <div class="span6">
