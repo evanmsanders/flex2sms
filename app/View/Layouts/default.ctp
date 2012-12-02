@@ -87,19 +87,18 @@
         </div>
         <div class="container">
             <div id="content">
-                <h1><?php if(!isset($page_heading)) { echo $title_for_layout;} else {echo $page_heading; } ?></h1>
+                <h1><?php echo $title_for_layout; ?></h1>
                 <?php echo $this->Session->flash('success', array('element' => 'success')); ?>
                 <?php echo $this->Session->flash('error', array('element' => 'error')); ?>
                 <?php echo $this->fetch('content'); ?>
-                <hr>
-
+            </div>
+            <div style="clear:both;">
                 <button type="button" class="btn btn-info pull-right" data-toggle="collapse" data-target="#queriesDump">
                   Show queries
                 </button>
                 <div id="queriesDump" class="collapse">
                     <?php echo $this->element('sql_dump'); ?>
                 </div>
-                
             </div>
         </div> <!-- /container -->
     </body>

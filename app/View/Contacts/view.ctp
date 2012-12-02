@@ -1,7 +1,10 @@
 <?php echo $this->Html->script('jquery.prettydate.js'); ?>
-<?php $this->set('page_heading', 'Contact Details '.$this->Html->link('Edit', array('action' => 'edit', $contact['Contact']['id']), array('class' => 'btn btn-primary'))); ?>
 <?php $this->set('title_for_layout', 'Contact Details'); ?>
-
+<div class="btn-group">
+    <?php echo $this->Html->link('New Contact', array('action' => 'add'), array('class' => 'btn btn-primary')); ?>
+    <?php echo $this->Html->link('Edit', array('action' => 'edit', $contact['Contact']['id']), array('class' => 'btn')); ?>
+    <?php echo $this->Html->link('Delete', array('action' => 'delete', $contact['Contact']['id']), array('class' => 'btn btn-danger'), 'Are you sure you want to delete this contact?'); ?>
+</div>
 <div class="row-fluid">
   <div class="span6">
     <h3>Information</h3>
@@ -49,7 +52,7 @@
   </div>
   <div class="span6">
     <h3>Services</h3>
-    <table class="table table-striped table-hover table-condensed">
+    <table class="table table-striped table-hover">
         <thead>
             <th>Type</th>
             <th>Name</th>
@@ -70,8 +73,12 @@
     echo $service['type']; ?></td>
                 <td><?php echo $this->Html->link($service['name'],array('controller'=>'services','action'=>'view',$service['id'])); ?></td>
                 <td><?php if($service['active']==1) { echo 'Active'; } else { echo 'Disabled';} ?></td>
-                <td><?php echo $this->Html->link('Edit', array('controller'=>'services','action' => 'edit', $service['id']), array('class' => 'btn btn-mini')); ?> 
-                    <?php echo $this->Html->link('Delete', array('controller'=>'services','action' => 'delete', $service['id']), array('class' => 'btn btn-danger btn-mini'), 'Are you sure you want to delete this service?'); ?></td>
+                <td>
+                    <div class="btn-group">
+                        <?php echo $this->Html->link('Edit', array('controller'=>'services','action' => 'edit', $service['id']), array('class' => 'btn btn-small')); ?> 
+                        <?php echo $this->Html->link('Delete', array('controller'=>'services','action' => 'delete', $service['id']), array('class' => 'btn btn-danger btn-small'), 'Are you sure you want to delete this service?'); ?>
+                    </div>
+                </td>
             </tr>
             <?php endforeach; ?>
         </tbody>
@@ -80,7 +87,7 @@
 </div>
 
 <h3>Recent messages</h3>
-<table class="table table-striped table-hover table-condensed">
+<table class="table table-striped table-hover">
     <thead>
         <tr>
             <th>Message</th>
@@ -97,7 +104,12 @@
                 }  ?>>
             <td><?php echo($message['text']); ?></td>
             <td class="span2"><span class="date" title="<?php echo(date('c',strtotime($message['processed_date']))); ?>"><?php echo($message['processed_date']); ?></span></td>
-            <td><?php echo $this->Html->link('View', array('controller'=>'messages','action' => 'view', $message['id']), array('class' => 'btn btn-mini')); ?> <?php echo $this->Html->link('Resend', array('controller' => 'messages', 'action' => 'resend', $message['id']), array('class' => 'btn btn-mini')); ?></td>
+            <td>
+                <div class="btn-group">
+                    <?php echo $this->Html->link('View', array('controller'=>'messages','action' => 'view', $message['id']), array('class' => 'btn btn-small btn-info')); ?>
+                    <?php echo $this->Html->link('Resend', array('controller' => 'messages', 'action' => 'resend', $message['id']), array('class' => 'btn btn-small btn-primary')); ?>
+                </div>
+            </td>
         </tr>
     <?php endforeach; ?>
     </tbody>

@@ -1,7 +1,7 @@
 <?php echo $this->Html->script('jquery.prettydate.js'); ?>
 <p>Messages sent via SMS.  Sent time is time processed, not the time of page.</p>
 <?php echo $this->Paginator->pagination(); ?>
-<table class="table table-striped table-hover table-condensed">
+<table class="table table-striped table-hover">
     <thead>
         <tr>
             <th>Recipient</th>
@@ -22,7 +22,12 @@
             <td><?php echo $this->Html->link($message['Service']['name'], array('controller' => 'services', 'action' => 'view', $message['Service']['id'])); ?></td>
             <td><?php echo($message['Message']['text']); ?></td>
             <td class="span2"><span class="date" title="<?php echo(date('c',strtotime($message['Message']['processed_date']))); ?>"><?php echo($message['Message']['processed_date']); ?></span></td>
-            <td><?php echo $this->Html->link('View', array('action' => 'view', $message['Message']['id']), array('class' => 'btn btn-mini')); ?> <?php echo $this->Html->link('Resend', array('action' => 'resend', $message['Message']['id']), array('class' => 'btn btn-mini')); ?></td>
+            <td>
+                <div class="btn-group">
+                    <?php echo $this->Html->link('Details', array('action' => 'view', $message['Message']['id']), array('class' => 'btn btn-small btn-info')); ?>
+                    <?php echo $this->Html->link('Resend', array('action' => 'resend', $message['Message']['id']), array('class' => 'btn btn-small btn-primary')); ?>
+                </div>
+            </td>
         </tr>
     <?php endforeach; ?>
     </tbody>

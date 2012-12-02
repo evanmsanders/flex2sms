@@ -1,6 +1,7 @@
 <?php $this->set('title_for_layout', 'Contacts'); ?>
+<?php echo $this->Html->link('New Contact', array('action' => 'add'), array('class' => 'btn btn-primary')); ?>
 <?php echo $this->Paginator->pagination(); ?>
-<table class="table table-striped table-hover table-condensed">
+<table class="table table-striped table-hover">
     <thead>
         <tr>
             <th><?php echo $this->Paginator->sort('name', 'Name'); ?></th>
@@ -19,23 +20,15 @@
             <td><?php echo $contact['Contact']['email']; ?></td>
             
             <td>
-            <?php echo $this->Html->link('View', array('action' => 'view', $contact['Contact']['id']), array('class' => 'btn btn-small btn-info')); ?>
-            <?php echo $this->Html->link('Edit', array('action' => 'edit', $contact['Contact']['id']), array('class' => 'btn btn-small')); ?> 
-            <?php echo $this->Html->link('Delete', array('action' => 'delete', $contact['Contact']['id']), array('class' => 'btn btn-small btn-danger'), 'Are you sure you want to delete this Contact?'); ?>
+                <div class="btn-group">
+                    <?php echo $this->Html->link('Edit', array('action' => 'edit', $contact['Contact']['id']), array('class' => 'btn btn-small')); ?> 
+                    <?php echo $this->Html->link('Delete', array('action' => 'delete', $contact['Contact']['id']), array('class' => 'btn btn-small btn-danger'), 'Are you sure you want to delete this Contact?'); ?>
+                </div>
             </td>
         </tr>
     <?php endforeach; ?>
-        <tr>
-            <td colspan="4"></td><td><?php echo $this->Html->link('New Contact', array('action' => 'add'), array('class' => 'btn btn-primary')); ?></td>
-        </tr>
     </tbody>
 </table>
+<?php echo $this->Html->link('New Contact', array('action' => 'add'), array('class' => 'btn btn-primary')); ?>
 <?php echo $this->Paginator->pagination(); ?>
 </table>
-
-<button type="button" class="btn btn-small" data-toggle="collapse" data-target="#printr">
-  Show array
-</button>
-<div id="printr" class="collapse">
-    <pre><?php print_r($contacts); ?></pre>
-</div>
