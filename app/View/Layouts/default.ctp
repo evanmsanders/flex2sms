@@ -31,52 +31,46 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </a>
-                    <a class="brand" href="#">Flex2SMS</a>
+                    <a class="brand" href="/">Flex2SMS</a>
                     <div class="nav-collapse collapse">
-                        <p class="navbar-text pull-right">Logged in as <a href="#" class="navbar-link">Username</a></p>
+                        <p class="navbar-text pull-right">Logged in as <a href="#" class="navbar-link">Admin</a></p>
                         <ul class="nav">
                             <li><?php echo $this->Html->link('<i class="icon-home icon-white"></i> Home', '/', array('escape'=>false)); ?></li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-user icon-white"></i> Contacts<b class="caret"></b></a>
                                 <ul class="dropdown-menu">
-                                <li><?php echo $this->Html->link('<i class="icon-plus"></i> Add', array('controller' => 'contacts', 'action' => 'add'), array('escape'=>false)); ?></li>
-                                <li><?php echo $this->Html->link('<i class="icon-list"></i> List', array('controller' => 'contacts', 'action' => 'index'), array('escape'=>false)); ?></li>
-                                </ul>
-                            </li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-fire icon-white"></i> Brigades<b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                <li><?php echo $this->Html->link('<i class="icon-plus"></i> Add', array('controller' => 'brigades', 'action' => 'add'), array('escape'=>false)); ?></li>
-                                <li><?php echo $this->Html->link('<i class="icon-list"></i> List', array('controller' => 'brigades', 'action' => 'index'), array('escape'=>false)); ?></li>
-                                </ul>
-                            </li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-hdd icon-white"></i> Modems<b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                <li><?php echo $this->Html->link('<i class="icon-plus"></i> Add', array('controller' => 'modems', 'action' => 'add'), array('escape'=>false)); ?></li>
-                                <li><?php echo $this->Html->link('<i class="icon-list"></i> List', array('controller' => 'modems', 'action' => 'index'), array('escape'=>false)); ?></li>
+                                    <li><?php echo $this->Html->link('<i class="icon-plus"></i> New', array('controller' => 'contacts', 'action' => 'add'), array('escape'=>false)); ?></li>
+                                    <li><?php echo $this->Html->link('<i class="icon-list"></i> List', array('controller' => 'contacts', 'action' => 'index'), array('escape'=>false)); ?></li>
                                 </ul>
                             </li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-cog icon-white"></i> Services<b class="caret"></b></a>
                                 <ul class="dropdown-menu">
-                                <li><?php echo $this->Html->link('<i class="icon-plus"></i> Add', array('controller' => 'services', 'action' => 'add'), array('escape'=>false)); ?></li>
-                                <li><?php echo $this->Html->link('<i class="icon-list"></i> List', array('controller' => 'services', 'action' => 'index'), array('escape'=>false)); ?></li>
+                                    <li><?php echo $this->Html->link('<i class="icon-plus"></i> New', array('controller' => 'services', 'action' => 'add'), array('escape'=>false)); ?></li>
+                                    <li><?php echo $this->Html->link('<i class="icon-list"></i> List', array('controller' => 'services', 'action' => 'index'), array('escape'=>false)); ?></li>
                                 </ul>
                             </li>
+                            
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-tags icon-white"></i> Keywords<b class="caret"></b></a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-wrench icon-white"></i> Settings<b class="caret"></b></a>
                                 <ul class="dropdown-menu">
-                                <li><?php echo $this->Html->link('<i class="icon-plus"></i> Add', array('controller' => 'keywords', 'action' => 'add'), array('escape'=>false)); ?></li>
-                                <li><?php echo $this->Html->link('<i class="icon-list"></i> List', array('controller' => 'keywords', 'action' => 'index'), array('escape'=>false)); ?></li>
+                                    <li class="dropdown-toggle" data-toggle="dropdown"><i class="icon-fire divider"></i> Brigades<i class="icon-fire divider"></i></li>
+                                    <li><?php echo $this->Html->link('<i class="icon-plus"></i> New brigade', array('controller' => 'brigades', 'action' => 'add'), array('escape'=>false)); ?></li>
+                                    <li><?php echo $this->Html->link('<i class="icon-list"></i> List brigades', array('controller' => 'brigades', 'action' => 'index'), array('escape'=>false)); ?></li>
+                                     
+                                    <li class="dropdown-toggle" data-toggle="dropdown"><i class="icon-hdd divider"></i> Modems</li>
+                                    <li><?php echo $this->Html->link('<i class="icon-plus"></i> New modem', array('controller' => 'modems', 'action' => 'add'), array('escape'=>false)); ?></li>
+                                    <li><?php echo $this->Html->link('<i class="icon-list"></i> List modems', array('controller' => 'modems', 'action' => 'index'), array('escape'=>false)); ?></li>
+                                    
+                                    <li class="dropdown-toggle" data-toggle="dropdown"><i class="icon-tags divider"></i> Keywords</li>
+                                    <li><?php echo $this->Html->link('<i class="icon-plus"></i> New keyword', array('controller' => 'keywords', 'action' => 'add'), array('escape'=>false)); ?></li>
+                                    <li><?php echo $this->Html->link('<i class="icon-list"></i> List keywords', array('controller' => 'keywords', 'action' => 'index'), array('escape'=>false)); ?></li>
+                                    
+                                    <li class="dropdown-toggle" data-toggle="dropdown"><i class="icon-list-alt divider"></i> Capcodes</li>
+                                    <li><?php echo $this->Html->link('<i class="icon-plus"></i> New capcode', array('controller' => 'capcodes', 'action' => 'add'), array('escape'=>false)); ?></li>
+                                    <li><?php echo $this->Html->link('<i class="icon-list"></i> List capcodes', array('controller' => 'capcodes', 'action' => 'index'), array('escape'=>false)); ?></li>
                                 </ul>
-                            </li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-list-alt icon-white"></i> Capcodes<b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                <li><?php echo $this->Html->link('<i class="icon-plus"></i> Add', array('controller' => 'capcodes', 'action' => 'add'), array('escape'=>false)); ?></li>
-                                <li><?php echo $this->Html->link('<i class="icon-list"></i> List', array('controller' => 'capcodes', 'action' => 'index'), array('escape'=>false)); ?></li>
-                                </ul>
+                                </li>
                             </li>
                             <li><?php echo $this->Html->link('<i class="icon-envelope icon-white"></i> SMS Logs', array('controller' => 'messages', 'action' => 'index'), array('escape'=>false)); ?></li>
                             <li><?php echo $this->Html->link('<i class="icon-list icon-white"></i> Scanner', array('controller' => 'scanners', 'action' => 'index'), array('escape'=>false)); ?></li>
