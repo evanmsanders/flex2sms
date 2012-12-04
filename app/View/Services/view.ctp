@@ -82,7 +82,7 @@
             <td><?php echo $contact['brigade_id'] ?></td>
             <td>
                 <div class="btn-group">
-                    <span class="btn btn-small btn-danger">TODO: Unlink</span>
+                    <?php echo $this->Html->link('Edit', array('controller' => 'contacts', 'action' => 'edit', $contact['id']), array('class' => 'btn btn-small')); ?> 
                 </div>
             </td>
             </tr>
