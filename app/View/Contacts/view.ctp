@@ -53,7 +53,7 @@
         </thead>
         <tbody>
             <?php foreach($contact['Service'] as $service): ?>
-            <tr<?php if($service['active']!=1){echo(' class="info muted"');} ?>>
+            <tr<?php if($service['active']!=1){echo(' class="warning"');} ?>>
             <td><?php switch ($service['type']) {
     case 'sms':
         echo '<i class="icon-signal"></i> ';
@@ -68,7 +68,11 @@
                 <td>
                     <div class="btn-group">
                         <?php echo $this->Html->link('Edit', array('controller'=>'services','action' => 'edit', $service['id']), array('class' => 'btn btn-small')); ?> 
-                        <?php echo $this->Html->link('Delete', array('controller'=>'services','action' => 'delete', $service['id']), array('class' => 'btn btn-danger btn-small'), 'Are you sure you want to delete this service?'); ?>
+                        <?php if($service['active'] == 1): ?>
+                        <?php echo $this->Html->link('Disable', array('controller' => 'services', 'action' => 'disable', $service['id']), array('class' => 'btn btn-small btn-inverse'), 'This will disable the service for everyone. Are you sure?'); ?>
+                        <?php else: ?>
+                        <?php echo $this->Html->link('Enable', array('controller' => 'services', 'action' => 'enable', $service['id']), array('class' => 'btn btn-small btn-success'), 'This will enable the service for everyone. Are you sure?'); ?>
+                        <?php endif; ?>
                     </div>
                 </td>
             </tr>
