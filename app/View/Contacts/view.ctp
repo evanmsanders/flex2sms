@@ -68,11 +68,6 @@
                 <td>
                     <div class="btn-group">
                         <?php echo $this->Html->link('Edit', array('controller'=>'services','action' => 'edit', $service['id']), array('class' => 'btn btn-small')); ?> 
-                        <?php if($service['active'] == 1): ?>
-                        <?php echo $this->Html->link('Disable', array('controller' => 'services', 'action' => 'disable', $service['id']), array('class' => 'btn btn-small btn-inverse'), 'This will disable the service for everyone. Are you sure?'); ?>
-                        <?php else: ?>
-                        <?php echo $this->Html->link('Enable', array('controller' => 'services', 'action' => 'enable', $service['id']), array('class' => 'btn btn-small btn-success'), 'This will enable the service for everyone. Are you sure?'); ?>
-                        <?php endif; ?>
                     </div>
                 </td>
             </tr>
