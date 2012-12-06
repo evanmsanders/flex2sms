@@ -2,6 +2,11 @@
 <div class="btn-group">
     <?php echo $this->Html->link('New Service', array('action' => 'add'), array('class' => 'btn btn-primary')); ?>
     <?php echo $this->Html->link('Edit', array('action' => 'edit', $service['Service']['id']), array('class' => 'btn')); ?>
+    <?php if($service['Service']['active'] == 1): ?>
+    <?php echo $this->Html->link('Disable', array('action' => 'disable', $service['Service']['id']), array('class' => 'btn btn-inverse')); ?>
+    <?php else: ?>
+    <?php echo $this->Html->link('Enable', array('action' => 'enable', $service['Service']['id']), array('class' => 'btn btn-success')); ?>
+    <?php endif; ?>
     <?php echo $this->Html->link('Delete', array('action' => 'delete', $service['Service']['id']), array('class' => 'btn btn-danger'), 'Are you sure you want to delete this service?'); ?>
 </div>
 <table class="table table-striped">
