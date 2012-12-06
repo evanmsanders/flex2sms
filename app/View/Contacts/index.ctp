@@ -5,7 +5,7 @@
     <thead>
         <tr>
             <th><?php echo $this->Paginator->sort('name', 'Name'); ?></th>
-            <th><?php echo $this->Paginator->sort('brigade_id', 'Brigade'); ?></th>
+            <th><?php echo $this->Paginator->sort('Brigade.name', 'Brigade'); ?></th>
             <th>Number</th>
             <th>Email</th>
             <th>Actions</th>
