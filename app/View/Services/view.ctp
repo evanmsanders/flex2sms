@@ -79,7 +79,7 @@
             <?php foreach($service['Contact'] as $contact): ?>
             <tr>
             <td><?php echo $this->Html->link($contact['name'], array('controller' => 'contacts', 'action' => 'view', $contact['id'])); ?></td>
-            <td><?php echo $contact['brigade_id'] ?></td>
+            <td><?php echo $contact['Brigade']['name'] ?></td>
             <td>
                 <div class="btn-group">
                     <?php echo $this->Html->link('Edit', array('controller' => 'contacts', 'action' => 'edit', $contact['id']), array('class' => 'btn btn-small')); ?> 

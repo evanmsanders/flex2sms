@@ -3,6 +3,8 @@ App::uses('AppController', 'Controller');
 
 class ServicesController extends AppController {
 
+    public $actsAs = array('Containable');
+
     var $paginate = array(        
         'limit' => 30,        
         'order' => array('name' => 'asc')
@@ -43,6 +45,12 @@ class ServicesController extends AppController {
                         'Contact.id',
                         'Contact.name',
                         'Contact.brigade_id',
+                    ),
+                    'Brigade' => array(
+                        'fields' => array(
+                            'Brigade.id',
+                            'Brigade.name'
+                        )
                     )
                 )
             )
