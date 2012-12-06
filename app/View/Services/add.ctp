@@ -9,15 +9,16 @@
         'sms' => 'SMS',
         'email' => 'Email'
     ))); ?>
-<?php echo $this->Form->input('capcode_selector', 
-            array('class' => 'capcodeTA',
-                'label' => 'Capcode Alias',
-                'type' => 'text', 
-                'error' => false,
-                'data-provide'=>'typeahead', 
-                'data-source'=>'[]',
-                'autocomplete'=>'off',
-                'after' => '<a href="/flex2sms/capcodes/add" class="to_modal btn btn-small">Add capcode</a>'));?>
+<?php echo $this->Form->input('capcode_selector', array(
+    'class' => 'capcodeTA',
+    'label' => 'Capcode Alias',
+    'type' => 'text', 
+    'error' => false,
+    'data-provide'=>'typeahead', 
+    'data-source'=>'[]',
+    'autocomplete'=>'off',
+    //'after' => '<a href="/flex2sms/capcodes/add" class="to_modal btn btn-small">Add capcode</a>'
+));?>
 
 <?php echo $this->Form->input('capcode_id',array(
     'type' => 'text',
