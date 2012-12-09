@@ -17,7 +17,7 @@
         <?php if($contact['Contact']['enabled'] == 1): ?>
         <tr>
         <?php else: ?>
-        <tr class="warning">
+        <tr class="warning muted">
         <?php endif; ?>
             <td><?php echo $this->Html->link($contact['Contact']['name'], array('action' => 'view', $contact['Contact']['id'])) ?></td>
             <td><?php echo $this->Html->link($contact['Brigade']['name'], array('action' => 'view', 'controller'=>'brigades',$contact['Contact']['brigade_id'])) ?></td>

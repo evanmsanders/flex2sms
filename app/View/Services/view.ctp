@@ -26,7 +26,7 @@
             <td><?php echo $service['Service']['comment']; ?></td>
             <td><?php  switch ($service['Service']['type']) {
                     case 'sms':
-                        echo '<i class="icon-signal"></i> ';
+                        echo '<i class="icon-phone"></i> ';
                         break;
                     case 'email':
                         echo '<i class="icon-envelope"></i> ';
