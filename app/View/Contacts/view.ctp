@@ -1,6 +1,6 @@
 <?php echo $this->Html->script('jquery.prettydate.js'); ?>
 <?php $this->set('title_for_layout', 'Contact Details'); ?>
-<div class="btn-group">
+<div class="btn-group pull-right">
     <?php echo $this->Html->link('New Contact', array('action' => 'add'), array('class' => 'btn btn-primary')); ?>
     <?php echo $this->Html->link('Edit', array('action' => 'edit', $contact['Contact']['id']), array('class' => 'btn')); ?>
     <?php echo $this->Html->link('Delete', array('action' => 'delete', $contact['Contact']['id']), array('class' => 'btn btn-danger'), 'Are you sure you want to delete this contact?'); ?>
