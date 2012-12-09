@@ -24,14 +24,14 @@
             <td><?php echo $contact['Contact']['number']; ?></td>
             <td><?php echo $contact['Contact']['email']; ?></td>
             <td><?php  
-                if($contact['Contact']['time_prefs_enabled']==1) { 
-                    echo '<i class="icon-time" title="Time management is enabled"></i>'; 
-                }
                 if($contact['Contact']['enabled']==1) { 
                     echo 'Active'; 
                 } else {
                     echo 'Disabled';
                 } 
+                if($contact['Contact']['time_prefs_enabled']==1) { 
+                    echo ' <i class="icon-time" title="Time management is enabled"></i>'; 
+                }
                 ?></td>
             <td>
                 <div class="btn-group">
