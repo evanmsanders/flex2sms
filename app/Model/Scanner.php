@@ -5,6 +5,8 @@ App::uses('AppModel', 'Model');
  *
  */
 class Scanner extends AppModel {
+    
+    public $name = 'Scanner';
 
 /**
  * Use table
