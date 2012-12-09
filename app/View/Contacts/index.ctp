@@ -36,6 +36,11 @@
             <td>
                 <div class="btn-group">
                     <?php echo $this->Html->link('Edit', array('action' => 'edit', $contact['Contact']['id']), array('class' => 'btn btn-small')); ?> 
+                    <?php if($contact['Contact']['enabled'] == '1'): ?>
+                    <?php echo $this->Html->link('Disable', array('action' => 'disable', $contact['Contact']['id']), array('class' => 'btn btn-small btn-inverse')); ?>
+                    <?php else: ?>
+                    <?php echo $this->Html->link('Enable', array('action' => 'enable', $contact['Contact']['id']), array('class' => 'btn btn-small btn-success')); ?>
+                    <?php endif; ?>
                     <?php echo $this->Html->link('Delete', array('action' => 'delete', $contact['Contact']['id']), array('class' => 'btn btn-small btn-danger'), 'Are you sure you want to delete this Contact?'); ?>
                 </div>
             </td>

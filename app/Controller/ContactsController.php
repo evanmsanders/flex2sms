@@ -92,4 +92,48 @@ class ContactsController extends AppController {
             $this->Session->setFlash(__('Contact was not deleted'), null, null, 'error');
             $this->redirect(array('action' => 'index'));
 	}
+        
+    /**
+     * Enable a contact.
+     * TODO: ajax
+     *
+     * @param int $id contact id.
+     */
+    public function enable($id) {
+        $this->Contact->id = $id;
+        if(!$this->Contact->exists()) {
+            throw new NotFoundException(__('Contact not found.'));
+        }
+        $this->Contact->read();
+        $this->Contact->set('enabled', 1);
+        if($this->Contact->save()) {
+            $this->Session->setFlash(__('Contact enabled.'), null, null, 'success');
+        }
+        else {
+            $this->Session->setFlash(__('There was a problem enabling the service.'), null, null, 'error');
+        }
+        $this->redirect($this->referer());
+    }
+
+    /**
+     * Disable a contact.
+     * TODO: ajax.
+     *
+     * @param int $id contact id.
+     */
+    public function disable($id) {
+        $this->Contact->id = $id;
+        if(!$this->Contact->exists()) {
+            throw new NotFoundException(__('Contact not found.'));
+        }
+        $this->Contact->read();
+        $this->Contact->set('enabled', 0);
+        if($this->Contact->save()) {
+            $this->Session->setFlash(__('Contact disabled.'), null, null, 'success');
+        }
+        else {
+            $this->Session->setFlash(__('There was a problem disabling the service.'), null, null, 'error');
+        }
+        $this->redirect($this->referer());
+    }
 }

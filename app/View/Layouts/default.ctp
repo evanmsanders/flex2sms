@@ -38,7 +38,7 @@
                         <ul class="nav">
                             <li><?php echo $this->Html->link('<i class="icon-home icon-white"></i> Home', '/', array('escape'=>false)); ?></li>
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-user icon-white"></i> Contacts<b class="caret"></b></a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-group icon-white"></i> Contacts<b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     <li><?php echo $this->Html->link('<i class="icon-plus"></i> New', array('controller' => 'contacts', 'action' => 'add'), array('escape'=>false)); ?></li>
                                     <li><?php echo $this->Html->link('<i class="icon-list"></i> List', array('controller' => 'contacts', 'action' => 'index'), array('escape'=>false)); ?></li>
@@ -86,14 +86,6 @@
                 <?php echo $this->Session->flash('success', array('element' => 'success')); ?>
                 <?php echo $this->Session->flash('error', array('element' => 'error')); ?>
                 <?php echo $this->fetch('content'); ?>
-            </div>
-            <div style="clear:both;">
-                <button type="button" class="btn btn-info pull-right" data-toggle="collapse" data-target="#queriesDump">
-                  Show queries
-                </button>
-                <div id="queriesDump" class="collapse">
-                    <?php echo $this->element('sql_dump'); ?>
-                </div>
             </div>
         </div> <!-- /container -->
     </body>
