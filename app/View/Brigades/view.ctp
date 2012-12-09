@@ -1,10 +1,10 @@
 <?php $this->set('title_for_layout', $brigade['Brigade']['name'].' Brigade'); ?>
-<div class="btn-group">
+<div class="btn-group pull-right">
     <?php echo $this->Html->link('New Brigade', array('action' => 'add'), array('class' => 'btn btn-primary')); ?>
     <?php echo $this->Html->link('Edit', array('action' => 'edit', $brigade['Brigade']['id']), array('class' => 'btn')); ?>
     <?php echo $this->Html->link('Delete', array('action' => 'delete', $brigade['Brigade']['id']), array('class' => 'btn btn-danger'), 'Are you sure you want to delete this brigade?'); ?>
 </div>
-<h2>Contacts in this Brigade</h2>
+<h3>Contacts in this Brigade</h3>
 <table class="table table-striped">
     <thead>
         <tr>
