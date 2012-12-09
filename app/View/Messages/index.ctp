@@ -25,8 +25,12 @@
             <td>
                 <div class="btn-group">
                     <?php echo $this->Html->link('Details', array('action' => 'view', $message['Message']['id']), array('class' => 'btn btn-small btn-info')); ?>
-                    <?php echo $this->Html->link('Resend', array('action' => 'resend', $message['Message']['id']), array('class' => 'btn btn-small btn-primary')); ?>
-                    <?php echo $this->Html->link('Cancel', array('action' => 'cancel', $message['Message']['id']), array('class' => 'btn btn-small btn-warning')); ?>
+                    <?php if($message['Message']['processed']==1) {
+                        echo $this->Html->link('Resend', array('action' => 'resend', $message['Message']['id']), array('class' => 'btn btn-small btn-primary')); 
+                    } else {
+                        echo $this->Html->link('Cancel', array('action' => 'cancel', $message['Message']['id']), array('class' => 'btn btn-small btn-warning'));
+                    }
+                      ?>
                 </div>
             </td>
         </tr>
