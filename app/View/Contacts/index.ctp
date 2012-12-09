@@ -8,17 +8,31 @@
             <th><?php echo $this->Paginator->sort('Brigade.name', 'Brigade'); ?></th>
             <th>Number</th>
             <th>Email</th>
+            <th>Status</th>
             <th>Actions</th>
         </tr>
     </thead>
     <tbody>
     <?php foreach($contacts as $contact): ?>
+        <?php if($contact['Contact']['enabled'] == 1): ?>
         <tr>
+        <?php else: ?>
+        <tr class="warning">
+        <?php endif; ?>
             <td><?php echo $this->Html->link($contact['Contact']['name'], array('action' => 'view', $contact['Contact']['id'])) ?></td>
             <td><?php echo $this->Html->link($contact['Brigade']['name'], array('action' => 'view', 'controller'=>'brigades',$contact['Contact']['brigade_id'])) ?></td>
             <td><?php echo $contact['Contact']['number']; ?></td>
             <td><?php echo $contact['Contact']['email']; ?></td>
-            
+            <td><?php  
+                if($contact['Contact']['time_prefs_enabled']==1) { 
+                    echo '<i class="icon-time" title="Time management is enabled"></i>'; 
+                }
+                if($contact['Contact']['enabled']==1) { 
+                    echo 'Active'; 
+                } else {
+                    echo 'Disabled';
+                } 
+                ?></td>
             <td>
                 <div class="btn-group">
                     <?php echo $this->Html->link('Edit', array('action' => 'edit', $contact['Contact']['id']), array('class' => 'btn btn-small')); ?> 
