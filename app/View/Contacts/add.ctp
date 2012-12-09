@@ -1,3 +1,4 @@
+<?php echo $this->Html->script('capcode-functions.js'); ?>
 <?php $this->set('title_for_layout', 'Add Contact'); ?>    
 <?php echo $this->Form->create('Contact',array('class'=>'form-horizontal')); ?>
 <fieldset>
@@ -49,7 +50,9 @@
         'class' => 'input-mini'
     ));
 
-    echo $this->Form->input('enabled');
+    echo $this->Form->input('enabled', array(
+        'checked' => 1
+    ));
 
     echo $this->Form->input('Service', array('multiple' => 'checkbox'));
 ?>

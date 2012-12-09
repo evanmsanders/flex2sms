@@ -1,3 +1,4 @@
+<?php echo $this->Html->script('capcode-functions.js'); ?>
 <?php $this->set('title_for_layout', 'Edit Contact'); ?>    
 <?php echo $this->Form->create('Contact',array('class'=>'form-horizontal')); ?>
 <fieldset>

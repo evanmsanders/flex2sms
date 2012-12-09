@@ -105,11 +105,26 @@ class ServicesController extends AppController {
             $this->redirect(array('action' => 'index'));
 	}
         
-    public function suggest($param = 1) {
-        // $this->Serive->Brigade->id = $param['brigade_id'];
-        $this->set('services', $this->Service->Brigade->Contact->find('list'));
+    public function suggest($id = 1) {
+        $this->autoRender = false;
+          if ($this->request->is('ajax')) {
+            $result = $this->Service->query('SELECT DISTINCT services.id FROM services, contacts_services, contacts WHERE
+            contacts.brigade_id = '.$id.'
+            AND contacts_services.contact_id = contacts.id
+            AND services.id = contacts_services.service_id;');
+            if(is_array($result)) {
+                foreach($result as $row) {
+                    $output[] = $row['services']['id'];
+                }
+              return json_encode($output);
+             }
+          }
+          else {
+              echo 'Not an Ajax request, allegedly';
+          }
+          return;
     }
-
+    
     /**
      * Enable a service.
      * TODO: ajax

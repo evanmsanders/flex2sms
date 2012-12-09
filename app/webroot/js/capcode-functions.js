@@ -37,4 +37,14 @@ $('.to_modal').click(function(e) {
     }
 });
 
+$('#ContactBrigadeId').bind("change",function(){
+     $.getJSON("/flex2sms/Services/suggest/"+$('#ContactBrigadeId').val(), function(data){ highlightServices(data); });
 });
+});
+
+function highlightServices(json) { 
+    $(".checkbox").attr('class','checkbox');
+    for (var id in json) {
+            $("#ServiceService"+json[id]).parent().attr('class','checkbox text-info');
+        }
+}

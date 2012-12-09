@@ -43,6 +43,5 @@
 </div>
 <pre>
 <?php
-print_r($this->dashboard);
 ?>
 </pre>
