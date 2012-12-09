@@ -75,7 +75,7 @@ class MessagesController extends AppController {
         else {
             $this->Session->setFlash(__('There was a problem resending the message.'), null, null, 'error');
         }
-        $this->redirect(array('action' => 'index'));
+        $this->redirect($this->referer());
     }  
 
     /**
@@ -97,7 +97,7 @@ class MessagesController extends AppController {
         else {
             $this->Session->setFlash(__('There was a problem cancelling the message.'), null, null, 'error');
         }
-        $this->redirect(array('action' => 'index'));
+        $this->redirect($this->referer());
     }  
 
 }
