@@ -15,6 +15,7 @@
             }
         </style>
         <?php echo $this->Html->css('bootstrap-responsive'); ?>
+        <?php echo $this->Html->css('font-awesome'); ?>
         <!--[if lt IE 9]>
         <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
