@@ -126,6 +126,7 @@
                 <div class="btn-group">
                     <?php echo $this->Html->link('Details', array('controller'=>'messages','action' => 'view', $message['id']), array('class' => 'btn btn-small btn-info')); ?>
                     <?php echo $this->Html->link('Resend', array('controller' => 'messages', 'action' => 'resend', $message['id']), array('class' => 'btn btn-small btn-primary')); ?>
+                    <?php echo $this->Html->link('Cancel', array('controller' => 'messages', 'action' => 'cancel', $message['id']), array('class' => 'btn btn-small btn-warning')); ?>
                 </div>
             </td>
         </tr>

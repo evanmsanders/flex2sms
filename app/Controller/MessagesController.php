@@ -55,23 +55,6 @@ class MessagesController extends AppController {
 		}
 	}
         
-    /**
-     * Generate test messages
-     * 
-     * Generate a high message load in the message table to test message responses.
-     * 
-     * @param array $recip Array of recipients
-     * @param string $text Text to send with a different message on each new line
-     * @param int $vol Volume of messages to send to each number
-     */
-    public function generate($recip, $text, $vol) {
-        if(is_array($recip)&& $text != '' && $vol>0) {
-            
-        }
-        else {
-            return false;
-        }
-    }
 
     /**
      * Marks a message to be resent.
@@ -91,6 +74,28 @@ class MessagesController extends AppController {
         }
         else {
             $this->Session->setFlash(__('There was a problem resending the message.'), null, null, 'error');
+        }
+        $this->redirect(array('action' => 'index'));
+    }  
+
+    /**
+     * Marks a message as sent, so it does not send.
+     * TODO: Could be ajax in future.
+     *
+     * @param int $id Message id.
+     */
+    public function cancel($id) {
+        $this->Message->id = $id;
+        if(!$this->Message->exists()) {
+            throw new NotFoundException(__('That message does not exist.'));
+        }
+        $this->Message->read();
+        $this->Message->set('processed', 1);
+        if($this->Message->save()) {
+            $this->Session->setFlash(__('Message sending has been cancelled.'), null, null, 'success');
+        }
+        else {
+            $this->Session->setFlash(__('There was a problem cancelling the message.'), null, null, 'error');
         }
         $this->redirect(array('action' => 'index'));
     }  
