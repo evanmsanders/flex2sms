@@ -7,7 +7,7 @@ App::uses('AppController', 'Controller');
  */
 class ScannersController extends AppController { 
     var $paginate = array(
-    'limit' => 40,
+    'limit' => 100,
     'order' => array(            
         'id' => 'desc'
         ));
