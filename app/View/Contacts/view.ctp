@@ -21,13 +21,13 @@
         <dd><?php echo($contact['Contact']['number']); ?></dd>
 
         <dt>Email address:</dt>
-        <dd><?php echo($contact['Contact']['email']); ?></dd>
+        <dd><a href="mailto:<?php echo($contact['Contact']['email']); ?>"><?php echo($contact['Contact']['email']); ?></a></dd>
 
         <dt>Approved by:</dt>
         <dd><?php echo($contact['Contact']['approved_by']); ?></dd>
 
         <dt>Member of:</dt>
-        <dd><?php echo($contact['Brigade']['name']); ?> brigade</dd>
+        <dd><?php echo $this->Html->link($contact['Brigade']['name'], array('action' => 'view', 'controller'=>'brigades',$contact['Contact']['brigade_id'])) ?> brigade</dd>
 
         <dt>Default times:</dt>
         <dd>Only message between </strong><?php echo($contact['Contact']['default_not_before']); ?> and <?php echo($contact['Contact']['default_not_after']); ?> (Time preferences <b><?php echo ($contact['Contact']['time_prefs_enabled'] ? 'enabled' : 'disabled'); ?>)</b></dd>
