@@ -3,7 +3,7 @@ $(document).ready(function(){
         items: 15,
         source: function(typeahead, query) {
             $.ajax({
-                url: "/flex2sms/Capcodes/ajax_findAlias/",
+                url: BASE_PATH + "Capcodes/ajax_findAlias/",
                 dataType: "json",
                 type: "POST",
                 data: {search_key: query},
@@ -38,7 +38,7 @@ $('.to_modal').click(function(e) {
 });
 
 $('#ContactBrigadeId').bind("change",function(){
-     $.getJSON("/flex2sms/Services/suggest/"+$('#ContactBrigadeId').val(), function(data){ highlightServices(data); });
+     $.getJSON(BASE_PATH + "Services/suggest/"+$('#ContactBrigadeId').val(), function(data){ highlightServices(data); });
 });
 });
 

@@ -4,6 +4,7 @@
         <meta charset="utf-8">
         <link rel="shortcut icon" href="<?php echo $this->Html->url('/'); ?>favicon.ico">
         <title><?php echo $title_for_layout; ?> - Flex2SMS</title>
+        <script>BASE_PATH = '<?php echo Router::url('/', true); ?>';</script>
         <?php echo $this->Html->css('bootstrap.min'); ?>
         <style>
             body {
