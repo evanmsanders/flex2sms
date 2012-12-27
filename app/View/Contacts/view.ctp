@@ -1,8 +1,13 @@
 <?php echo $this->Html->script('jquery.prettydate.js'); ?>
 <?php $this->set('title_for_layout', 'Contact Details'); ?>
-<div class="btn-group pull-right">
+<div class="btn-group">
     <?php echo $this->Html->link('New Contact', array('action' => 'add'), array('class' => 'btn btn-primary')); ?>
     <?php echo $this->Html->link('Edit', array('action' => 'edit', $contact['Contact']['id']), array('class' => 'btn')); ?>
+    <?php if($contact['Contact']['enabled'] == 1): ?>
+    <?php echo $this->Html->link('Disable', array('action' => 'disable', $contact['Contact']['id']), array('class' => 'btn btn-inverse')); ?>
+    <?php else: ?>
+    <?php echo $this->Html->link('Enable', array('action' => 'enable', $contact['Contact']['id']), array('class' => 'btn btn-success')); ?>
+    <?php endif; ?>
     <?php echo $this->Html->link('Delete', array('action' => 'delete', $contact['Contact']['id']), array('class' => 'btn btn-danger'), 'Are you sure you want to delete this contact?'); ?>
 </div>
 <div class="row-fluid">
@@ -15,7 +20,7 @@
         <dt>Phone Number:</dt>
         <dd><?php echo($contact['Contact']['number']); ?></dd>
 
-        <dt>Email address:</dt>
+        <dt>Email address:</dt>'])>
         <dd><?php echo($contact['Contact']['email']); ?></dd>
 
         <dt>Approved by:</dt>
