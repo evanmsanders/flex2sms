@@ -22,7 +22,17 @@ $(document).ready(function(){
 });
 
 $('#NameAutofill').bind("click",function(){
-        $('#ServiceName').val($('#ServiceType').val()+'/'+$('#ServiceCapcodeSelector').val());
+    var keywords = '';
+    var suggestedName = $('#ServiceType').val()+'/'+$('#ServiceCapcodeSelector').val();
+    $('input[name*="Keyword"]').each(function(i){
+        if(this.checked==1) {
+                keywords = keywords +'+'+ $(this.parentNode).text();
+            }
+    });
+    if(keywords.length > 1) {
+            suggestedName = suggestedName+'/'+keywords;
+        }
+    $('#ServiceName').val(suggestedName);
 });
 
 $('.to_modal').click(function(e) {
