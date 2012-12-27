@@ -6,6 +6,8 @@ class Capcode extends AppModel {
     public $displayField = 'code';
     public $hasMany = 'Service';
 
+    public $actsAs = array('Containable');
+
     public $validate = array(
         'code' => array(
             'required' => array(

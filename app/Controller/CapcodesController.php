@@ -17,12 +17,27 @@ class CapcodesController extends AppController {
 		$this->set('capcodes', $this->paginate());
 	}
 
-	public function view($id = null) {
+    public function view($id = null) {
+        $this->uses = array('Capcode', 'Service', 'Scanner', 'Message');
 		$this->Capcode->id = $id;
 		if (!$this->Capcode->exists()) {
 			throw new NotFoundException(__('Invalid capcode'));
-		}
-		$this->set('capcode', $this->Capcode->read(null, $id));
+        }
+        $capcode = $this->Capcode->find('first', array(
+            'conditions' => array('Capcode.id' => $this->Capcode->id),
+            'contain' => array(
+                'Service' => array('Contact')
+            )
+        ));
+        $this->set('capcode', $capcode); // Also loads Services.
+        // Load messages seperately.
+        $this->set('messages', $this->Message->query("SELECT outbox.* from outbox, services, capcodes where outbox.service_id = services.id AND services.capcode_id = capcodes.id AND capcodes.code = '".$capcode['Capcode']['code']."' ORDER BY outbox.id DESC LIMIT 10;"));
+        // Manually load scanner messages.
+        $this->set('scanners', $this->Scanner->find('all', array(
+            'conditions' => array('Scanner.capcode' => $capcode['Capcode']['code']),
+            'limit' => 10,
+            'order' => 'Scanner.timestamp DESC'
+        )));
 	}
 
 	public function add() {
