@@ -20,7 +20,7 @@
         <dt>Phone Number:</dt>
         <dd><?php echo($contact['Contact']['number']); ?></dd>
 
-        <dt>Email address:</dt>'])>
+        <dt>Email address:</dt>
         <dd><?php echo($contact['Contact']['email']); ?></dd>
 
         <dt>Approved by:</dt>
