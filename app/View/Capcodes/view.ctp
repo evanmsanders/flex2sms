@@ -1,3 +1,4 @@
+<?php echo $this->Html->script('jquery.prettydate.js'); ?>
 <?php $this->set('title_for_layout', 'Capcode: '.$capcode['Capcode']['code'].' / '.$capcode['Capcode']['alias']); ?>
 <div class="btn-group">
     <?php echo $this->Html->link('New Capcode', array('action' => 'add'), array('class' => 'btn btn-primary')); ?>
@@ -32,11 +33,11 @@
                     </td>
                     <td>
                         <div class="btn-group">
-                            <?php echo $this->Html->link('Edit', array('controller' => 'services', 'action' => 'edit', $service['id']), array('class' => 'btn')); ?>
+                            <?php echo $this->Html->link('Edit', array('controller' => 'services', 'action' => 'edit', $service['id']), array('class' => 'btn btn-small')); ?>
                             <?php if($service['active'] == 1): ?>
-                            <?php echo $this->Html->link('Disable', array('controller' => 'services', 'action' => 'disable', $service['id']), array('class' => 'btn btn-inverse')); ?>
+                            <?php echo $this->Html->link('Disable', array('controller' => 'services', 'action' => 'disable', $service['id']), array('class' => 'btn btn-inverse btn-small')); ?>
                             <?php else: ?>
-                            <?php echo $this->Html->link('Enable', array('controller' => 'services', 'action' => 'enable'), array('class' => 'btn btn-success')); ?>
+                            <?php echo $this->Html->link('Enable', array('controller' => 'services', 'action' => 'enable'), array('class' => 'btn btn-success btn-small')); ?>
                             <?php endif; ?>
                         </div> 
                     </td>
@@ -73,11 +74,11 @@
                     <td><?php echo $this->Html->link($contact['name'], array('controller' => 'contacts', 'action' => 'view', $contact['id'])); ?></td>
                     <td>
                         <div class="btn-group">
-                            <?php echo $this->Html->link('Edit', array('controller' => 'contacts', 'action' => 'edit', $contact['id']), array('class' => 'btn')); ?>
+                            <?php echo $this->Html->link('Edit', array('controller' => 'contacts', 'action' => 'edit', $contact['id']), array('class' => 'btn btn-small')); ?>
                             <?php if($contact['enabled'] == 1): ?>
-                            <?php echo $this->Html->link('Disable', array('controller' => 'contacts', 'action' => 'disable', $contact['id']), array('class' => 'btn btn-inverse')); ?>
+                            <?php echo $this->Html->link('Disable', array('controller' => 'contacts', 'action' => 'disable', $contact['id']), array('class' => 'btn btn-inverse btn-small')); ?>
                             <?php else: ?>
-                            <?php echo $this->Html->link('Enable', array('controller' => 'contacts', 'action' => 'enable', $contact['id']), array('class' => 'btn btn-success')); ?>
+                            <?php echo $this->Html->link('Enable', array('controller' => 'contacts', 'action' => 'enable', $contact['id']), array('class' => 'btn btn-success btn-small')); ?>
                             <?php endif; ?>
                         </div>
                     </td>
@@ -98,20 +99,25 @@
 </div>
 <div class="row-fluid">
     <div class="span6">
-        <h3>Sent Messages</h3>
-        <p>Messages related to this Capcode which have been sent recently.</p>
+        <h3>Sent Messages <small>Recent sent messages related to this Capcode</small></h3>
+        
         <table class="table table-striped table-bordered">
             <thead>
                 <tr>
-                    <th>Message</th>
+                    <th>Message <?php echo $this->Html->link('View all', array('controller' => 'messages'), array('class' => 'btn btn-mini pull-right')); ?></th>
                 </tr>
             </thead>
             <tbody
                 <?php 
                 if(count($messages)>0) {
                     foreach($messages as $message): ?>
-                <tr>
-                    <td><?php echo $message['outbox']['text']; ?></td>
+                <tr<?php if($message['outbox']['error']!=0){
+            echo(' class="error"');
+            }elseif($message['outbox']['processed']!=1){ 
+                echo(' class="warning"');
+                } ?>>
+                    <td><strong><span class="date" title="<?php echo(date('c',strtotime($message['outbox']['processed_date']))); ?>">
+                    <?php echo($message['outbox']['processed_date']); ?></span></strong> - <?php echo $message['outbox']['text']; ?></td>
                 </tr> 
                 <?php endforeach; 
                 } else {
@@ -126,12 +132,12 @@
         </table>
     </div>
     <div class="span6">
-        <h3>Scanner Messages</h3>
-        <p>All recent message related to this Capcode.</p>
+        <h3>Scanner Messages <small>All recent message related to this Capcode.</small></h3>
+        
         <table class="table table-striped table-bordered">
             <thead>
                 <tr>
-                    <th>Message</th>
+                    <th>Message <?php echo $this->Html->link('View all', array('controller' => 'scanners'), array('class' => 'btn btn-mini pull-right')); ?></th>
                 </tr> 
             </thead>
             <tbody>
@@ -139,7 +145,8 @@
                 if(count($scanners)>0) {
                 foreach($scanners as $scanner): ?>
                 <tr>
-                    <td><?php echo $scanner['Scanner']['message']; ?></td>
+                    <td><strong><span class="date" title="<?php echo(date('c',strtotime($scanner['Scanner']['timestamp']))); ?>">
+                    <?php echo($scanner['Scanner']['timestamp']); ?></span></strong> - <?php echo $scanner['Scanner']['message']; ?></td>
                 </tr>
                 <?php endforeach; 
                 } else {
@@ -154,3 +161,7 @@
         </table>
     </div>
 </div>
+
+<script>
+    $(function() { $("span.date").prettyDate(); });
+</script>

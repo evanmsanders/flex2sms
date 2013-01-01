@@ -1,3 +1,4 @@
+<?php echo $this->Html->script('jquery.prettydate.js'); ?>
 <?php $this->set('title_for_layout', 'Service Details'); ?>
 <div class="btn-group">
     <?php echo $this->Html->link('New Service', array('action' => 'add'), array('class' => 'btn btn-primary')); ?>
@@ -42,37 +43,8 @@
 
 <div class="row-fluid">
   <div class="span6">
-    <h3>Keywords</h3>
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>Keyword</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php foreach($service['Keyword'] as $keyword): ?>
-            <tr>
-                <td><?php echo $keyword['word']; ?></td>
-                <td>
-                    <div class="btn-group">
-                        <?php echo $this->Html->link(__('Edit'), array('controller' => 'keywords', 'action' => 'edit', $keyword['id']), array('class' => 'btn btn-small')); ?>
-                        <span class="btn btn-small btn-danger">TODO: Unlink</span>
-                </td>
-            </tr>
-            <?php endforeach; 
-            if(count($service['Keyword']) < 1)
-            {
-                echo '<tr><td colspan="2">No Keywords</td></tr>';
-            }
-            ?>
-            
-        </tbody>
-    </table>
-  </div>
-  <div class="span6">
     <h3>Contacts</h3>
-    <table class="table table-striped">
+    <table class="table table-striped table-bordered">
         <thead>
             <tr>
                 <th>Contact Name</th>
@@ -97,6 +69,34 @@
                 echo '<tr><td colspan="2">No Contacts</td></tr>';
             }
             ?>
+        </tbody>
+    </table>
+  </div>
+  <div class="span6">
+    <h3>Keywords</h3>
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>Keyword</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach($service['Keyword'] as $keyword): ?>
+            <tr>
+                <td><?php echo $keyword['word']; ?></td>
+                <td>
+                    <div class="btn-group">
+                        <?php echo $this->Html->link(__('Edit'), array('controller' => 'keywords', 'action' => 'edit', $keyword['id']), array('class' => 'btn btn-small')); ?>
+                </td>
+            </tr>
+            <?php endforeach; 
+            if(count($service['Keyword']) < 1)
+            {
+                echo '<tr><td colspan="2">No Keywords</td></tr>';
+            }
+            ?>
+            
         </tbody>
     </table>
   </div>
@@ -144,3 +144,6 @@
 <div id="printr" class="collapse">
 <?php echo Debugger::dump($service); ?>
 </div>
+<script>
+    $(function() { $("span.date").prettyDate(); });
+</script>
