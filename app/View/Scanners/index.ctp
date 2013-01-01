@@ -1,6 +1,6 @@
 <?php echo $this->Html->script('jquery.prettydate.js'); ?>
 <?php echo $this->Paginator->pagination(); ?>
-<table class="table table-striped table-hover tabled-condensed">
+<table class="table table-striped table-hover table-condensed table-bordered">
     <thead>
         <tr>
             <th><?php echo $this->Paginator->sort('capcode'); ?></th>
