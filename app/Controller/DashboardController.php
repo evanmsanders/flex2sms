@@ -17,7 +17,7 @@ class DashboardController extends AppController {
         // Manually load scanner messages.
         $this->set('scanners', $this->Scanner->find('all', array(
             'limit' => 10,
-            'order' => 'Scanner.timestamp DESC'
+            'order' => 'Scanner.id DESC'
         )));
     }
 
