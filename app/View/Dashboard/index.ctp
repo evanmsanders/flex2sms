@@ -91,7 +91,8 @@
                 foreach($scanners as $scanner): ?>
                 <tr>
                     <td><?php echo $scanner['Scanner']['message']; ?></td>
-                    <td class="span2"><span class="date" title="<?php echo(date('c',strtotime($message['Message']['processed_date']))); ?>"><?php echo($message['Message']['processed_date']); ?></span></td>
+                    <td class="span2"><span class="date" title="<?php echo(date('c',strtotime($scanner['Scanner']['timestamp']))); ?>">
+                    <?php echo($scanner['Scanner']['timestamp']); ?></span></td>                
                 </tr>
                 <?php endforeach; 
                 } else {
