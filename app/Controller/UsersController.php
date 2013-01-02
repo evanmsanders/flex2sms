@@ -20,10 +20,10 @@ class UsersController extends AppController {
 		if ($this->request->is('post')) {
 			$this->User->create();
 			if ($this->User->save($this->request->data)) {
-				$this->Session->setFlash(__('The user has been saved'));
+				$this->Session->setFlash(__('The user has been saved'), null, null, 'success');
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The user could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('The user could not be saved. Please, try again.'), null, null, 'error');
 			}
 		}
 	}
@@ -35,10 +35,10 @@ class UsersController extends AppController {
 		}
 		if ($this->request->is('post') || $this->request->is('put')) {
 			if ($this->User->save($this->request->data)) {
-				$this->Session->setFlash(__('The user has been saved'));
+				$this->Session->setFlash(__('The user has been saved.'), null, null, 'success');
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The user could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('The user could not be saved. Please, try again.'), null, null, 'error');
 			}
 		} else {
 			$this->request->data = $this->User->read(null, $id);
@@ -46,18 +46,15 @@ class UsersController extends AppController {
 	}
 
 	public function delete($id = null) {
-		if (!$this->request->is('post')) {
-			throw new MethodNotAllowedException();
-		}
 		$this->User->id = $id;
 		if (!$this->User->exists()) {
 			throw new NotFoundException(__('Invalid user'));
 		}
 		if ($this->User->delete()) {
-			$this->Session->setFlash(__('User deleted'));
+			$this->Session->setFlash(__('User deleted.'), null, null, 'success');
 			$this->redirect(array('action' => 'index'));
 		}
-		$this->Session->setFlash(__('User was not deleted'));
+		$this->Session->setFlash(__('There was a problem deleting the user.'), null, null, 'error');
 		$this->redirect(array('action' => 'index'));
     }
 

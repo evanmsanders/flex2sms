@@ -77,6 +77,10 @@
                                     <li class="nav-header"><i class="icon-list-alt"></i> Capcodes</li>
                                     <li><?php echo $this->Html->link('<i class="icon-plus"></i> New capcode', array('controller' => 'capcodes', 'action' => 'add'), array('escape'=>false)); ?></li>
                                     <li><?php echo $this->Html->link('<i class="icon-list"></i> List capcodes', array('controller' => 'capcodes', 'action' => 'index'), array('escape'=>false)); ?></li>
+                                    <li class="divider"></li>
+                                    <li class="nav-header"><i class="icon-user"></i> Users</li>
+                                    <li><?php echo $this->Html->link('<i class="icon-plus"></i> New User', array('controller' => 'users', 'action' => 'add'), array('escape' => false)); ?></li>
+                                    <li><?php echo $this->Html->link('<i class="icon-list"></i> List Users', array('controller' => 'users', 'action' => 'index'), array('escape' => false)); ?></li>
                                 </ul>
                                 </li>
                             </li>
