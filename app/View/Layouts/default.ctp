@@ -35,7 +35,13 @@
                     </a>
                     <?php echo $this->Html->link('Flex2SMS', '/', array('escape'=>false,'class'=>'brand')); ?>
                     <div class="nav-collapse collapse">
-                        <p class="navbar-text pull-right">Logged in as <a href="#" class="navbar-link">Admin</a></p>
+                        <p class="navbar-text pull-right">
+                            <?php if($this->Session->check('Auth.User.id')): ?>
+                            Logged in as <?php echo $this->Session->read('Auth.User.username'); ?> &mdash; <?php echo $this->Html->link('Log out', array('controller' => 'users', 'action' => 'logout')); ?>
+                            <?php else: ?>
+                            <?php echo $this->Html->link('Log in', array('controller' => 'users', 'action' => 'login')); ?>
+                            <?php endif; ?>
+                        </p>
                         <ul class="nav">
                             <li><?php echo $this->Html->link('<i class="icon-home icon-white"></i> Home', '/', array('escape'=>false)); ?></li>
                             <li class="dropdown">
@@ -86,6 +92,7 @@
                 <h1><?php if(!isset($page_heading)) { echo $title_for_layout;} else {echo $page_heading; } ?></h1>
                 <?php echo $this->Session->flash('success', array('element' => 'success')); ?>
                 <?php echo $this->Session->flash('error', array('element' => 'error')); ?>
+                <?php echo $this->Session->flash('auth', array('element' => 'auth')); ?>
                 <?php echo $this->fetch('content'); ?>
             </div>
             <div style="clear:both;">
