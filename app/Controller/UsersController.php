@@ -3,6 +3,20 @@ App::uses('AppController', 'Controller');
 
 class UsersController extends AppController {
 
+    public function beforeFilter() {
+        /*
+         * When no user logged in, and no users in the db, we want to be able
+         * to create a user. 
+         *
+         * TODO: this feature should move into a dedicated setup routine.
+         */
+        if(!$this->Auth->loggedIn()) {
+            if($this->User->find('count') == 0) {
+                $this->Auth->allow('add');
+            }
+        }
+    }
+
 	public function index() {
 		$this->User->recursive = 0;
 		$this->set('users', $this->paginate());
@@ -54,7 +68,7 @@ class UsersController extends AppController {
 			$this->Session->setFlash(__('User deleted.'), null, null, 'success');
 			$this->redirect(array('action' => 'index'));
 		}
-		$this->Session->setFlash(__('There was a problem deleting the user.'), null, null, 'error');
+		$this->Session->setFlash(__('There was a problem deleting the user. Please note that you cannot delete the last user.'), null, null, 'error');
 		$this->redirect(array('action' => 'index'));
     }
 

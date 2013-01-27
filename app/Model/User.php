@@ -1,23 +1,10 @@
 <?php
 App::uses('AppModel', 'Model', 'AuthComponent');
-/**
- * User Model
- *
- */
+
 class User extends AppModel {
 
-/**
- * Display field
- *
- * @var string
- */
 	public $displayField = 'username';
 
-/**
- * Validation rules
- *
- * @var array
- */
 	public $validate = array(
 		'username' => array(
 			'notempty' => array(
@@ -84,8 +71,17 @@ class User extends AppModel {
     );
 
     public function beforeSave($options = array()) {
+        // We need to manually hash the password here.
         if(isset($this->data['User']['password'])) {
             $this->data['User']['password'] = AuthComponent::password($this->data['User']['password']);
         }
+    }
+
+    public function beforeDelete($cascade = true) {
+        // Prevent the last user from being deleted.
+        if($this->find('count') == 1) {
+            return false;
+        }
+        return true;
     }
 }
