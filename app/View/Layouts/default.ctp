@@ -35,7 +35,13 @@
                     </a>
                     <?php echo $this->Html->link('Flex2SMS', '/', array('escape'=>false,'class'=>'brand')); ?>
                     <div class="nav-collapse collapse">
-                        <p class="navbar-text pull-right">Logged in as <a href="#" class="navbar-link">Admin</a></p>
+                        <p class="navbar-text pull-right">
+                            <?php if($this->Session->check('Auth.User.id')): ?>
+                            Logged in as <?php echo $this->Session->read('Auth.User.username'); ?> &mdash; <?php echo $this->Html->link('Log out', array('controller' => 'users', 'action' => 'logout')); ?>
+                            <?php else: ?>
+                            <?php echo $this->Html->link('Log in', array('controller' => 'users', 'action' => 'login')); ?>
+                            <?php endif; ?>
+                        </p>
                         <ul class="nav">
                             <li><?php echo $this->Html->link('<i class="icon-home icon-white"></i> Home', '/', array('escape'=>false)); ?></li>
                             <li class="dropdown">
@@ -71,6 +77,10 @@
                                     <li class="nav-header"><i class="icon-list-alt"></i> Capcodes</li>
                                     <li><?php echo $this->Html->link('<i class="icon-plus"></i> New capcode', array('controller' => 'capcodes', 'action' => 'add'), array('escape'=>false)); ?></li>
                                     <li><?php echo $this->Html->link('<i class="icon-list"></i> List capcodes', array('controller' => 'capcodes', 'action' => 'index'), array('escape'=>false)); ?></li>
+                                    <li class="divider"></li>
+                                    <li class="nav-header"><i class="icon-user"></i> Users</li>
+                                    <li><?php echo $this->Html->link('<i class="icon-plus"></i> New User', array('controller' => 'users', 'action' => 'add'), array('escape' => false)); ?></li>
+                                    <li><?php echo $this->Html->link('<i class="icon-list"></i> List Users', array('controller' => 'users', 'action' => 'index'), array('escape' => false)); ?></li>
                                 </ul>
                                 </li>
                             </li>
@@ -86,6 +96,7 @@
                 <h1><?php if(!isset($page_heading)) { echo $title_for_layout;} else {echo $page_heading; } ?></h1>
                 <?php echo $this->Session->flash('success', array('element' => 'success')); ?>
                 <?php echo $this->Session->flash('error', array('element' => 'error')); ?>
+                <?php echo $this->Session->flash('auth', array('element' => 'auth')); ?>
                 <?php echo $this->fetch('content'); ?>
             </div>
             <div style="clear:both;">
