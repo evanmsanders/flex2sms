@@ -9,7 +9,7 @@
         'placeholder' => "Contact's full name"));
 
     echo $this->Form->input('brigade_id',array(
-        'label'=> 'Phone:',
+        'label'=> 'Brigade:',
         'type'=>'select',
         'options'=>$brigades));
 
@@ -26,7 +26,7 @@
         'placeholder' => "Service approved by")); 
 
     echo $this->Form->input('modem_id',array(
-        'label'=> 'Phone:',
+        'label'=> 'Modem:',
         'type'=>'select',
         'options'=>$modems));
 
