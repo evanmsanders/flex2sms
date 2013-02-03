@@ -30,19 +30,31 @@
         </div>
         <div class="row-fluid">
               <div class="span6">
-                  <h4><i class="icon-envelope icon-large"></i> SMS Log</h4>
-                  <p>SMS message outbox, view sent and pending messages</p>
-                  <p><?php echo $this->Html->link('View SMS log', array('controller' => 'services'), array('class' => 'btn btn-primary')); ?></p>
+                  <h4><i class="icon-envelope icon-large"></i> <i class="icon-list icon-large"></i> Logs</h4>
+                  <p>View SMS and Scanner logs.</p>
+                  <p><?php echo $this->Html->link('View SMS log', array('controller' => 'services'), array('class' => 'btn btn-primary')); ?>
+                  <?php echo $this->Html->link('View Scanner', array('controller' => 'scanners'), array('class' => 'btn btn-primary')); ?></p>
               </div>
               <div class="span6">
-                  <h4><i class="icon-list icon-large"></i> Scanner</h4>
-                  <p>Raw output from pager scanner</p>
-                  <p><?php echo $this->Html->link('View Scanner', array('controller' => 'scanners'), array('class' => 'btn btn-primary')); ?></p>
+                  <h4><i class="icon-user icon-large"></i> Admin Users</h4>
+                  <p>View and manage administrators.</p>
+                <?php echo $this->Html->link('View Users', array('controller' => 'users'), array('class' => 'btn btn-primary')); ?>
+                <?php echo $this->Html->link('New User', array('controller' => 'users', 'action'=>'add'), array('class' => 'btn btn-success')); ?>
               </div>
         </div>
-        <div class="row-fluid">
-            <div class="span12 hero-unit">
-                ...Self-test results...
+        <div class="row-fluid" style="background-color: #eee; padding:10px;">
+            <div class="span12">
+                <h4>Self check status</h4>
+                <dl class="dl-horizontal">
+                    <dt>Last checked:</dt>
+                    <dd>3 minutes ago</dd>
+                    <dt>Scanner Status:</dt>
+                    <dd><span class="text-success">OK</span></dd>
+                    <dt>SMS Daemon Status:</dt>
+                    <dd><span class="text-success">OK</span></dd>
+                    <dt>Notes:</dt>
+                    <dd class="text-warning">Missing 1 out of last 10 periodic test messages.</dd>
+                </dl>
             </div>
         </div>
     </div>
