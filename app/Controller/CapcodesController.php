@@ -94,7 +94,7 @@ class CapcodesController extends AppController {
                       'recursive'=>-1,
                   ));
                   foreach($results as $result):
-                      $data[] = array("id"=>$result['Capcode']['id'],"alias"=>$result['Capcode']['alias'].'('.$result['Capcode']['code'].')');
+                      $data[] = array("id"=>$result['Capcode']['id'],"alias"=>$result['Capcode']['alias'].' ('.$result['Capcode']['code'].')');
                   endforeach;
                   if(!isset($data)) {
                       $data[] = array(
