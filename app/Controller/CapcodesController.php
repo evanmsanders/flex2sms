@@ -84,11 +84,17 @@ class CapcodesController extends AppController {
         
         public function ajax_findAlias(){
             $this->autoRender = false;
+            $or_conditions[] = array('code LIKE' => '%'.$this->request->data['search_key'].'%');
+            $keywords_array = explode(' ',$this->request->data['search_key']);
+            foreach ($keywords_array as $value) {
+                if($value != ''){
+                    $or_conditions[] = array('alias LIKE' => '%'.$value.'%');
+                }
+            }
               if ($this->request->is('ajax')) {
                   $results = $this->Capcode->find('all', array(
-                      'conditions'=>array('or' => array(
-                          'alias LIKE' => '%'.$this->request->data['search_key'].'%',
-                          'code LIKE' => '%'.$this->request->data['search_key'].'%')),
+                      'conditions'=>array('or' => $or_conditions
+                          ),
                       'fields' => array('id','alias','code'),
                       'order' => 'alias ASC',
                       'recursive'=>-1,
