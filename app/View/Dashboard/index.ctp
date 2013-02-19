@@ -61,7 +61,7 @@
 </div>
 <div class="row-fluid">
     <div class="span6">
-        <h4>Recent sent messages <?php echo $this->Html->link('View all', array('controller' => 'services'), array('class' => 'btn btn-mini pull-right')); ?></h4>
+        <h4>Recent sent messages <?php echo $this->Html->link('View all', array('controller' => 'messages'), array('class' => 'btn btn-mini pull-right')); ?></h4>
         <table class="table table-striped table-bordered table-condensed">
             <thead>
                 <tr>
