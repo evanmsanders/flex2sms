@@ -69,7 +69,7 @@
                     <th>Message</th>
                 </tr>
             </thead>
-            <tbody
+            <tbody>
                 <?php 
                 if(count($messages)>0) {
                     foreach($messages as $message): ?>
