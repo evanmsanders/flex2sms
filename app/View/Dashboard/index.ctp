@@ -42,18 +42,52 @@
                 <?php echo $this->Html->link('New User', array('controller' => 'users', 'action'=>'add'), array('class' => 'btn btn-success')); ?>
               </div>
         </div>
+<?php
+/**
+ * work out classes for status block
+ */
+if($statuses[0]['Status']['status'] == 'OK'){
+    $status_all = 'success';
+} else {
+    $status_all = 'warning';
+}
+
+if($statuses[0]['Status']['scanner'] == 'Current'){
+    $status_scanner = 'success';
+} else {
+    $status_scanner = 'warning';
+}
+
+if($statuses[0]['Status']['smsdaemon'] == 'Running'){
+    $status_smsdaemon = 'success';
+} else {
+    $status_smsdaemon = 'warning';
+}
+
+if($statuses[0]['Status']['accuracy'] == 10){
+    $status_accuracy = 'success';
+} elseif ($statuses[0]['Status']['accuracy'] ==9 ){
+    $status_accuracy = 'warning';
+} else {
+    $status_accuracy = 'danger';
+}
+
+?>
+        
         <div class="row-fluid" style="background-color: #eee; padding:10px;">
             <div class="span12">
-                <h4>Self check status</h4>
+                <h4>Self check status :: <span class="text-<?php echo $status_all ?>"><?php echo $statuses[0]['Status']['status']; ?></span><?php echo $this->Html->link('View log', array('controller' => 'statuses'), array('class' => 'btn btn-mini pull-right')); ?></h4>
                 <dl class="dl-horizontal">
                     <dt>Last checked:</dt>
-                    <dd>3 minutes ago</dd>
+                    <dd><span class="date" title="<?php echo date('c',strtotime($statuses[0]['Status']['timestamp'])); ?>"><?php echo $statuses[0]['Status']['timestamp']; ?></span></dd>
                     <dt>Scanner Status:</dt>
-                    <dd><span class="text-success">OK</span></dd>
+                    <dd><span class="text-<?php echo $status_scanner ?>"><?php echo $statuses[0]['Status']['scanner']; ?></span></dd>
                     <dt>SMS Daemon Status:</dt>
-                    <dd><span class="text-success">OK</span></dd>
+                    <dd><span class="text-<?php echo $status_smsdaemon ?>"><?php echo $statuses[0]['Status']['smsdaemon']; ?></span></dd>
+                    <dt>Accuracy:</dt>
+                    <dd><span class="text-<?php echo $status_accuracy ?>">Received <?php echo $statuses[0]['Status']['accuracy']; ?> out of last 10 periodic test messages.</span></dd>
                     <dt>Notes:</dt>
-                    <dd class="text-warning">Missing 1 out of last 10 periodic test messages.</dd>
+                    <dd class="text-warning"><?php echo $statuses[0]['Status']['notes']; ?></dd>
                 </dl>
             </div>
         </div>

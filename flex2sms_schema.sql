@@ -260,6 +260,20 @@ CREATE TABLE `users` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
+
+CREATE  TABLE `sms`.`status` (
+  `id` INT NOT NULL AUTO_INCREMENT ,
+  `status` VARCHAR(100) NULL ,
+  `timestamp` TIMESTAMP NOT NULL DEFAULT NOW() COMMENT 'Monitoring table for SMS system status' ,
+  `scanner` VARCHAR(45) NULL ,
+  `smsdaemon` VARCHAR(45) NULL ,
+  `accuracy` VARCHAR(100) NULL ,
+  `notes` TEXT NULL ,
+  PRIMARY KEY (`id`) );
+
+
+
+
 <<<<<<< HEAD
 -- Dump completed on 2013-01-02 12:47:25
 =======
