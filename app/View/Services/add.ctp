@@ -30,6 +30,14 @@
 </fieldset>
 <fieldset>
     <legend>Keywords</legend>
+    <?php  echo $this->Form->input('keywordType', array(
+ 'div' => true,
+ 'label' => true,
+ 'type' => 'radio',
+ 'legend' => false,
+ 'default' => 'disabled',
+ 'options' => array('disabled' => 'Disabled', 'and' => 'and', 'or' => 'or')
+));  ?>
 <?php echo $this->Form->input('Keyword', array('multiple' => 'checkbox')); ?>
 </fieldset>
 <fieldset>

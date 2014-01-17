@@ -20,6 +20,7 @@
 <?php echo $this->Form->input('comment',array('type'=>'textarea')); ?>
 <?php echo $this->Form->input('active'); ?>
 <?php echo $this->Form->input('capcode_id',array('type' => 'text','class'=>'hide','label'=>false)); ?>
+<?php echo $this->Form->input('keywordType'); ?>
 <?php echo $this->Form->input('Keyword', array('multiple' => 'checkbox')); ?>
 <?php echo $this->Form->input('Contact', array('multiple' => 'checkbox')); ?>
 <?php echo $this->Form->submit('Save Service', array('class' => 'btn btn-primary')); ?>
