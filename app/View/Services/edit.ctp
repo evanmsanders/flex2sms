@@ -24,7 +24,9 @@
  'label' => 'Filter type:',
  'type' => 'radio',
  'legend' => false,
- 'options' => array('disabled' => 'Disabled', 'and' => 'and', 'or' => 'or')
+ 'options' => array('disabled' => 'Disabled (no filtering)',
+     'and' => 'and (message contains all keywords)',
+     'or' => 'or (message contains any key word)')
 )); ?>
 <?php echo $this->Form->input('Keyword', array('multiple' => 'checkbox')); ?>
 <?php echo $this->Form->input('Contact', array('multiple' => 'checkbox')); ?>
