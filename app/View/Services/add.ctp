@@ -30,9 +30,8 @@
 </fieldset>
 <fieldset>
     <legend>Keywords</legend>
-    <?php  echo $this->Form->input('keywordType', array(
- 'div' => true,
- 'label' => true,
+    <?php  echo $this->Form->input('filterType', array(
+ 'label' => 'Filter type:',
  'type' => 'radio',
  'legend' => false,
  'default' => 'disabled',

@@ -129,6 +129,7 @@ CREATE TABLE `keywords_services` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `keyword_id` int(11) NOT NULL,
   `service_id` int(11) NOT NULL,
+  `filterType` VARCHAR(45) NOT NULL DEFAULT 'Disabled',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
