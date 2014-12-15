@@ -33,7 +33,11 @@
             <td><?php echo $this->Html->link($service['Service']['name'], array('action' => 'view', $service['Service']['id'])); ?></td>
             <td><?php echo $this->Html->link($service['Capcode']['code'].' / '.$service['Capcode']['alias'],array('controller'=>'capcodes','action'=>'view',$service['Capcode']['id'])); ?></td>
             <td><?php if($service['Service']['active']==1) { echo 'Active'; } else { echo 'Disabled';} ?></td>
-            <td><?php echo count($service['Contact']).' / '.count($service['Message']); ?></td>
+            <td><?php 
+            echo count($service['Contact']);
+            if($service['Service']['type']=="sms") {
+                echo ' / '.count($service['Message']); 
+            } ?></td>
             <td>
                 <div class="btn-group">
                     <?php echo $this->Html->link('Edit', array('action' => 'edit', $service['Service']['id']), array('class' => 'btn btn-small')); ?>
