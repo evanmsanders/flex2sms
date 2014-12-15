@@ -1,5 +1,6 @@
 <?php $this->set('title_for_layout', 'Services'); ?>
 <?php echo $this->Html->link('New Service', array('action' => 'add'), array('class' => 'btn btn-primary')); ?>
+<?php echo $this->Paginator->pagination(); ?>
 <table class="table table-striped table-hover">
     <thead>
         <tr>
@@ -53,4 +54,5 @@
         <?php endforeach; ?>
     </tbody>
 </table>
+<?php echo $this->Paginator->pagination(); ?>
 <?php echo $this->Html->link('New Service', array('action' => 'add'), array('class' => 'btn btn-primary')); ?>
