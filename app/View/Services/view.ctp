@@ -32,6 +32,9 @@
                     case 'email':
                         echo '<i class="icon-envelope"></i> ';
                         break;
+                    case 'clickatell':
+                        echo '<i class="icon-play-circle"></i> ';
+                        break;
                 } 
                 echo $service['Service']['type']; ?></td>
             <td><?php echo $this->Html->link($service['Capcode']['code'].' / '.$service['Capcode']['alias'], array('controller' => 'capcodes', 'action' => 'view', $service['Capcode']['id'])); ?></td>

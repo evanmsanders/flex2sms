@@ -7,7 +7,8 @@
 <?php echo $this->Form->input('type',array('type'=>'select',
     'options' => array(
         'sms' => 'SMS',
-        'email' => 'Email'
+        'email' => 'Email',
+        'clickatell' => 'Clickatell'
     ))); ?>
 <?php echo $this->Form->input('capcode_selector', array(
     'class' => 'capcodeTA',

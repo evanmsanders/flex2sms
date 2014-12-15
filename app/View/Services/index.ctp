@@ -25,6 +25,9 @@
                     case 'email':
                         echo '<i class="icon-envelope"></i> ';
                         break;
+                    case 'clickatell':
+                        echo '<i class="icon-play-circle"></i> ';
+                        break;
                 } 
             echo $service['Service']['type']; ?></td>
             <td><?php echo $this->Html->link($service['Service']['name'], array('action' => 'view', $service['Service']['id'])); ?></td>
