@@ -273,7 +273,28 @@ CREATE  TABLE `sms`.`status` (
   PRIMARY KEY (`id`) );
 
 
+CREATE TABLE `flex2sms`.`email_log` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `capcode` VARCHAR(100) NULL,
+  `message` TEXT NULL,
+  `contact_id` INT NULL,
+  `service_id` INT NULL,
+  `timestamp` VARCHAR(100) NULL COMMENT 'Logging of sent email messages',
+  `comments` VARCHAR(255) NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC));
 
+
+CREATE TABLE `flex2sms`.`clickatell_log` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `capcode` VARCHAR(100) NULL,
+  `message` TEXT NULL,
+  `contact_id` INT NULL,
+  `service_id` INT NULL,
+  `timestamp` VARCHAR(100) NULL COMMENT 'Logging of messages sent through Clickatell',
+  `comments` VARCHAR(255) NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC));
 
 <<<<<<< HEAD
 -- Dump completed on 2013-01-02 12:47:25
