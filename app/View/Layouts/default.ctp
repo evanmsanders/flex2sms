@@ -84,8 +84,15 @@
                                 </ul>
                                 </li>
                             </li>
-                            <li><?php echo $this->Html->link('<i class="icon-envelope icon-white"></i> SMS Logs', array('controller' => 'messages', 'action' => 'index'), array('escape'=>false)); ?></li>
-                            <li><?php echo $this->Html->link('<i class="icon-list icon-white"></i> Scanner', array('controller' => 'scanners', 'action' => 'index'), array('escape'=>false)); ?></li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-list icon-white"></i> Logs<b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    <li><?php echo $this->Html->link('<i class="icon-list icon-white"></i> Scanner logs', array('controller' => 'scanners', 'action' => 'index'), array('escape'=>false)); ?></li>
+                                    <li><?php echo $this->Html->link('<i class="icon-phone icon-white"></i> SMS logs', array('controller' => 'messages', 'action' => 'index'), array('escape'=>false)); ?></li>
+                                    <li><?php echo $this->Html->link('<i class="icon-play-circle icon-white"></i> Clickatell logs', array('controller' => 'clickatellLogs', 'action' => 'index'), array('escape'=>false)); ?></li>
+                                    <li><?php echo $this->Html->link('<i class="icon-envelope icon-white"></i> Email logs', array('controller' => 'emailLogs', 'action' => 'index'), array('escape'=>false)); ?></li>
+                                </ul>
+                            </li>
                         </ul>
                     </div><!--/.nav-collapse -->
                 </div>
