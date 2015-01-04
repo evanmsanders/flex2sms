@@ -33,53 +33,6 @@ class EmailLogsController extends AppController {
 	}
 
 /**
- * add method
- *
- * @return void
- */
-	public function add() {
-		if ($this->request->is('post')) {
-			$this->EmailLog->create();
-			if ($this->EmailLog->save($this->request->data)) {
-				$this->Session->setFlash(__('The email log has been saved'));
-				$this->redirect(array('action' => 'index'));
-			} else {
-				$this->Session->setFlash(__('The email log could not be saved. Please, try again.'));
-			}
-		}
-		$contacts = $this->EmailLog->Contact->find('list');
-		$services = $this->EmailLog->Service->find('list');
-		$this->set(compact('contacts', 'services'));
-	}
-
-/**
- * edit method
- *
- * @throws NotFoundException
- * @param string $id
- * @return void
- */
-	public function edit($id = null) {
-		$this->EmailLog->id = $id;
-		if (!$this->EmailLog->exists()) {
-			throw new NotFoundException(__('Invalid email log'));
-		}
-		if ($this->request->is('post') || $this->request->is('put')) {
-			if ($this->EmailLog->save($this->request->data)) {
-				$this->Session->setFlash(__('The email log has been saved'));
-				$this->redirect(array('action' => 'index'));
-			} else {
-				$this->Session->setFlash(__('The email log could not be saved. Please, try again.'));
-			}
-		} else {
-			$this->request->data = $this->EmailLog->read(null, $id);
-		}
-		$contacts = $this->EmailLog->Contact->find('list');
-		$services = $this->EmailLog->Service->find('list');
-		$this->set(compact('contacts', 'services'));
-	}
-
-/**
  * delete method
  *
  * @throws MethodNotAllowedException
