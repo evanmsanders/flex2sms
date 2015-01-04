@@ -28,7 +28,7 @@
 		<td class="actions">
                     <div class="btn-group">
 			<?php echo $this->Html->link(__('View'), array('action' => 'view', $clickatellLog['ClickatellLog']['id']), array('class' => 'btn btn-small btn-info')); ?>
-                        <?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $clickatellLog['ClickatellLog']['id']), null, __('Are you sure you want to delete # %s?', $clickatellLog['ClickatellLog']['id']), array('class' => 'btn btn-small btn-info')); ?>
+                        <?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $clickatellLog['ClickatellLog']['id']), array('class' => 'btn btn-small btn-danger'), __('Are you sure you want to delete # %s?', $clickatellLog['ClickatellLog']['id'])); ?>
                     </div>
 		</td>
 	</tr>
