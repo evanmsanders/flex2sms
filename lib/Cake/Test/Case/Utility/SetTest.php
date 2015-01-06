@@ -2084,7 +2084,7 @@ class SetTest extends CakeTestCase {
 		$class->User = new stdClass;
 		$class->User->psword = 'whatever';
 		$class->User->Icon = new stdClass;
-		$class->User->Icon->id = 851;
+		$class->User->fa fa->id = 851;
 		$result = Set::reverse($class);
 		$this->assertEquals($expected, $result);
 
@@ -2093,7 +2093,7 @@ class SetTest extends CakeTestCase {
 		$class->User = new stdClass;
 		$class->User->psword = 'whatever';
 		$class->User->Icon = new stdClass;
-		$class->User->Icon->id = 851;
+		$class->User->fa fa->id = 851;
 		$class->User->Profile = new stdClass;
 		$class->User->Profile->name = 'Some Name';
 		$class->User->Profile->address = 'Some Address';
@@ -2112,7 +2112,7 @@ class SetTest extends CakeTestCase {
 		$class->User = new stdClass;
 		$class->User->psword = 'whatever';
 		$class->User->Icon = new stdClass;
-		$class->User->Icon->id = 851;
+		$class->User->fa fa->id = 851;
 		$class->User->Profile = new stdClass;
 		$class->User->Profile->name = 'Some Name';
 		$class->User->Profile->address = 'Some Address';
@@ -2149,7 +2149,7 @@ class SetTest extends CakeTestCase {
 		$class->User = new stdClass;
 		$class->User->psword = 'whatever';
 		$class->User->Icon = new stdClass;
-		$class->User->Icon->id = 851;
+		$class->User->fa fa->id = 851;
 		$class->User->Profile = new stdClass;
 		$class->User->Profile->name = 'Some Name';
 		$class->User->Profile->address = 'Some Address';

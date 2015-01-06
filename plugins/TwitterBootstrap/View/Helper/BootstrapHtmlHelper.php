@@ -4,7 +4,7 @@ App::uses('Inflector', 'Utility');
 
 class BootstrapHtmlHelper extends HtmlHelper {
 
-	const ICON_PREFIX = 'icon-';
+	const ICON_PREFIX = 'fa fa-';
 
 	public function __construct(View $View, $settings = array()) {
 		parent::__construct($View, $settings);

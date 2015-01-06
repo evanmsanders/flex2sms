@@ -159,7 +159,7 @@
 						</div>
 					</div>
 					<div class="control-group">
-						<label class="control-label" for="multiSelect">Multicon-select</label>
+						<label class="control-label" for="multiSelect">Multfa fa-select</label>
 						<div class="controls">
 							<select multiple="multiple" id="multiSelect">
 								<option>1</option>
@@ -211,7 +211,7 @@
 						),
 					)); ?>
 					<?php echo $this->Form->input(uniqid(), array(
-						'label' => 'Multicon-select',
+						'label' => 'Multfa fa-select',
 						'type' => 'select',
 						'multiple' => true,
 						'options' => array(
@@ -709,7 +709,7 @@
 			</div> <!-- /well -->
 		</div>
 		<div class="span4">
-			<?php echo $this->Form->input('text', array('class' => 'span2', 'label' => 'Email address', 'prepend' => $this->Html->icon('envelope'))); ?>
+			<?php echo $this->Form->input('text', array('class' => 'span2', 'label' => 'Email address', 'prepend' => $this->Html->icon('envelope-o'))); ?>
 		</div>
 	</div>
 </section>

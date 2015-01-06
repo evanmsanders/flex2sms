@@ -30,7 +30,7 @@
                     echo 'Disabled';
                 } 
                 if($contact['Contact']['time_prefs_enabled']==1) { 
-                    echo ' <i class="icon-time" title="Time management is enabled"></i>'; 
+                    echo ' <i class="fa fa-time" title="Time management is enabled"></i>'; 
                 }
                 ?></td>
             <td>

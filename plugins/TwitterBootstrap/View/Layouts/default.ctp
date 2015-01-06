@@ -27,10 +27,10 @@
 	<!-- Le fav and touch icons -->
 	<!--
 	<link rel="shortcut icon" href="/ico/favicon.ico">
-	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/ico/apple-touch-icon-144-precomposed.png">
-	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/ico/apple-touch-icon-114-precomposed.png">
-	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/ico/apple-touch-icon-72-precomposed.png">
-	<link rel="apple-touch-icon-precomposed" href="/ico/apple-touch-icon-57-precomposed.png">
+	<link rel="apple-touch-fa fa-precomposed" sizes="144x144" href="/ico/apple-touch-fa fa-144-precomposed.png">
+	<link rel="apple-touch-fa fa-precomposed" sizes="114x114" href="/ico/apple-touch-fa fa-114-precomposed.png">
+	<link rel="apple-touch-fa fa-precomposed" sizes="72x72" href="/ico/apple-touch-fa fa-72-precomposed.png">
+	<link rel="apple-touch-fa fa-precomposed" href="/ico/apple-touch-fa fa-57-precomposed.png">
 	-->
 	<?php
 	echo $this->fetch('meta');
@@ -44,9 +44,9 @@
 		<div class="navbar-inner">
 			<div class="container">
 				<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
+					<span class="fa fa-bar"></span>
+					<span class="fa fa-bar"></span>
+					<span class="fa fa-bar"></span>
 				</a>
 				<a class="brand" href="#"><?php echo __('CakePHP'); ?></a>
 				<div class="nav-collapse">

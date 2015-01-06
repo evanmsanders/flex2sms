@@ -13,13 +13,13 @@
     <div class="span6">
         <div class="row-fluid">
               <div class="span6">
-                  <h4><i class="icon-group icon-large"></i> Contacts</h4>
+                  <h4><i class="fa fa-group fa-lg"></i> Contacts</h4>
                   <p>View and manage contact's details.</p>
                 <?php echo $this->Html->link('View Contacts', array('controller' => 'contacts'), array('class' => 'btn btn-primary')); ?>
                 <?php echo $this->Html->link('New Contact', array('controller' => 'contacts', 'action'=>'add'), array('class' => 'btn btn-success')); ?>
               </div>
               <div class="span6">
-                  <h4><i class="icon-cog icon-large"></i> Services</h4>
+                  <h4><i class="fa fa-cog fa-lg"></i> Services</h4>
                   <p>View and manage services.</p>
                 <?php echo $this->Html->link('View Services', array('controller' => 'services'), array('class' => 'btn btn-primary')); ?>
                 <?php echo $this->Html->link('New Service', array('controller' => 'services', 'action'=>'add'), array('class' => 'btn btn-success')); ?>
@@ -30,13 +30,13 @@
         </div>
         <div class="row-fluid">
               <div class="span6">
-                  <h4><i class="icon-envelope icon-large"></i> <i class="icon-list icon-large"></i> Logs</h4>
+                  <h4><i class="fa fa-envelope-o fa-lg"></i> <i class="fa fa-list fa-lg"></i> Logs</h4>
                   <p>View SMS and Scanner logs.</p>
                   <p><?php echo $this->Html->link('View SMS log', array('controller' => 'services'), array('class' => 'btn btn-primary')); ?>
                   <?php echo $this->Html->link('View Scanner', array('controller' => 'scanners'), array('class' => 'btn btn-primary')); ?></p>
               </div>
               <div class="span6">
-                  <h4><i class="icon-user icon-large"></i> Admin Users</h4>
+                  <h4><i class="fa fa-user fa-lg"></i> Admin Users</h4>
                   <p>View and manage administrators.</p>
                 <?php echo $this->Html->link('View Users', array('controller' => 'users'), array('class' => 'btn btn-primary')); ?>
                 <?php echo $this->Html->link('New User', array('controller' => 'users', 'action'=>'add'), array('class' => 'btn btn-success')); ?>

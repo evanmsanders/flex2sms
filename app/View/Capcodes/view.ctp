@@ -25,9 +25,9 @@
                     <td><?php echo $this->Html->link($service['name'], array('controller' => 'services', 'action' => 'view', $service['id'])); ?></td>
                     <td>
                         <?php if($service['type'] == 'email'): ?>
-                            <i class="icon-envelope"></i>
+                            <i class="fa fa-envelope-o"></i>
                         <?php else: ?>
-                            <i class="icon-phone"></i>
+                            <i class="fa fa-phone"></i>
                         <?php endif; ?>
                         <?php echo $service['type']; ?>
                     </td>

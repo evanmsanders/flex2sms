@@ -61,10 +61,10 @@
             <tr<?php if($service['active']!=1){echo(' class="warning"');} ?>>
             <td><?php switch ($service['type']) {
     case 'sms':
-        echo '<i class="icon-phone"></i> ';
+        echo '<i class="fa fa-phone"></i> ';
         break;
     case 'email':
-        echo '<i class="icon-envelope"></i> ';
+        echo '<i class="fa fa-envelope-o"></i> ';
         break;
             }
     echo $service['type']; ?></td>

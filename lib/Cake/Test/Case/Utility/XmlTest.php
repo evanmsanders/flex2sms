@@ -777,7 +777,7 @@ XML;
 	public function testSoap() {
 		$xmlRequest = Xml::build(CAKE . 'Test' . DS . 'Fixture' . DS . 'soap_request.xml');
 		$expected = array(
-			'Envelope' => array(
+			'envelope-o' => array(
 				'@soap:encodingStyle' => 'http://www.w3.org/2001/12/soap-encoding',
 				'soap:Body' => array(
 					'm:GetStockPrice' => array(
@@ -790,7 +790,7 @@ XML;
 
 		$xmlResponse = Xml::build(CAKE . 'Test' . DS . 'Fixture' . DS . 'soap_response.xml');
 		$expected = array(
-			'Envelope' => array(
+			'envelope-o' => array(
 				'@soap:encodingStyle' => 'http://www.w3.org/2001/12/soap-encoding',
 				'soap:Body' => array(
 					'm:GetStockPriceResponse' => array(
@@ -802,8 +802,8 @@ XML;
 		$this->assertEquals($expected, Xml::toArray($xmlResponse));
 
 		$xml = array(
-			'soap:Envelope' => array(
-				'xmlns:soap' => 'http://www.w3.org/2001/12/soap-envelope',
+			'soap:envelope-o' => array(
+				'xmlns:soap' => 'http://www.w3.org/2001/12/soap-envelope-o',
 				'@soap:encodingStyle' => 'http://www.w3.org/2001/12/soap-encoding',
 				'soap:Body' => array(
 					'xmlns:m' => 'http://www.example.org/stock',
@@ -816,11 +816,11 @@ XML;
 		$xmlRequest = Xml::fromArray($xml, array('encoding' => null));
 		$xmlText = <<<XML
 <?xml version="1.0"?>
-<soap:Envelope xmlns:soap="http://www.w3.org/2001/12/soap-envelope" soap:encodingStyle="http://www.w3.org/2001/12/soap-encoding">
+<soap:envelope-o xmlns:soap="http://www.w3.org/2001/12/soap-envelope-o" soap:encodingStyle="http://www.w3.org/2001/12/soap-encoding">
 	<soap:Body xmlns:m="http://www.example.org/stock">
 	<m:GetStockPrice><m:StockName>IBM</m:StockName></m:GetStockPrice>
 	</soap:Body>
-</soap:Envelope>
+</soap:envelope-o>
 XML;
 		$this->assertXmlStringEqualsXmlString($xmlText, $xmlRequest->asXML());
 	}

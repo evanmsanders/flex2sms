@@ -27,18 +27,18 @@
             <td><?php echo $service['Service']['comment']; ?></td>
             <td><?php  switch ($service['Service']['type']) {
                     case 'sms':
-                        echo '<i class="icon-phone"></i> ';
+                        echo '<i class="fa fa-phone"></i> ';
                         break;
                     case 'email':
-                        echo '<i class="icon-envelope"></i> ';
+                        echo '<i class="fa fa-envelope-o"></i> ';
                         break;
                     case 'clickatell':
-                        echo '<i class="icon-play-circle"></i> ';
+                        echo '<i class="fa fa-dot-circle-o"></i> ';
                         break;
                 } 
                 echo $service['Service']['type']; ?></td>
             <td><?php echo $this->Html->link($service['Capcode']['code'].' / '.$service['Capcode']['alias'], array('controller' => 'capcodes', 'action' => 'view', $service['Capcode']['id'])); ?></td>
-            <td<?php if($service['Service']['active']!=1){echo(' class="text-error"');} ?>><?php if($service['Service']['active']==1) { echo 'Active'; } else { echo '<em class="icon-warning-sign"></em> Disabled';} ?></td>
+            <td<?php if($service['Service']['active']!=1){echo(' class="text-error"');} ?>><?php if($service['Service']['active']==1) { echo 'Active'; } else { echo '<em class="fa fa-warning-sign"></em> Disabled';} ?></td>
             <td><?php echo count($service['Contact']).' / '.count($service['Message']); ?></td>
         </tr>
     </tbody>

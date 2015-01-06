@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
-<soap:Envelope
-xmlns:soap="http://www.w3.org/2001/12/soap-envelope"
+<soap:envelope-o
+xmlns:soap="http://www.w3.org/2001/12/soap-envelope-o"
 soap:encodingStyle="http://www.w3.org/2001/12/soap-encoding">
 
 <soap:Body xmlns:m="http://www.example.org/stock">
@@ -9,4 +9,4 @@ soap:encodingStyle="http://www.w3.org/2001/12/soap-encoding">
   </m:GetStockPriceResponse>
 </soap:Body>
 
-</soap:Envelope>
+</soap:envelope-o>
