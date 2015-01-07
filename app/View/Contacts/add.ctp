@@ -15,7 +15,7 @@
 
     echo $this->Form->input('number',array(
         'label' =>  'Number:',
-        'placeholder' => "Phone number")); 
+        'placeholder' => "+614########")); 
 
     echo $this->Form->input('email',array(
         'label' =>  'Email:',
