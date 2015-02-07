@@ -1,72 +1,78 @@
--- phpMyAdmin SQL Dump
--- version 4.2.1
--- http://www.phpmyadmin.net
+-- MySQL dump 10.13  Distrib 5.5.40, for debian-linux-gnu (x86_64)
 --
--- Host: localhost
--- Generation Time: Jan 07, 2015 at 10:51 AM
--- Server version: 5.5.40-0ubuntu0.14.04.1-log
--- PHP Version: 5.5.9-1ubuntu4.5
-
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET time_zone = "+00:00";
-
+-- Host: localhost    Database: flex2sms
+-- ------------------------------------------------------
+-- Server version	5.5.40-0ubuntu0.14.04.1-log
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8 */;
-
---
--- Database: `flex2sms`
---
-
--- --------------------------------------------------------
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
 -- Table structure for table `brigades`
 --
 
-CREATE TABLE IF NOT EXISTS `brigades` (
-`id` int(11) NOT NULL,
-  `name` varchar(255) CHARACTER SET utf8 NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=19 ;
-
--- --------------------------------------------------------
+DROP TABLE IF EXISTS `brigades`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `brigades` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) CHARACTER SET utf8 NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Table structure for table `capcodes`
 --
 
-CREATE TABLE IF NOT EXISTS `capcodes` (
-`id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `capcodes`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `capcodes` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `code` varchar(11) CHARACTER SET utf8 NOT NULL,
-  `alias` varchar(255) CHARACTER SET utf8 NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2054 ;
-
--- --------------------------------------------------------
+  `alias` varchar(255) CHARACTER SET utf8 NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2054 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Table structure for table `clickatell_log`
 --
 
-CREATE TABLE IF NOT EXISTS `clickatell_log` (
-`id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `clickatell_log`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `clickatell_log` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `number` varchar(100) DEFAULT NULL,
   `message` text,
   `contact_id` int(11) DEFAULT NULL,
   `service_id` int(11) DEFAULT NULL,
   `timestamp` varchar(100) NOT NULL DEFAULT 'NOW()' COMMENT 'Logging of messages sent through Clickatell',
-  `comments` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
-
--- --------------------------------------------------------
+  `comments` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id_UNIQUE` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Table structure for table `contacts`
 --
 
-CREATE TABLE IF NOT EXISTS `contacts` (
-`id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `contacts`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `contacts` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(100) CHARACTER SET utf8 DEFAULT NULL,
   `brigade_id` int(11) DEFAULT NULL,
   `number` varchar(45) CHARACTER SET utf8 DEFAULT NULL,
@@ -78,65 +84,81 @@ CREATE TABLE IF NOT EXISTS `contacts` (
   `default_not_before` time DEFAULT NULL,
   `default_not_after` time DEFAULT NULL,
   `approved_by` varchar(255) CHARACTER SET utf8 DEFAULT NULL COMMENT 'All contact information.',
-  `enabled` tinyint(1) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=59 ;
-
--- --------------------------------------------------------
+  `enabled` tinyint(1) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=60 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Table structure for table `contacts_services`
 --
 
-CREATE TABLE IF NOT EXISTS `contacts_services` (
-`id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `contacts_services`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `contacts_services` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `contact_id` int(11) NOT NULL,
-  `service_id` int(11) NOT NULL
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=774 ;
-
--- --------------------------------------------------------
+  `service_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `contact` (`contact_id`),
+  KEY `service` (`service_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=778 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Table structure for table `daemons`
 --
 
-CREATE TABLE IF NOT EXISTS `daemons` (
+DROP TABLE IF EXISTS `daemons`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `daemons` (
   `Start` text NOT NULL,
   `Info` text NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Table structure for table `email_log`
 --
 
-CREATE TABLE IF NOT EXISTS `email_log` (
-`id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `email_log`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `email_log` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `email` varchar(100) DEFAULT NULL,
   `message` text,
   `contact_id` int(11) DEFAULT NULL,
   `service_id` int(11) DEFAULT NULL,
   `timestamp` varchar(100) NOT NULL DEFAULT 'NOW()' COMMENT 'Logging of sent email messages',
-  `comments` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
+  `comments` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id_UNIQUE` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Table structure for table `gammu`
 --
 
-CREATE TABLE IF NOT EXISTS `gammu` (
+DROP TABLE IF EXISTS `gammu`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gammu` (
   `Version` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Table structure for table `inbox`
 --
 
-CREATE TABLE IF NOT EXISTS `inbox` (
+DROP TABLE IF EXISTS `inbox`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `inbox` (
   `UpdatedInDB` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `ReceivingDateTime` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `Text` text NOT NULL,
@@ -146,80 +168,103 @@ CREATE TABLE IF NOT EXISTS `inbox` (
   `SMSCNumber` varchar(20) NOT NULL DEFAULT '',
   `Class` int(11) NOT NULL DEFAULT '-1',
   `TextDecoded` text NOT NULL,
-`ID` int(10) unsigned NOT NULL,
+  `ID` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `RecipientID` text NOT NULL,
-  `Processed` enum('false','true') NOT NULL DEFAULT 'false'
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-
---
--- Triggers `inbox`
---
-DELIMITER //
-CREATE TRIGGER `inbox_timestamp` BEFORE INSERT ON `inbox`
- FOR EACH ROW BEGIN
+  `Processed` enum('false','true') NOT NULL DEFAULT 'false',
+  PRIMARY KEY (`ID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = '' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50017 DEFINER=`flex2sms`@`%`*/ /*!50003 TRIGGER `inbox_timestamp` BEFORE INSERT ON `inbox` FOR EACH ROW BEGIN
     IF NEW.ReceivingDateTime = '0000-00-00 00:00:00' THEN
         SET NEW.ReceivingDateTime = CURRENT_TIMESTAMP();
     END IF;
-END
-//
+END */;;
 DELIMITER ;
-
--- --------------------------------------------------------
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 
 --
 -- Table structure for table `keywords`
 --
 
-CREATE TABLE IF NOT EXISTS `keywords` (
-`id` int(11) NOT NULL,
-  `word` varchar(100) NOT NULL COMMENT 'Key words'
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=12 ;
-
--- --------------------------------------------------------
+DROP TABLE IF EXISTS `keywords`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `keywords` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `word` varchar(100) NOT NULL COMMENT 'Key words',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Table structure for table `keywords_services`
 --
 
-CREATE TABLE IF NOT EXISTS `keywords_services` (
-`id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `keywords_services`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `keywords_services` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `keyword_id` int(11) NOT NULL,
-  `service_id` int(11) NOT NULL
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=93 ;
-
--- --------------------------------------------------------
+  `service_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=99 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Table structure for table `log`
 --
 
-CREATE TABLE IF NOT EXISTS `log` (
-`id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `log`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `log` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `capcode` varchar(45) DEFAULT NULL,
   `message` text,
-  `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='Log of all pager messages.' AUTO_INCREMENT=3162303 ;
-
--- --------------------------------------------------------
+  `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  KEY `capcode` (`capcode`(10)),
+  KEY `timestamp` (`timestamp`)
+) ENGINE=MyISAM AUTO_INCREMENT=3277418 DEFAULT CHARSET=utf8 COMMENT='Log of all pager messages.';
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Table structure for table `modems`
 --
 
-CREATE TABLE IF NOT EXISTS `modems` (
-`id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `modems`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `modems` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) CHARACTER SET utf8 NOT NULL,
-  `device` int(11) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
-
--- --------------------------------------------------------
+  `device` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Table structure for table `multipartinbox`
 --
 
-CREATE TABLE IF NOT EXISTS `multipartinbox` (
-`id` int(10) unsigned NOT NULL,
+DROP TABLE IF EXISTS `multipartinbox`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `multipartinbox` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `number` varchar(20) CHARACTER SET utf8 NOT NULL DEFAULT '',
   `smsdate` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `insertdate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -228,17 +273,20 @@ CREATE TABLE IF NOT EXISTS `multipartinbox` (
   `processed` tinyint(4) NOT NULL DEFAULT '0',
   `refnum` int(8) DEFAULT NULL,
   `maxnum` int(8) DEFAULT NULL,
-  `curnum` int(8) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
+  `curnum` int(8) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Table structure for table `outbox`
 --
 
-CREATE TABLE IF NOT EXISTS `outbox` (
-`id` int(10) unsigned NOT NULL,
+DROP TABLE IF EXISTS `outbox`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `outbox` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `number` varchar(20) CHARACTER SET utf8 NOT NULL DEFAULT '',
   `processed_date` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `insertdate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -250,56 +298,71 @@ CREATE TABLE IF NOT EXISTS `outbox` (
   `not_before` time NOT NULL DEFAULT '00:00:00',
   `not_after` time NOT NULL DEFAULT '23:59:59',
   `service_id` int(10) DEFAULT NULL,
-  `contact_id` int(10) DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=37694 ;
-
--- --------------------------------------------------------
+  `contact_id` int(10) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `recipient` (`number`),
+  KEY `contact` (`contact_id`),
+  KEY `service` (`service_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=39230 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Table structure for table `outbox_multipart`
 --
 
-CREATE TABLE IF NOT EXISTS `outbox_multipart` (
+DROP TABLE IF EXISTS `outbox_multipart`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `outbox_multipart` (
   `Text` text,
   `Coding` enum('Default_No_Compression','Unicode_No_Compression','8bit','Default_Compression','Unicode_Compression') NOT NULL DEFAULT 'Default_No_Compression',
   `UDH` text,
   `Class` int(11) DEFAULT '-1',
   `TextDecoded` text,
   `ID` int(10) unsigned NOT NULL DEFAULT '0',
-  `SequencePosition` int(11) NOT NULL DEFAULT '1'
+  `SequencePosition` int(11) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`ID`,`SequencePosition`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Table structure for table `pbk`
 --
 
-CREATE TABLE IF NOT EXISTS `pbk` (
-`ID` int(11) NOT NULL,
+DROP TABLE IF EXISTS `pbk`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `pbk` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
   `GroupID` int(11) NOT NULL DEFAULT '-1',
   `Name` text NOT NULL,
-  `Number` text NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
+  `Number` text NOT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Table structure for table `pbk_groups`
 --
 
-CREATE TABLE IF NOT EXISTS `pbk_groups` (
+DROP TABLE IF EXISTS `pbk_groups`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `pbk_groups` (
   `Name` text NOT NULL,
-`ID` int(11) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`ID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Table structure for table `phones`
 --
 
-CREATE TABLE IF NOT EXISTS `phones` (
+DROP TABLE IF EXISTS `phones`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `phones` (
   `ID` text NOT NULL,
   `UpdatedInDB` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `InsertIntoDB` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
@@ -311,16 +374,19 @@ CREATE TABLE IF NOT EXISTS `phones` (
   `Battery` int(11) NOT NULL DEFAULT '-1',
   `Signal` int(11) NOT NULL DEFAULT '-1',
   `Sent` int(11) NOT NULL DEFAULT '0',
-  `Received` int(11) NOT NULL DEFAULT '0'
+  `Received` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`IMEI`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Table structure for table `sentitems`
 --
 
-CREATE TABLE IF NOT EXISTS `sentitems` (
+DROP TABLE IF EXISTS `sentitems`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `sentitems` (
   `UpdatedInDB` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `InsertIntoDB` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `SendingDateTime` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
@@ -339,280 +405,78 @@ CREATE TABLE IF NOT EXISTS `sentitems` (
   `StatusError` int(11) NOT NULL DEFAULT '-1',
   `TPMR` int(11) NOT NULL DEFAULT '-1',
   `RelativeValidity` int(11) NOT NULL DEFAULT '-1',
-  `CreatorID` text NOT NULL
+  `CreatorID` text NOT NULL,
+  PRIMARY KEY (`ID`,`SequencePosition`),
+  KEY `sentitems_date` (`DeliveryDateTime`),
+  KEY `sentitems_tpmr` (`TPMR`),
+  KEY `sentitems_dest` (`DestinationNumber`),
+  KEY `sentitems_sender` (`SenderID`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Table structure for table `services`
 --
 
-CREATE TABLE IF NOT EXISTS `services` (
-`id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `services`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `services` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) CHARACTER SET utf8 NOT NULL,
   `capcode_id` int(11) NOT NULL,
   `comment` text CHARACTER SET utf8 NOT NULL,
   `active` tinyint(1) DEFAULT '1',
   `type` varchar(45) CHARACTER SET utf8 DEFAULT NULL,
-  `filterType` varchar(45) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'Disabled'
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=71 ;
-
--- --------------------------------------------------------
+  `filterType` varchar(45) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'Disabled',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=71 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Table structure for table `status`
 --
 
-CREATE TABLE IF NOT EXISTS `status` (
-`id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `status`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `status` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `status` varchar(100) DEFAULT NULL,
   `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'Monitoring table for SMS system status',
   `scanner` varchar(45) DEFAULT NULL,
   `smsdaemon` varchar(45) DEFAULT NULL,
   `accuracy` varchar(100) DEFAULT NULL,
-  `notes` text
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=18120 ;
-
--- --------------------------------------------------------
+  `notes` text,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=30944 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Table structure for table `users`
 --
 
-CREATE TABLE IF NOT EXISTS `users` (
-`id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `users`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(255) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
   `created` datetime DEFAULT NULL,
-  `modified` datetime DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
+  `modified` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `brigades`
---
-ALTER TABLE `brigades`
- ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `capcodes`
---
-ALTER TABLE `capcodes`
- ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `clickatell_log`
---
-ALTER TABLE `clickatell_log`
- ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `id_UNIQUE` (`id`);
-
---
--- Indexes for table `contacts`
---
-ALTER TABLE `contacts`
- ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `contacts_services`
---
-ALTER TABLE `contacts_services`
- ADD PRIMARY KEY (`id`), ADD KEY `contact` (`contact_id`), ADD KEY `service` (`service_id`);
-
---
--- Indexes for table `email_log`
---
-ALTER TABLE `email_log`
- ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `id_UNIQUE` (`id`);
-
---
--- Indexes for table `inbox`
---
-ALTER TABLE `inbox`
- ADD PRIMARY KEY (`ID`);
-
---
--- Indexes for table `keywords`
---
-ALTER TABLE `keywords`
- ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `keywords_services`
---
-ALTER TABLE `keywords_services`
- ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `log`
---
-ALTER TABLE `log`
- ADD PRIMARY KEY (`id`), ADD KEY `capcode` (`capcode`(10)), ADD KEY `timestamp` (`timestamp`);
-
---
--- Indexes for table `modems`
---
-ALTER TABLE `modems`
- ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `multipartinbox`
---
-ALTER TABLE `multipartinbox`
- ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `outbox`
---
-ALTER TABLE `outbox`
- ADD PRIMARY KEY (`id`), ADD KEY `recipient` (`number`), ADD KEY `contact` (`contact_id`), ADD KEY `service` (`service_id`);
-
---
--- Indexes for table `outbox_multipart`
---
-ALTER TABLE `outbox_multipart`
- ADD PRIMARY KEY (`ID`,`SequencePosition`);
-
---
--- Indexes for table `pbk`
---
-ALTER TABLE `pbk`
- ADD PRIMARY KEY (`ID`);
-
---
--- Indexes for table `pbk_groups`
---
-ALTER TABLE `pbk_groups`
- ADD PRIMARY KEY (`ID`);
-
---
--- Indexes for table `phones`
---
-ALTER TABLE `phones`
- ADD PRIMARY KEY (`IMEI`);
-
---
--- Indexes for table `sentitems`
---
-ALTER TABLE `sentitems`
- ADD PRIMARY KEY (`ID`,`SequencePosition`), ADD KEY `sentitems_date` (`DeliveryDateTime`), ADD KEY `sentitems_tpmr` (`TPMR`), ADD KEY `sentitems_dest` (`DestinationNumber`), ADD KEY `sentitems_sender` (`SenderID`);
-
---
--- Indexes for table `services`
---
-ALTER TABLE `services`
- ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `status`
---
-ALTER TABLE `status`
- ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `users`
---
-ALTER TABLE `users`
- ADD PRIMARY KEY (`id`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `brigades`
---
-ALTER TABLE `brigades`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=19;
---
--- AUTO_INCREMENT for table `capcodes`
---
-ALTER TABLE `capcodes`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2054;
---
--- AUTO_INCREMENT for table `clickatell_log`
---
-ALTER TABLE `clickatell_log`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
---
--- AUTO_INCREMENT for table `contacts`
---
-ALTER TABLE `contacts`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=59;
---
--- AUTO_INCREMENT for table `contacts_services`
---
-ALTER TABLE `contacts_services`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=774;
---
--- AUTO_INCREMENT for table `email_log`
---
-ALTER TABLE `email_log`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `inbox`
---
-ALTER TABLE `inbox`
-MODIFY `ID` int(10) unsigned NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `keywords`
---
-ALTER TABLE `keywords`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=12;
---
--- AUTO_INCREMENT for table `keywords_services`
---
-ALTER TABLE `keywords_services`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=93;
---
--- AUTO_INCREMENT for table `log`
---
-ALTER TABLE `log`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3162303;
---
--- AUTO_INCREMENT for table `modems`
---
-ALTER TABLE `modems`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT for table `multipartinbox`
---
-ALTER TABLE `multipartinbox`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `outbox`
---
-ALTER TABLE `outbox`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=37694;
---
--- AUTO_INCREMENT for table `pbk`
---
-ALTER TABLE `pbk`
-MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `pbk_groups`
---
-ALTER TABLE `pbk_groups`
-MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `services`
---
-ALTER TABLE `services`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=71;
---
--- AUTO_INCREMENT for table `status`
---
-ALTER TABLE `status`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=18120;
---
--- AUTO_INCREMENT for table `users`
---
-ALTER TABLE `users`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2015-02-07 11:22:27
