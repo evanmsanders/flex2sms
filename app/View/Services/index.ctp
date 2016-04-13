@@ -8,7 +8,7 @@
             <th>Service Name</th>
             <th>Capcode/Alias</th>
             <th>Status</th>
-            <th>Users/Hits</th>
+            <th>Users</th>
             <th>Actions</th>
         </tr>
     </thead>
@@ -37,7 +37,7 @@
             <td><?php 
             echo count($service['Contact']);
             if($service['Service']['type']=="sms") {
-                echo ' / '.count($service['Message']); 
+              //  echo ' / '.count($service['Message']); 
             } ?></td>
             <td>
                 <div class="btn-group">
