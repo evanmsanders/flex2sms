@@ -17,10 +17,7 @@
         </style>
         <?php echo $this->Html->css('bootstrap-responsive'); ?>
         <?php echo $this->Html->css('font-awesome.min'); ?>
-        <!--[if lt IE 9]>
-        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-        <![endif]-->
-        <script src="http://code.jquery.com/jquery-latest.js"></script>
+        <script src="https://code.jquery.com/jquery-1.12.3.min.js" integrity="sha256-aaODHAgvwQW1bFOGXMeX+pC4PZIPsvn2h1sArYOhgXQ=" crossorigin="anonymous"></script>
         <?php echo $this->Html->script('bootstrap.min.js'); ?>
         <?php echo $this->Html->script('bootstrap-typeahead.js'); ?>
     </head>
