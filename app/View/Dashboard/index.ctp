@@ -64,9 +64,9 @@ if($statuses[0]['Status']['smsdaemon'] == 'Running'){
     $status_smsdaemon = 'warning';
 }
 
-if($statuses[0]['Status']['accuracy'] == 10){
+if($statuses[0]['Status']['accuracy'] == 20){
     $status_accuracy = 'success';
-} elseif ($statuses[0]['Status']['accuracy'] ==9 ){
+} elseif ($statuses[0]['Status']['accuracy'] ==19 ){
     $status_accuracy = 'warning';
 } else {
     $status_accuracy = 'danger';
@@ -85,7 +85,7 @@ if($statuses[0]['Status']['accuracy'] == 10){
                     <dt>SMS Daemon Status:</dt>
                     <dd><span class="text-<?php echo $status_smsdaemon ?>"><?php echo $statuses[0]['Status']['smsdaemon']; ?></span></dd>
                     <dt>Accuracy:</dt>
-                    <dd><span class="text-<?php echo $status_accuracy ?>">Received <?php echo $statuses[0]['Status']['accuracy']; ?> out of last 10 periodic test messages.</span></dd>
+                    <dd><span class="text-<?php echo $status_accuracy ?>">Received <?php echo $statuses[0]['Status']['accuracy']; ?> out of last 20 periodic test messages.</span></dd>
                     <dt>Notes:</dt>
                     <dd class="text-warning"><?php echo $statuses[0]['Status']['notes']; ?></dd>
                 </dl>
