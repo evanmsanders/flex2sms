@@ -20,6 +20,10 @@
     echo $this->Form->input('email',array(
         'label' =>  'Email:',
         'placeholder' => "Email address")); 
+    
+    echo $this->Form->input('pushover_key',array(
+        'label' =>  'Pushover User Key:',
+        'placeholder' => "u73jgh2csd9o80shq235dfu6yas4se")); 
 
     echo $this->Form->input('approved_by',array(
         'label' =>  'Approved by:',
@@ -29,26 +33,6 @@
         'label'=> 'Modem:',
         'type'=>'select',
         'options'=>$modems));
-
-    echo $this->Form->input('time_prefs_enabled', array(
-        'label' => 'Time Preferences Enabled:'
-    ));
-
-    echo $this->Form->input('default_not_before',array(
-        'label' =>  'Not before:',
-        'placeholder' => "Default not before",
-        'timeFormat' => '24',
-        'interval' => '15',
-        'class' => 'input-mini'
-    )); 
-
-    echo $this->Form->input('default_not_after',array(
-        'label' =>  'Not after:',
-        'placeholder' => "Default not after",
-        'timeFormat' => '24',
-        'interval' => '15',
-        'class' => 'input-mini'
-    ));
 
     echo $this->Form->input('enabled', array(
         'checked' => 1

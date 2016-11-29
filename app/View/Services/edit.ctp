@@ -7,6 +7,7 @@
     'options' => array(
         'sms' => 'SMS',
         'email' => 'Email',
+        'pushover' => 'Pushover',
         'clickatell' => 'Clickatell',
 	'sheets' => 'Google sheets'
     ))); ?>

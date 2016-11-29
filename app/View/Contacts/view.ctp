@@ -19,6 +19,9 @@
 
         <dt>Phone Number:</dt>
         <dd><?php echo($contact['Contact']['number']); ?></dd>
+        
+        <dt>Pushover User Key:</dt>
+        <dd><?php echo($contact['Contact']['pushover_key']); ?></dd>
 
         <dt>Email address:</dt>
         <dd><a href="mailto:<?php echo($contact['Contact']['email']); ?>"><?php echo($contact['Contact']['email']); ?></a></dd>
@@ -28,9 +31,6 @@
 
         <dt>Member of:</dt>
         <dd><?php echo $this->Html->link($contact['Brigade']['name'], array('action' => 'view', 'controller'=>'brigades',$contact['Contact']['brigade_id'])) ?> brigade</dd>
-
-        <dt>Default times:</dt>
-        <dd>Only message between </strong><?php echo($contact['Contact']['default_not_before']); ?> and <?php echo($contact['Contact']['default_not_after']); ?> (Time preferences <b><?php echo ($contact['Contact']['time_prefs_enabled'] ? 'enabled' : 'disabled'); ?>)</b></dd>
 
         <dt>Send messages from:</dt>
         <dd><?php echo($contact['Modem']['name']); ?></dd>
