@@ -39,7 +39,7 @@
                 echo $service['Service']['type']; ?></td>
             <td><?php echo $this->Html->link($service['Capcode']['code'].' / '.$service['Capcode']['alias'], array('controller' => 'capcodes', 'action' => 'view', $service['Capcode']['id'])); ?></td>
             <td<?php if($service['Service']['active']!=1){echo(' class="text-error"');} ?>><?php if($service['Service']['active']==1) { echo 'Active'; } else { echo '<em class="fa fa-warning-sign"></em> Disabled';} ?></td>
-            <td><?php echo count($service['Contact']).' / '.count($service['Message']); ?></td>
+            <td><?php echo count($service['Contact']).' / '.count($messages); ?></td>
         </tr>
     </tbody>
 </table>
@@ -117,7 +117,7 @@
         </tr>
     </thead>
     <tbody>
-    <?php foreach($service['Message'] as $message): ?>
+    <?php foreach($messages as $message): ?>
         <tr<?php if($message['error']!=0){
             echo(' class="error"');
             }elseif($message['processed']!=1){
@@ -146,6 +146,7 @@
 </button>
 <div id="printr" class="collapse">
 <?php echo Debugger::dump($service); ?>
+<?php echo Debugger::dump($messages); ?>
 </div>
 <script>
     $(function() { $("span.date").prettyDate(); });

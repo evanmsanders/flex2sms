@@ -20,6 +20,22 @@ class ServicesController extends AppController {
 	}
 
 	public function view($id = null) {
+	    $Message = ClassRegistry::init('Message');
+	    $this->set('messages', $Message->find('all', array(
+            'conditions' => array('Message.service_id' => $id),
+            'contain' => array(
+                'Message' => array(
+                    'order' => 'Message.id DESC',
+                    'limit' => 10,
+                    'fields' => array(
+                        'Message.id',
+                        'DISTINCT Message.text',
+                        'Message.processed',
+                        'Message.processed_date',
+                        'Message.error'
+                    )
+                )
+))));
             $this->Service->id = $id;
             if (!$this->Service->exists()) {
                 throw new NotFoundException(__('Invalid service'));
@@ -27,17 +43,6 @@ class ServicesController extends AppController {
             $this->set('service', $this->Service->find('first', array(
             'conditions' => array('Service.id' => $id),
             'contain' => array(
-                'Message' => array(
-                    'order' => 'Message.id DESC',
-                    'limit' => 20,
-                    'fields' => array(
-                        'Message.id',
-                        'Message.text',
-                        'Message.processed',
-                        'Message.processed_date',
-                        'Message.error'
-                    )
-                ),
                 'Keyword',
                 'Capcode',
                 'Contact' => array(

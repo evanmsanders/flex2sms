@@ -8,7 +8,8 @@
     'options' => array(
         'sms' => 'SMS',
         'email' => 'Email',
-        'clickatell' => 'Clickatell'
+        'clickatell' => 'Clickatell',
+	'sheets' => 'Google Sheets'
     ))); ?>
 <?php echo $this->Form->input('capcode_selector', array(
     'class' => 'capcodeTA',

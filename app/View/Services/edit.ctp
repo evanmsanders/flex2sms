@@ -7,7 +7,8 @@
     'options' => array(
         'sms' => 'SMS',
         'email' => 'Email',
-        'clickatell' => 'Clickatell'
+        'clickatell' => 'Clickatell',
+	'sheets' => 'Google sheets'
     ))); ?>
 <?php echo $this->Form->input('capcode_selector', 
             array('value' => $this->request['data']['Capcode']['alias'],
