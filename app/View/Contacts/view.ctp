@@ -21,7 +21,7 @@
         <dd><?php echo($contact['Contact']['number']); ?></dd>
         
         <dt>Pushover User Key:</dt>
-        <dd><?php echo($contact['Contact']['pushover_key']); ?></dd>
+        <dd>&nbsp;<?php echo($contact['Contact']['pushover_key']); ?></dd>
 
         <dt>Email address:</dt>
         <dd><a href="mailto:<?php echo($contact['Contact']['email']); ?>"><?php echo($contact['Contact']['email']); ?></a></dd>
