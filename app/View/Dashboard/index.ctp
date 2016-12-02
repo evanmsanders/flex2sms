@@ -60,6 +60,8 @@ if($statuses[0]['Status']['scanner'] == 'Current'){
 
 if($statuses[0]['Status']['smsdaemon'] == 'Running'){
     $status_smsdaemon = 'success';
+} elseif($statuses[0]['Status']['smsdaemon'] == 'Python Running'){
+    $status_smsdaemon = 'success';
 } else {
     $status_smsdaemon = 'warning';
 }
