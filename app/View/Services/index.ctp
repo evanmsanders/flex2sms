@@ -29,6 +29,9 @@
                     case 'clickatell':
                         echo '<i class="fa fa-dot-circle-o"></i> ';
                         break;
+                    case 'pushover':
+                        echo '<i class="fa fa-mobile"></i> ';
+                        break;
                 } 
             echo $service['Service']['type']; ?></td>
             <td><?php echo $this->Html->link($service['Service']['name'], array('action' => 'view', $service['Service']['id'])); ?></td>
