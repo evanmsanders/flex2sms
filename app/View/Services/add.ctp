@@ -29,6 +29,18 @@
     'class' => 'hide',
     'label' => false)); ?>
 <?php echo $this->Form->input('comment',array('type'=>'textarea')); ?>
+
+<?php echo $this->Form->input('priority',array('label' => 'Pushover priority (<a href="https://pushover.net/api#priority">?</a>)',
+    'type'=>'select',
+    'value'=>'0',
+    'options' => array(
+        '-2' => 'Lowest (-2)',
+        '-1' => 'Low (-1)',
+        '0' => 'Normal (0)',
+        '1' => 'High (1)',
+	'2' => 'Emergency (2)'
+    ))); ?>
+    
 <?php echo $this->Form->input('active',array('checked'=>true)); ?>
 </fieldset>
 <fieldset>
