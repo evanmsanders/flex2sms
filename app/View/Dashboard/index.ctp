@@ -11,37 +11,6 @@
       </div>
     </div>
     <div class="span6">
-        <div class="row-fluid">
-              <div class="span6">
-                  <h4><i class="fa fa-group fa-lg"></i> Contacts</h4>
-                  <p>View and manage contact's details.</p>
-                <?php echo $this->Html->link('View Contacts', array('controller' => 'contacts'), array('class' => 'btn btn-primary')); ?>
-                <?php echo $this->Html->link('New Contact', array('controller' => 'contacts', 'action'=>'add'), array('class' => 'btn btn-success')); ?>
-              </div>
-              <div class="span6">
-                  <h4><i class="fa fa-cog fa-lg"></i> Services</h4>
-                  <p>View and manage services.</p>
-                <?php echo $this->Html->link('View Services', array('controller' => 'services'), array('class' => 'btn btn-primary')); ?>
-                <?php echo $this->Html->link('New Service', array('controller' => 'services', 'action'=>'add'), array('class' => 'btn btn-success')); ?>
-              </div>
-        </div>
-        <div class="row-fluid">
-            <div class="span12"></div>
-        </div>
-        <div class="row-fluid">
-              <div class="span6">
-                  <h4><i class="fa fa-envelope-o fa-lg"></i> <i class="fa fa-list fa-lg"></i> Logs</h4>
-                  <p>View SMS and Scanner logs.</p>
-                  <p><?php echo $this->Html->link('View SMS log', array('controller' => 'services'), array('class' => 'btn btn-primary')); ?>
-                  <?php echo $this->Html->link('View Scanner', array('controller' => 'scanners'), array('class' => 'btn btn-primary')); ?></p>
-              </div>
-              <div class="span6">
-                  <h4><i class="fa fa-user fa-lg"></i> Admin Users</h4>
-                  <p>View and manage administrators.</p>
-                <?php echo $this->Html->link('View Users', array('controller' => 'users'), array('class' => 'btn btn-primary')); ?>
-                <?php echo $this->Html->link('New User', array('controller' => 'users', 'action'=>'add'), array('class' => 'btn btn-success')); ?>
-              </div>
-        </div>
 <?php
 /**
  * work out classes for status block
@@ -76,7 +45,7 @@ if($statuses[0]['Status']['accuracy'] == 20){
 
 ?>
         
-        <div class="row-fluid" style="background-color: #eee; padding:10px;">
+        <div class="row-fluid" style="background-color: #eee; padding:10px; border-radius: 5px;">
             <div class="span12">
                 <h4>Self check status :: <span class="text-<?php echo $status_all ?>"><?php echo $statuses[0]['Status']['status']; ?></span><?php echo $this->Html->link('View log', array('controller' => 'statuses'), array('class' => 'btn btn-mini pull-right')); ?></h4>
                 <dl class="dl-horizontal">
@@ -93,15 +62,47 @@ if($statuses[0]['Status']['accuracy'] == 20){
                 </dl>
             </div>
         </div>
+        
+        <div class="row-fluid">
+              <div class="span6">
+                  <h4><i class="fa fa-group fa-lg"></i> Contacts</h4>
+                  <p>View and manage contact's details.</p>
+                <?php echo $this->Html->link('View Contacts', array('controller' => 'contacts'), array('class' => 'btn btn-primary')); ?>
+                <?php echo $this->Html->link('New Contact', array('controller' => 'contacts', 'action'=>'add'), array('class' => 'btn btn-success')); ?>
+              </div>
+              <div class="span6">
+                  <h4><i class="fa fa-cog fa-lg"></i> Services</h4>
+                  <p>View and manage services.</p>
+                <?php echo $this->Html->link('View Services', array('controller' => 'services'), array('class' => 'btn btn-primary')); ?>
+                <?php echo $this->Html->link('New Service', array('controller' => 'services', 'action'=>'add'), array('class' => 'btn btn-success')); ?>
+              </div>
+        </div>
+        <div class="row-fluid">
+            <div class="span12"></div>
+        </div>
+        <div class="row-fluid">
+              <div class="span6">
+                  <h4><i class="fa fa-envelope-o fa-lg"></i> <i class="fa fa-list fa-lg"></i> Logs</h4>
+                  <p>View SMS and Scanner logs.</p>
+                  <p><?php echo $this->Html->link('View SMS log', array('controller' => 'services'), array('class' => 'btn btn-primary')); ?>
+                  <?php echo $this->Html->link('View Scanner', array('controller' => 'scanners'), array('class' => 'btn btn-primary')); ?></p>
+              </div>
+              <div class="span6">
+                  <h4><i class="fa fa-user fa-lg"></i> Admin Users</h4>
+                  <p>View and manage administrators.</p>
+                <?php echo $this->Html->link('View Users', array('controller' => 'users'), array('class' => 'btn btn-primary')); ?>
+                <?php echo $this->Html->link('New User', array('controller' => 'users', 'action'=>'add'), array('class' => 'btn btn-success')); ?>
+              </div>
+        </div>
     </div>
 </div>
 <div class="row-fluid">
     <div class="span6">
-        <h4>Recent sent messages <?php echo $this->Html->link('View all', array('controller' => 'messages'), array('class' => 'btn btn-mini pull-right')); ?></h4>
+        <h4>Recent sent SMS messages <?php echo $this->Html->link('View all', array('controller' => 'messages'), array('class' => 'btn btn-mini pull-right')); ?></h4>
         <table class="table table-striped table-bordered table-condensed">
             <thead>
                 <tr>
-                    <th>Recipient</th>
+                    <th>Recipient/Sent</th>
                     <th>Message</th>
                 </tr>
             </thead>
@@ -114,14 +115,15 @@ if($statuses[0]['Status']['accuracy'] == 20){
             }elseif($message['Message']['processed']!=1){ 
                 echo(' class="warning"');
                 } ?>>
-                    <td><?php echo $this->Html->link($message['Contact']['name'], array('controller' => 'contacts', 'action' => 'view', $message['Contact']['id'])) ?></td>
+                    <td><?php echo $this->Html->link($message['Contact']['name'], array('controller' => 'contacts', 'action' => 'view', $message['Contact']['id'])) ?> <br />
+                    <span class="date" title="<?php echo(date('c',strtotime($message['Message']['processed_date']))); ?>"><?php echo($message['Message']['processed_date']); ?></span></td>
                     <td><?php echo $message['Message']['text']; ?></td>
                 </tr> 
                 <?php endforeach; 
                 } else {
                     ?>
                 <tr>
-                    <td>No messages in outbox</td>
+                    <td>No messages in SMS outbox</td>
                 </tr>
                 <?php
                 }
