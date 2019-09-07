@@ -116,7 +116,7 @@ if($statuses[0]['Status']['accuracy'] == 20){
                 echo(' class="warning"');
                 } ?>>
                     <td><?php echo $this->Html->link($message['Contact']['name'], array('controller' => 'contacts', 'action' => 'view', $message['Contact']['id'])) ?> <br />
-                    <span class="date" title="<?php echo(date('c',strtotime($message['Message']['processed_date']))); ?>"><?php echo($message['Message']['processed_date']); ?></span></td>
+                    <span class="date" title="<?php echo(date('c',strtotime($message['Message']['insertdate']))); ?>"><?php echo($message['Message']['insertdate']); ?></span></td>
                     <td><?php echo $message['Message']['text']; ?></td>
                 </tr> 
                 <?php endforeach; 
